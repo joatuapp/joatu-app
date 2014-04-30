@@ -33,6 +33,7 @@ working_directory File.expand_path(ENV["UNICORN_APP_PATH"]) if ENV.key? "UNICORN
 # listen on both a Unix domain socket and a TCP port,
 # we use a shorter backlog for quicker failover when busy
 listen File.expand_path("../../tmp/sockets/unicorn.sock", __FILE__), :backlog => 64
+listen 8080, :tcp_nopush => true
 
 # feel free to point this anywhere accessible on the filesystem
 # pid "~/workspace/concert-hunt/tmp/pids/unicorn.pid"

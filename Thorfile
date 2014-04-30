@@ -2,10 +2,14 @@
 # vi: set ft=ruby :
 require 'thor'
 require 'childprocess'
+require 'fileutils'
 
 class Joatu < Thor
-  desc "setup", "Sets up the initial state of the database."
+  desc "setup", "Sets up the app for development."
   def setup
+    ensure_config_file "database.yml"
+    ensure_config_file "secrets.yml"
+
     Dir.mkdir vendor_path unless Dir.exist? vendor_path
     if Dir.entries("#{vendor_path}/").join == "..."
       `pg_ctl init -D #{vendor_path}`
@@ -18,6 +22,12 @@ class Joatu < Thor
   end
 
   protected
+
+  def ensure_config_file(filename)
+    unless File.exist? File.join(config_path, filename)
+      FileUtils.cp File.join(config_path, "#{filename}.example"), File.join(config_path, filename)
+    end
+  end
 
   def postgres_running?
     `ps aux | grep "postgres -D #{vendor_path}"`.split(/\r\n/).size > 1
@@ -40,6 +50,10 @@ class Joatu < Thor
 
   def vendor_path
     File.expand_path("./vendor/postgresql")
+  end
+
+  def config_path
+    File.expand_path("../config", __FILE__)
   end
 end
 
