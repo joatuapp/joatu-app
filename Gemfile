@@ -22,9 +22,8 @@ gem 'annotate'
 # "deleted_at" timestamp rather than actually deleting anything. Allows us to recover deleted data later.
 gem 'paranoia', '~> 2.0'
 
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+# Build JSON APIs with ease. 
 gem 'roar-rails'
-gem 'jbuilder'
 
 gem 'bcrypt-ruby', '~> 3.1.2'
 
@@ -44,6 +43,7 @@ gem 'rack-cors', require: 'rack/cors'
 
 gem 'unicorn'
 
+# Haml for html templates.
 gem 'haml'
 
 group :admin, :development, :test do
@@ -93,10 +93,8 @@ group :development do
   gem 'capistrano', '~> 3.2.0'
   gem 'capistrano-rails', '~> 1.1'
   gem 'capistrano-bundler', '~> 1.1.2'
-  # Commenting out right now so that
-  # it doesn't bug us about knife configs.
-  # We're not at the chef / cap stage
-  # yet, so we don't care.
+  # Commenting out right now so that it doesn't bug us about knife configs.
+  # We're not at the chef / cap stage yet, so we don't care.
   # gem 'capistrano-chef'
 end
 

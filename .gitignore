@@ -13,3 +13,10 @@
 
 # Ignore the app's postgres database
 vendor/postgresql
+
+# Ignore files that contain app secrets:
+config/database.yml
+config/secrets.yml
+
+# Ignore .env file:
+.env

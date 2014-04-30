@@ -28,7 +28,7 @@ timeout ENV["UNICORN_TIMEOUT"] && ENV["UNICORN_TIMEOUT"].to_i || 30
 
 # Help ensure your application will always spawn in the symlinked
 # "current" directory that Capistrano sets up.
-working_directory File.expand_path(ENV["CONCERT_HUNT_DIR"]) if ENV.key? "CONCERT_HUNT_DIR" # available in 0.94.0+
+working_directory File.expand_path(ENV["UNICORN_APP_PATH"]) if ENV.key? "UNICORN_APP_PATH" # available in 0.94.0+
 
 # listen on both a Unix domain socket and a TCP port,
 # we use a shorter backlog for quicker failover when busy
