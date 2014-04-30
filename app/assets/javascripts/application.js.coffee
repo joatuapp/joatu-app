@@ -4,17 +4,19 @@
 
 # Bootstrap the application
 require [
-  'hello_world_application'
+  'jquery'
+  'bootstrap'
+  'joatu_application'
   'routes'
   # Require base controllers manually so they are
   # precompiled by the Rails Asset Pipeline
-  'controllers/hello_world_controller'
-], (HelloWorldApplication, routes) ->
+  'controllers/joatu_controller'
+], ($, _bootstrap, JoatuApplication, routes) ->
   'use strict'
 
-  new HelloWorldApplication
+  new JoatuApplication
     # Set your application name here so the document title is set to
     # “Controller title – Site title” (see Chaplin.Layout#adjustTitle)
-    title: 'Chaplin Example Application'
+    title: 'JoatU'
     # The routes for this app
     routes: routes

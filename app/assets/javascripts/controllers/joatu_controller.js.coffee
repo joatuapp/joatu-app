@@ -5,9 +5,9 @@ define [
 ], (Controller, HelloWorld, HelloWorldView) ->
   'use strict'
 
-  class HelloWorldController extends Controller
+  class JoatuController extends Controller
 
-    title: 'Hello World'
+    title: 'JoatU'
 
     historyURL: (params) ->
       ''

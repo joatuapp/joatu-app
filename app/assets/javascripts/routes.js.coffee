@@ -5,4 +5,4 @@ define ->
   # `match` is the match method of the Chaplin.Router.
   (match) ->
 
-    match '', 'hello_world#show'
+    match '', 'joatu#show'

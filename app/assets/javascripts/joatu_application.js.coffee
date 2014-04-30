@@ -3,4 +3,4 @@ define ['chaplin'], (Chaplin) ->
 
   # The application object
   # Choose a meaningful name for your application
-  class HelloWorldApplication extends Chaplin.Application
+  class JoatuApplication extends Chaplin.Application
