@@ -1,7 +1,7 @@
-%div{id: "navbar-top", class: "navbar navbar-default navbar-fixed-top", role: "navigation"}
+%div(id="navbar-top" class="navbar navbar-default" role="navigation")
 
-%div{id: "main-container"}
+%div(id="main-container" class="container")
 
-%footer{id: "footer"}
+%footer(id="footer")
 
-%div{id:"modal-container"}
+%div(id="modal-container")

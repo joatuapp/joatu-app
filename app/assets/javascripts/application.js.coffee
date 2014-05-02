@@ -10,7 +10,8 @@ require [
   'routes'
   # Require base controllers manually so they are
   # precompiled by the Rails Asset Pipeline
-  'controllers/joatu_controller'
+  # ALEX NOTE: I'm not actually sure this is necessary
+  # so skipping for now.
 ], ($, _bootstrap, JoatuApplication, routes) ->
   'use strict'
 

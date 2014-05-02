@@ -1,10 +1,4 @@
 %div(class="navbar-header")
-  %button(type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse")
-    %span(class="sr-only")
-      Toggle Navigation
-    %span(class="icon-bar")
-    %span(class="icon-bar")
-    %span(class="icon-bar")
   %a(href="/" class="navbar-brand")
     %span(class="sr-only")
       JoatU
@@ -12,4 +6,4 @@
       %span(class="sr-only")
         About
 %div(id="navbar-center" class="navbar-center")
-%div(id="navbar-right" class="collapse navbar-collapse navbar-right")
+%div(id="navbar-right" class="navbar-right")

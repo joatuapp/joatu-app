@@ -5,7 +5,7 @@ define ->
   # `match` is the match method of the Chaplin.Router.
   (match) ->
 
-    match '', 'joatu#show', name: 'root'
+    match '', 'home#show', name: 'root'
 
     match 'login', 'session#showLoginView', name: 'login'
     match 'logout', 'session#logout', name: 'logout'
