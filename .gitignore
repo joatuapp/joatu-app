@@ -20,3 +20,7 @@ config/secrets.yml
 
 # Ignore .env file:
 .env
+
+# Ignore the public/assets folder, we'll compile assets
+# on the server:
+public/assets

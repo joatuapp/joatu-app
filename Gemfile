@@ -70,6 +70,8 @@ end
 
 
 group :development do
+  gem 'coffee-rails-source-maps'
+
   gem 'foreman'
 
   # Thor (uses childpress) and provides us with

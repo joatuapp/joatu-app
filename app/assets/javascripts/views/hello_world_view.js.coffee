@@ -9,7 +9,7 @@ define [
 
     className: 'hello-world'
 
-    # Automatically append to the DOM on render
-    container: '#page-container'
+    region: "main"
+
     # Automatically render after initialize
     autoRender: true

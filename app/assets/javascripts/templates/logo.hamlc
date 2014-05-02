@@ -1,0 +1,4 @@
+%a(src='assets/logo.png')
+  Foo
+%a(src='assets/info.png')
+  Bar

@@ -2,10 +2,15 @@ define [
   'controllers/base/controller'
   'models/hello_world'
   'views/hello_world_view'
-], (Controller, HelloWorld, HelloWorldView) ->
+  'controllers/session_controller'
+], (Controller, HelloWorld, HelloWorldView, SessionController) ->
   'use strict'
 
   class JoatuController extends Controller
+
+    beforeAction: ->
+      super
+      @reuse 'session', SessionController
 
     title: 'JoatU'
 
