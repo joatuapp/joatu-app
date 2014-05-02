@@ -5,6 +5,11 @@
     %span(class="icon-bar")
     %span(class="icon-bar")
     %span(class="icon-bar")
-  %a(href="/" id="navbar-left" class="navbar-brand")
-%div(id="navbar-center")
-%div(id="navbar-right" class="right collapse navbar-collapse")
+  %a(href="/" class="navbar-brand")
+    %span(class="sr-only")
+      JoatU
+    %a(href="/about" class="navbar-left about-icon")
+      %span(class="sr-only")
+        About
+%div(id="navbar-center" class="navbar-center")
+%div(id="navbar-right" class="collapse navbar-collapse navbar-right")

@@ -7,5 +7,6 @@ define ->
 
     match '', 'joatu#show', name: 'root'
 
-    match 'login', 'session#showLoginView'
-    match 'logout', 'session#logout'
+    match 'login', 'session#showLoginView', name: 'login'
+    match 'logout', 'session#logout', name: 'logout'
+    match 'sign-up', 'session#logout', name: 'register'

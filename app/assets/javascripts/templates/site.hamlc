@@ -1,4 +1,4 @@
-%div{id: "navbar-top", class: "navbar navbar navbar-fixed-top", role: "navigation"}
+%div{id: "navbar-top", class: "navbar navbar-default navbar-fixed-top", role: "navigation"}
 
 %div{id: "main-container"}
 

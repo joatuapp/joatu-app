@@ -18,5 +18,5 @@ define [
       ''
 
     show: (params) ->
-      @model = new HelloWorld()
-      @view = new HelloWorldView model: @model
+      # @model = new HelloWorld()
+      # @view = new HelloWorldView model: @model

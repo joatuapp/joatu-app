@@ -1,10 +1,8 @@
 define [
   'views/base/view'
-  'views/logo_view'
-  'views/menu_search_view'
   'views/logged_in_menubar_view'
   'views/logged_out_menubar_view'
-], (View, LogoView, MenuSearchView, LoggedInMenubarView, LoggedOutMenubarView, template) ->
+], (View, LoggedInMenubarView, LoggedOutMenubarView, template) ->
   'use strict'
 
   class NavbarView extends View
@@ -14,7 +12,6 @@ define [
 
     className: 'container'
     regions:
-      navbar_left: '#navbar-left'
       navbar_center: '#navbar-center'
       navbar_right: '#navbar-right'
     templateName: 'navbar'
