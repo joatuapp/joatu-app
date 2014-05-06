@@ -1,0 +1,15 @@
+%div(class="modal modal-login" role="dialog" aria-hidden="true")
+  %div(class="modal-dialog")
+    %div(class="modal-content")
+      %div(class="modal-body")
+        %form(class="form-inline")
+          %div(class="form-group")
+            %label(for="email" class="sr-only")
+              Email
+            %input(type="text", name="email" placeholder="E-mail")
+          %div(class="form-group")
+            %label(for="password" class="sr-only")
+              Password
+            %input(type="password", name="password" placeholder="Password")
+          %div(class="form-group")
+            %input(type="submit" value="")

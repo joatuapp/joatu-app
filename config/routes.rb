@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
-  devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'index#index'
+
+  constraints(subdomain: ENV["API_SUBDOMAIN"] || 'api') do
+    devise_for :users, controllers: { sessions: 'sessions' }
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -54,4 +57,8 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  
+  # This is at the very end of the file
+  # as it needs to match anything not explicitly routed, and redirect it (if GET and format = HTML) to the index page.
+  get "*page" => "index#index", constraints: { format: :html}
 end

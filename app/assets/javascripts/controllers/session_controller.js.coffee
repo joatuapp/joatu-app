@@ -2,8 +2,9 @@ define [
   'chaplin'
   'controllers/base/controller'
   'models/user'
+  'views/login_view'
   'lib/utils'
-], (Chaplin, Controller, User, utils) ->
+], (Chaplin, Controller, User, LoginView, utils) ->
   'use strict'
 
   class SessionController extends Controller
@@ -36,12 +37,12 @@ define [
     login: (loginData) ->
       loginRequest = $.ajax
         type: 'post'
-      url: Chaplin.mediator.base_url + '/users/sign_in'
-      data: JSON.stringify(loginData)
-      headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json",
-      }
+        url: Chaplin.mediator.api_base_url + '/users/sign_in'
+        data: JSON.stringify(loginData)
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+        }
 
       loginRequest.done (data) =>
         @disposeLoginView()
@@ -59,7 +60,8 @@ define [
 
     showLoginView: ->
       return if @loginView
-      @loginView = new LoginFormView region: 'modal'
+      @loginView = new LoginView
+      @loginView.delegate('hidden.bs.modal', '.modal', @disposeLoginView)
 
     createSession: (sessionData) ->
       @updateUser sessionData
@@ -83,12 +85,12 @@ define [
       else
         Chaplin.mediator.user = new User userData
 
-    disposeLoginView: ->
+    disposeLoginView: =>
       return unless @loginView
-      @loginView.hideAndDispose()
+      @loginView.dispose()
       @loginView = null
 
-    disposeUser: ->
+    disposeUser: =>
       return unless Chaplin.mediator.user
       Chaplin.mediator.user.dispose()
       Chaplin.mediator.user = null

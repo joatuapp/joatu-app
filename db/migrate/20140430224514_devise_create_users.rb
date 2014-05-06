@@ -1,9 +1,15 @@
 class DeviseCreateUsers < ActiveRecord::Migration
   def change
     create_table(:users) do |t|
+      t.string :given_name
+      t.string :surname
+
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
+
+      ## Current Location
+      t.point :current_location, geographic: true, srid: 4326
 
       ## Recoverable
       t.string   :reset_password_token
@@ -11,6 +17,9 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
       ## Rememberable
       t.datetime :remember_created_at
+      
+      ## Token authenticatable
+      t.string :authentication_token
 
       ## Trackable
       t.integer  :sign_in_count, default: 0, null: false

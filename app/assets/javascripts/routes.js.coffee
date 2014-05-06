@@ -6,7 +6,6 @@ define ->
   (match) ->
 
     match '', 'home#show', name: 'root'
+    match 'register', 'register#step1', name: 'register'
+    match 'register/step1', 'register#step1'
 
-    match 'login', 'session#showLoginView', name: 'login'
-    match 'logout', 'session#logout', name: 'logout'
-    match 'sign-up', 'session#logout', name: 'register'

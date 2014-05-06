@@ -15,7 +15,7 @@ define [
 
     login: ->
       event.preventDefault()
-      Chaplin.utils.redirectTo name: 'login'
+      @publishEvent '!showLogin'
 
     register: ->
       event.preventDefault()

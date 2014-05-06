@@ -10,9 +10,9 @@ define ['chaplin'], (Chaplin) ->
       # Create a user property
       Chaplin.mediator.user = null
 
-      # Create a base url property
-      # Chaplin.mediator.base_url = configs().base_url
-      Chaplin.mediator.base_url = "http://local.joatu.com"
+      # Create an api_base_url property
+      # Chaplin.mediator.api_base_url = configs().api_base_url
+      Chaplin.mediator.api_base_url = "http://local.api.joatu.com"
 
       # Seal the mediator
       Chaplin.mediator.seal()
