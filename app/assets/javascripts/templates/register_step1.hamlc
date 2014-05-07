@@ -1,4 +1,7 @@
-%h1 Welcome to JOATU, friend!  ^_^
+%div(class="register-progress-bar")
+  %div(class="step step1")
+
+%h1(class="clearfix") Welcome to JOATU, friend!  ^_^
 %h3 We're glad you want to join the community. Please make yourself at home.
 
 %form(class="form-horizontal")
@@ -48,5 +51,5 @@
   %div(class="form-group")
     %p(class="col-md-6") All entered information will stay private unless you decide otherwise. We value privacy and transparency as well so you can be sure your information will never be sold to a third-party.
     %div(class="col-md-3 col-md-offset-3")
-      %button(name="cancel")Cancel
-      %input(type="submit" name="submit" value="Next Step")
+      %button(name="cancel" class="btn")Cancel
+      %input(type="submit" name="submit" value="Next Step" class="btn btn-primary")
