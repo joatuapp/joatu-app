@@ -3,8 +3,72 @@
   color: #ddd
   padding: 20px
 
+  .sex
+    margin-right: 30px
+
+  .male:after
+    content: ""
+    background-image: url("../assets/Sex_Male.png")
+    height: 32px
+    width: 32px
+    display: inline-block
+    margin-left: 10px
+    margin-top: -10px
+
+  .female:after
+    content: ""
+    background-image: url("../assets/Sex_Female.png")
+    height: 32px
+    width: 32px
+    display: inline-block
+    margin-left: 10px
+    margin-top: -10px
+
+  .other:after
+    content: ""
+    background-image: url("../assets/Sex_NoSay.png")
+    height: 32px
+    width: 32px
+    display: inline-block
+    margin-left: 10px
+    margin-top: -10px
+
+  .register-steps-bar
+    width: 100%   
+
+    .register-steps
+      width: 740px
+      margin-left: auto
+      margin-right: auto
+
+      .step
+        color: inherit
+        background-image: url("../assets/SignUp_StepArrow.png")
+        position: relative
+        width: 240px
+        height: 29px
+        float: left
+        padding-left: 10px
+        padding-top: 4px
+        margin-right: -13px
+
+      .step.active
+        background-image: url("../assets/SignUp_StepArrow_Highlight.png")
+
+      .step:hover
+        text-decoration: none
+        background-image: url("../assets/SignUp_StepArrow_Highlight.png")
+
+      .step1
+        z-index: 20
+
+      .step2
+        z-index: 10
+
+      .step2, .step3
+        padding-left: 20px
+
   .register-progress-bar
-    border: none
     background-color: transparent
     width: 100%
 
@@ -13,6 +77,7 @@
       height: 29px
       margin-left: auto
       margin-right: auto
+      position: relative
 
     .step1
       background-image: url("../assets/SignUp_Step1.png")
@@ -20,3 +85,19 @@
       background-image: url("../assets/SignUp_Step2.png")
     .step3
       background-image: url("../assets/SignUp_Step3.png")
+
+    a.step-link
+      height: 100%
+      position: absolute
+
+    a.step1-link
+      width: 231px
+      left: 0px
+
+    a.step2-link
+      width: 231px
+      left: 231px
+
+    a.step3-link
+      width: 231px
+      left: 462px

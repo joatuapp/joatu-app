@@ -1,7 +1,10 @@
-%div(class="register-progress-bar")
-  %div(class="step step1")
+%div(class="register-steps-bar clearfix")
+  %div(class="register-steps")
+    %a(href="/register/step1" class="step step1 active") 1
+    %a(href="/register/step2" class="step step2") 2
+    %a(href="/register/step3" class="step step3") 3
 
-%h1(class="clearfix") Welcome to JOATU, friend!  ^_^
+%h1 Welcome to JOATU, friend!  ^_^
 %h3 We're glad you want to join the community. Please make yourself at home.
 
 %form(class="form-horizontal")
@@ -32,8 +35,8 @@
     %div(class="col-md-6")
       %input(type="text" name="email_confirm" placeholder="Confirm your e-mail address" class="form-control")
 
-    %label(for="birthdate" class="col-md-2") Birth date
-    %div(class="col-md-4")
+    %label(for="birthdate" class="col-md-1") Birth date
+    %div(class="col-md-5")
       %input(type="date" name="birthdate" class="form-control")
 
   %div(class="form-group")
@@ -42,11 +45,11 @@
     %div(class="col-md-6")
       %input(type="password" name="email" placeholder="Choose a password" class="form-control")
 
-    %label(for="sex" class="col-md-2") Sex
-    %div(class="col-md-4")
-      %input(name="sex" class="radio-inline" type="radio" id="sex-radio-male" value="M")
-      %input(name="sex" class="radio-inline" type="radio" id="sex-radio-female" value="F")
-      %input(name="sex" class="radio-inline" type="radio" id="sex-radio-other" value="O")
+    %label(for="sex" class="col-md-1") Sex
+    %div(class="col-md-5")
+      %input(name="sex" class="radio-inline sex male" type="radio" value="M")
+      %input(name="sex" class="radio-inline sex female" type="radio" value="F")
+      %input(name="sex" class="radio-inline sex other" type="radio" value="O")
 
   %div(class="form-group")
     %p(class="col-md-6") All entered information will stay private unless you decide otherwise. We value privacy and transparency as well so you can be sure your information will never be sold to a third-party.

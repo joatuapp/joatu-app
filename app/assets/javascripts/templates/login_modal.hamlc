@@ -6,10 +6,10 @@
           %div(class="form-group")
             %label(for="email" class="sr-only")
               Email
-            %input(type="text", name="email" placeholder="E-mail")
+            %input(class="form-control" type="text", name="email" placeholder="E-mail")
           %div(class="form-group")
             %label(for="password" class="sr-only")
               Password
-            %input(type="password", name="password" placeholder="Password")
+            %input(class="form-control" type="password", name="password" placeholder="Password")
           %div(class="form-group")
-            %input(type="submit" value="")
+            %input(class="login-submit" type="submit" value="")
