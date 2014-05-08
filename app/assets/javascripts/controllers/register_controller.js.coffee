@@ -2,9 +2,9 @@ define [
   'chaplin'
   'controllers/base/controller'
   'models/user'
-  'views/register_step1_view'
+  'views/register_view'
   'controllers/session_controller'
-], (Chaplin, Controller, User, RegisterStep1View, SessionController) ->
+], (Chaplin, Controller, User, RegisterView, SessionController) ->
   'use strict'
 
   class RegisterController extends Controller
@@ -13,7 +13,7 @@ define [
       super
       @reuse 'session', SessionController
 
-    step1: ->
+    show: ->
       @user = new User
-      @view = new RegisterStep1View model: @user, region: 'main'
+      @view = new RegisterView model: @user, region: 'main'
       @view.render()

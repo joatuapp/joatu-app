@@ -51,22 +51,30 @@
       margin-right: auto
 
       .step
-        color: inherit
+        list-style: none
         background-image: url("../assets/SignUp_StepArrow.png")
         position: relative
         width: 240px
         height: 29px
         float: left
+        margin-right: -13px
+
+      .step a
+        color: inherit
+        width: 100%
+        height: 100%
         padding-left: 10px
         padding-top: 4px
-        margin-right: -13px
+        display: block
 
       .step.active
         background-image: url("../assets/SignUp_StepArrow_Highlight.png")
 
       .step:hover
-        text-decoration: none
         background-image: url("../assets/SignUp_StepArrow_Highlight.png")
+
+      .step:hover a
+        text-decoration: none
 
       .step1
         z-index: 20
@@ -74,39 +82,5 @@
       .step2
         z-index: 10
 
-      .step2, .step3
+      .step2 a, .step3 a
         padding-left: 20px
-
-  .register-progress-bar
-    background-color: transparent
-    width: 100%
-
-    .step
-      width: 693px
-      height: 29px
-      margin-left: auto
-      margin-right: auto
-      position: relative
-
-    .step1
-      background-image: url("../assets/SignUp_Step1.png")
-    .step2
-      background-image: url("../assets/SignUp_Step2.png")
-    .step3
-      background-image: url("../assets/SignUp_Step3.png")
-
-    a.step-link
-      height: 100%
-      position: absolute
-
-    a.step1-link
-      width: 231px
-      left: 0px
-
-    a.step2-link
-      width: 231px
-      left: 231px
-
-    a.step3-link
-      width: 231px
-      left: 462px

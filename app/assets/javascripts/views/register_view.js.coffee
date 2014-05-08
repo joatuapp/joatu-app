@@ -4,5 +4,5 @@ define [
   'use strict'
 
   class RegisterStep1View extends View
-    templateName: 'register_step1'
-    className: 'row register register-step1'
+    templateName: 'register'
+    className: 'row register'
