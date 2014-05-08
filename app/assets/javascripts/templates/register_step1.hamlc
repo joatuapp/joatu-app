@@ -47,12 +47,13 @@
 
     %label(for="sex" class="col-md-1") Sex
     %div(class="col-md-5")
-      %input(name="sex" class="radio-inline sex male" type="radio" value="M")
-      %input(name="sex" class="radio-inline sex female" type="radio" value="F")
-      %input(name="sex" class="radio-inline sex other" type="radio" value="O")
+      %div(class="sex-radios")
+        %input(name="sex" class="radio-inline sex male" type="radio" value="M")
+        %input(name="sex" class="radio-inline sex female" type="radio" value="F")
+        %input(name="sex" class="radio-inline sex other" type="radio" value="O")
 
   %div(class="form-group")
-    %p(class="col-md-6") All entered information will stay private unless you decide otherwise. We value privacy and transparency as well so you can be sure your information will never be sold to a third-party.
+    %small(class="col-md-6") All entered information will stay private unless you decide otherwise. We value privacy and transparency as well so you can be sure your information will never be sold to a third-party.
     %div(class="col-md-3 col-md-offset-3")
       %button(name="cancel" class="btn")Cancel
       %input(type="submit" name="submit" value="Next Step" class="btn btn-primary")
