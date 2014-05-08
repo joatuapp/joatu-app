@@ -16,10 +16,14 @@ ActiveRecord::Schema.define(version: 20140430224514) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "postgis"
+  enable_extension "uuid-ossp"
 
-  create_table "users", force: true do |t|
-    t.string   "given_name"
-    t.string   "surname"
+  create_table "users", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+    t.string   "username",               limit: 64,                                               default: "", null: false
+    t.string   "given_name",             limit: 128
+    t.string   "surname",                limit: 128
+    t.date     "birth_date"
+    t.string   "sex",                    limit: 32
     t.string   "email",                                                                           default: "", null: false
     t.string   "encrypted_password",                                                              default: "", null: false
     t.spatial  "current_location",       limit: {:srid=>4326, :type=>"point", :geographic=>true}
@@ -43,5 +47,6 @@ ActiveRecord::Schema.define(version: 20140430224514) do
   add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "users", ["username"], :name => "index_users_on_username", :unique => true
 
 end

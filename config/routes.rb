@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root 'index#index'
 
   constraints(subdomain: ENV["API_SUBDOMAIN"] || 'api') do
-    devise_for :users, controllers: { sessions: 'sessions' }
+    devise_for :users, controllers: { sessions: 'sessions', registrations: 'registrations' }
   end
 
   # Example of regular route:

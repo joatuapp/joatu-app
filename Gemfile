@@ -15,7 +15,6 @@ gem 'rgeo'
 gem 'ar-postgis', require: 'activerecord-postgis-adapter'
 
 # Active record support gems.
-gem 'migration_comments'
 gem 'annotate'
 
 # Paranoia causes destroy calls to set a

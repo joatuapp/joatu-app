@@ -3,13 +3,13 @@
 
 %div(class="form-group")
 
-  %label(for="screen_name" class="sr-only") Screen Name or Nickname
+  %label(for="username" class="sr-only") Screen Name or Nickname
   %div(class="col-md-6")
-    %input(type="text" name="screen_name" placeholder="Screen name or Nick name" class="form-control")
+    %input(type="text" name="username" placeholder="Screen name or Nick name" class="form-control")
 
   %label(for="given_name" class="sr-only") First name (Optional)
   %div(class="col-md-6")
-    %input(type="text" name="gien_name" placeholder="First name (Optional)" class="form-control")
+    %input(type="text" name="given_name" placeholder="First name (Optional)" class="form-control")
 
 %div(class="form-group")
 
@@ -35,14 +35,14 @@
 
   %label(for="password" class="sr-only") Choose a password
   %div(class="col-md-6")
-    %input(type="password" name="email" placeholder="Choose a password" class="form-control")
+    %input(type="password" name="password" placeholder="Choose a password" class="form-control")
 
   %label(for="sex" class="col-md-1") Sex
   %div(class="col-md-5")
     %div(class="sex-radios")
-      %input(name="sex" class="radio-inline sex male" type="radio" value="M")
-      %input(name="sex" class="radio-inline sex female" type="radio" value="F")
-      %input(name="sex" class="radio-inline sex other" type="radio" value="O")
+      %input(name="sex" class="radio-inline sex male" type="radio" value="male")
+      %input(name="sex" class="radio-inline sex female" type="radio" value="female")
+      %input(name="sex" class="radio-inline sex other" type="radio" value="other")
 
 %div(class="form-group")
   %small(class="col-md-6") All entered information will stay private unless you decide otherwise. We value privacy and transparency as well so you can be sure your information will never be sold to a third-party.

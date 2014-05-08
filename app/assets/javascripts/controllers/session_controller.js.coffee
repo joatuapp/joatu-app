@@ -15,6 +15,7 @@ define [
       @subscribeEvent '!showLogin', @showLoginView
       @subscribeEvent '!requireLogin', @requireLogin
       @subscribeEvent '!login', @login
+      @subscribeEvent '!register', @register
       @subscribeEvent '!logout', @logout
 
       # Determine current logged-in state
@@ -48,6 +49,21 @@ define [
         @disposeLoginView()
         @createSession data
         @updateLogin()
+
+    register: (registerData) ->
+      registerRequest = $.ajax
+        type: 'post'
+        url: Chaplin.mediator.api_base_url + '/users'
+        data: JSON.stringify(registerData)
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+        }
+
+      registerRequest.done (data) =>
+        @createSession data
+        @updateLogin()
+        Chaplin.utils.redirectTo name: 'root'
 
     logout: =>
       @destroySession()

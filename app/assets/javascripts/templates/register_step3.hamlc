@@ -57,4 +57,4 @@
   %small(class="col-md-6") All entered information will stay private unless you decide otherwise. We value privacy and transparency as well so you can be sure your info will never be sold to a third-party.
   %div(class="col-md-3 col-md-offset-3")
     %button(data-toggle="tab" data-target="#step2" name="back" class="btn")Back
-    %input(name="submit" value="I'm done!" class="btn btn-primary")
+    %input(name="submit" type="submit" value="I'm done!" class="btn btn-primary")

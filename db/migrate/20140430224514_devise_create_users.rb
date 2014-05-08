@@ -1,8 +1,11 @@
 class DeviseCreateUsers < ActiveRecord::Migration
   def change
-    create_table(:users) do |t|
-      t.string :given_name
-      t.string :surname
+    create_table :users, id: :uuid do |t|
+      t.string :username, limit: 64, null: false, default: ""
+      t.string :given_name, limit: 128
+      t.string :surname, limit: 128
+      t.date :birth_date
+      t.string :sex, limit: 32
 
       ## Database authenticatable
       t.string :email,              null: false, default: ""
@@ -43,6 +46,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.timestamps
     end
 
+    add_index :users, :username,             unique: true
     add_index :users, :email,                unique: true
     add_index :users, :reset_password_token, unique: true
     add_index :users, :confirmation_token,   unique: true

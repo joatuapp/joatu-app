@@ -17,3 +17,4 @@ define [
       @user = new User
       @view = new RegisterView model: @user, region: 'main'
       @view.render()
+
