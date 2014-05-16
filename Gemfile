@@ -12,7 +12,7 @@ gem 'pg'
 gem 'rgeo'
 
 # Activerecord adapter that supports postgis, the postgres geo plugin.
-gem 'ar-postgis', require: 'activerecord-postgis-adapter'
+gem 'activerecord-postgis-adapter'
 
 # Active record support gems.
 gem 'annotate'

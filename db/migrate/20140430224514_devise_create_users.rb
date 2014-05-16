@@ -2,17 +2,10 @@ class DeviseCreateUsers < ActiveRecord::Migration
   def change
     create_table :users, id: :uuid do |t|
       t.string :username, limit: 64, null: false, default: ""
-      t.string :given_name, limit: 128
-      t.string :surname, limit: 128
-      t.date :birth_date
-      t.string :sex, limit: 32
 
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
-
-      ## Current Location
-      t.point :current_location, geographic: true, srid: 4326
 
       ## Recoverable
       t.string   :reset_password_token

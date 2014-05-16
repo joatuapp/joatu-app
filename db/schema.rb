@@ -11,27 +11,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140430224514) do
+ActiveRecord::Schema.define(version: 20140516174815) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "postgis"
   enable_extension "uuid-ossp"
 
+  create_table "user_details", force: true do |t|
+    t.uuid    "user_id"
+    t.string  "given_name",       limit: 128
+    t.string  "surname",          limit: 128
+    t.date    "birth_date"
+    t.string  "sex",              limit: 32
+    t.spatial "current_location", limit: {:srid=>4326, :type=>"point", :geographic=>true}
+  end
+
+  add_index "user_details", ["current_location"], :name => "index_user_details_on_current_location", :spatial => true
+  add_index "user_details", ["user_id"], :name => "index_user_details_on_user_id"
+
   create_table "users", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
-    t.string   "username",               limit: 64,                                               default: "", null: false
-    t.string   "given_name",             limit: 128
-    t.string   "surname",                limit: 128
-    t.date     "birth_date"
-    t.string   "sex",                    limit: 32
-    t.string   "email",                                                                           default: "", null: false
-    t.string   "encrypted_password",                                                              default: "", null: false
-    t.spatial  "current_location",       limit: {:srid=>4326, :type=>"point", :geographic=>true}
+    t.string   "username",               limit: 64, default: "", null: false
+    t.string   "email",                             default: "", null: false
+    t.string   "encrypted_password",                default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.string   "authentication_token"
-    t.integer  "sign_in_count",                                                                   default: 0,  null: false
+    t.integer  "sign_in_count",                     default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
