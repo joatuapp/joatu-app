@@ -18,4 +18,4 @@
   %small(class="col-md-6") This information will be used to locate your offer on a map so that the community knows where it is offered. We value privacy and transparency as well so you can be sure your info will never be sold to a third-party.
   %div(class="col-md-3 col-md-offset-3")
     %button(data-toggle="tab" data-target="#step1" name="back" class="btn")Back
-    %button(data-toggle="tab" data-target="#step3" name="next" class="btn btn-primary") Final Step
+    %input(name="submit" type="submit" value="I'm done!" class="btn btn-primary")

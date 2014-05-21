@@ -19,6 +19,7 @@ define [
     initialize: (options) ->
       super
       @delegate('submit', 'form', @register)
+      @delegate('click', 'button[data-toggle=tab]', @selectTab)
       @subscribeEvent 'registerErrors', @displayRegisterErrors
 
     render: ->
@@ -27,8 +28,6 @@ define [
       @subview 'step1', step1
       step2 = new RegisterStep2View autoRender: true, region: 'step2'
       @subview 'step2', step2
-      step3 = new RegisterStep3View autoRender: true, region: 'step3'
-      @subview 'step3', step3
 
     register: (event) ->
       event.preventDefault()
@@ -57,3 +56,8 @@ define [
       formgroup.find('.form-control-feedback').remove()
       formgroup.find('.help-block').remove()
       $(event.currentTarget).off('focus', @removeError)
+
+    selectTab: (event) ->
+      newStep = $(event.currentTarget).attr('data-target').substring(1)
+      $('.register-steps .step').removeClass('active')
+      $('.register-steps .'+ newStep).addClass('active')

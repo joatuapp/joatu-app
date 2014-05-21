@@ -4,11 +4,8 @@
       %a(data-target="#step1" data-toggle="tab") 1
     %li(class="step step2")
       %a(data-target="#step2" data-toggle="tab") 2
-    %li(class="step step3")
-      %a(data-target="#step3" data-toggle="tab") 3
 
 %form(class="form-horizontal")
   %div(class="tab-content")
     %div(class="tab-pane active" id="step1")
     %div(class="tab-pane" id="step2")
-    %div(class="tab-pane" id="step3")
