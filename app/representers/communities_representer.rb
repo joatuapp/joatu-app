@@ -1,0 +1,2 @@
+class CommunitiesRepresenter < ApplicationCollectionRepresenter
+end

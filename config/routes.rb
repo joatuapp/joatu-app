@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   constraints(subdomain: ENV["API_SUBDOMAIN"] || 'api') do
     devise_for :users, controllers: { sessions: 'sessions', registrations: 'registrations' }
+
+    resources :communities
   end
 
   # Example of regular route:
