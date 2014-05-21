@@ -2,7 +2,9 @@ class RegistrationsController < ApiController
 
   def create
     user = consume! User.new
+    user.detail = consume! UserDetail.new
     user.password = user.password_confirmation = params[:password]
+    user.email_confirmation = params[:email_confirmation]
 
     if user.save
       if user.active_for_authentication?

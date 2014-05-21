@@ -1,48 +1,50 @@
 %h1 Welcome to JOATU, friend!  ^_^
 %h3 We're glad you want to join the community. Please make yourself at home.
 
-%div(class="form-group")
-
-  %label(for="username" class="sr-only") Screen Name or Nickname
+%div(class="row")
   %div(class="col-md-6")
-    %input(type="text" name="username" placeholder="Screen name or Nick name" class="form-control")
+    %div(class="form-group has-feedback")
+      %label(for="username" class="sr-only") Screen Name or Nickname
+      %div(class="col-md-12")
+        %input(type="text" name="username" placeholder="Screen name or Nick name" class="form-control")
 
-  %label(for="given_name" class="sr-only") First name (Optional)
+    %div(class="form-group has-feedback")
+      %label(for="email" class="sr-only") Your e-mail address
+      %div(class="col-md-12")
+        %input(type="text" name="email" placeholder="Your e-mail address" class="form-control")
+        
+    %div(class="form-group has-feedback")
+      %label(for="email_confirmation" class="sr-only") Confirm your e-mail address
+      %div(class="col-md-12")
+        %input(type="text" name="email_confirmation" placeholder="Confirm your e-mail address" class="form-control")
+
+    %div(class="form-group has-feedback")
+      %label(for="password" class="sr-only") Choose a password
+      %div(class="col-md-12")
+        %input(type="password" name="password" placeholder="Choose a password" class="form-control")
   %div(class="col-md-6")
-    %input(type="text" name="given_name" placeholder="First name (Optional)" class="form-control")
+    %div(class="form-group has-feedback")
+      %label(for="given_name" class="sr-only") First name (Optional)
+      %div(class="col-md-12")
+        %input(type="text" name="given_name" placeholder="First name (Optional)" class="form-control")
 
-%div(class="form-group")
+    %div(class="form-group has-feedback")
+      %label(for="surname" class="sr-only") Last name (Optional)
+      %div(class="col-md-12")
+        %input(type="text" name="surname" placeholder="Last name (Optional)" class="form-control")
 
-  %label(for="email" class="sr-only") Your e-mail address
-  %div(class="col-md-6")
-    %input(type="text" name="email" placeholder="Your e-mail address" class="form-control")
-    
-  %label(for="surname" class="sr-only") Last name (Optional)
-  %div(class="col-md-6")
-    %input(type="text" name="surname" placeholder="Last name (Optional)" class="form-control")
+    %div(class="form-group has-feedback")
+      %label(for="birth_date" class="col-md-2") Birth date
+      %div(class="col-md-10")
+        %input(type="date" name="birth_date" class="form-control")
 
-%div(class="form-group")
-
-  %label(for="email_confirm" class="sr-only") Confirm your e-mail address
-  %div(class="col-md-6")
-    %input(type="text" name="email_confirm" placeholder="Confirm your e-mail address" class="form-control")
-
-  %label(for="birthdate" class="col-md-1") Birth date
-  %div(class="col-md-5")
-    %input(type="date" name="birthdate" class="form-control")
-
-%div(class="form-group")
-
-  %label(for="password" class="sr-only") Choose a password
-  %div(class="col-md-6")
-    %input(type="password" name="password" placeholder="Choose a password" class="form-control")
-
-  %label(for="sex" class="col-md-1") Sex
-  %div(class="col-md-5")
-    %div(class="sex-radios")
-      %input(name="sex" class="radio-inline sex male" type="radio" value="male")
-      %input(name="sex" class="radio-inline sex female" type="radio" value="female")
-      %input(name="sex" class="radio-inline sex other" type="radio" value="other")
+    %div(class="form-group has-feedback")
+      %label(for="sex" class="col-md-2") Sex
+      %div(class="col-md-10")
+        %div(class="sex-radios")
+          %input(name="sex" class="radio-inline sex male" type="radio" value="male")
+          %input(name="sex" class="radio-inline sex female" type="radio" value="female")
+          %input(name="sex" class="radio-inline sex other" type="radio" value="other")
 
 %div(class="form-group")
   %small(class="col-md-6") All entered information will stay private unless you decide otherwise. We value privacy and transparency as well so you can be sure your information will never be sold to a third-party.

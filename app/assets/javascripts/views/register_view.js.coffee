@@ -19,6 +19,7 @@ define [
     initialize: (options) ->
       super
       @delegate('submit', 'form', @register)
+      @subscribeEvent 'registerErrors', @displayRegisterErrors
 
     render: ->
       super
@@ -33,3 +34,26 @@ define [
       event.preventDefault()
       data = form2js(event.currentTarget, '.', true)
       @publishEvent '!register', data
+
+    displayRegisterErrors: (error_data) ->
+      for field, error of error_data
+        input = $('[name='+field+']')
+        formgroup = input.closest('.form-group')
+        icon = $('<span/>', {
+          class: 'glyphicon glyphicon-remove form-control-feedback'
+        })
+        error_message = $('<span/>', {
+          class: 'help-block',
+          text: error[0]
+        })
+        formgroup.addClass('has-error')
+        error_message.insertAfter(input)
+        icon.insertAfter(input)
+        input.on('focus', @removeError)
+
+    removeError: (event) ->
+      formgroup = $(event.currentTarget).closest('.form-group')
+      formgroup.removeClass('has-error')
+      formgroup.find('.form-control-feedback').remove()
+      formgroup.find('.help-block').remove()
+      $(event.currentTarget).off('focus', @removeError)

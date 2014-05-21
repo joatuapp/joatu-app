@@ -1,6 +1,6 @@
 class SessionsController < ApiController
   def create
-    user = User.find_for_database_authentication(email: params[:email])
+    user = User.find_for_database_authentication(login: params[:login])
    
     if user && user.valid_password?(params[:password])
       sign_in("user", user)
@@ -20,6 +20,6 @@ class SessionsController < ApiController
    
   def invalid_login_attempt
     warden.custom_failure!
-    render json: {errors: {login: ["Error with your email or password"]}}, status: :unauthorized
+    render json: {errors: {login: ["Error with your username / email or password"]}}, status: :unauthorized
   end
 end

@@ -1,7 +1,5 @@
 class UserRepresenter < ApplicationRepresenter
   property :id
-  property :given_name
-  property :surname
+  property :username
   property :email
-  property :current_location
 end

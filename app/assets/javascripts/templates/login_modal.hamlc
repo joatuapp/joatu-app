@@ -4,9 +4,9 @@
       %div(class="modal-body")
         %form(class="form-inline")
           %div(class="form-group")
-            %label(for="email" class="sr-only")
+            %label(for="login" class="sr-only")
               Email
-            %input(class="form-control" type="text", name="email" placeholder="E-mail")
+            %input(class="form-control" type="text", name="login" placeholder="Username or E-mail")
           %div(class="form-group")
             %label(for="password" class="sr-only")
               Password

@@ -65,6 +65,9 @@ define [
         @updateLogin()
         Chaplin.utils.redirectTo name: 'root'
 
+      registerRequest.fail (data) =>
+        @publishEvent 'registerErrors', data.responseJSON.errors
+
     logout: =>
       @destroySession()
       @updateLogin()
