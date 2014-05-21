@@ -1,0 +1,4 @@
+%div(class="form-group")
+  %div(class="col-md-8 col-md-offset-2")
+    %label(for="community_id" class="sr-only") Community
+    %select(name="community_id" class="form-control")

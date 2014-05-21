@@ -3,19 +3,21 @@
 
 %div(class="form-group current-location")
   %div(class="col-md-8 col-md-offset-2")
-    %label(for="current_location" class="sr-only") Current Location
     %div(class="input-group")
       %span(class="input-group-addon glyphicon glyphicon-search")
-      %input(type="text" name="current_location" class="form-control" placeholder="Write community name or Select it there ===>")
-      %div(class="input-group-btn")
-        %button(type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown")
-          %span(class="glyphicon glyphicon-chevron-down")
-        %ul(class="dropdown-menu pull-right")
-          %li
-            %a Vancouver
+      %input(type="text" id="autocomplete_location" class="form-control" placeholder="Please enter your address or postal code so we can find the closest communities to you.")
+
+%div(id="community_select_container")
+
+%input(type="hidden" name="current_location" id="user_location_point")
+%input(type="hidden" name="postal_code" id="user_postal_code")
+%input(type="hidden" name="neighbourhood" id="user_neighbourhood")
+%input(type="hidden" name="city" id="user_city")
+%input(type="hidden" name="province" id="user_province")
+%input(type="hidden" name="country" id="user_country")
 
 %div(class="form-group")
-  %small(class="col-md-6") This information will be used to locate your offer on a map so that the community knows where it is offered. We value privacy and transparency as well so you can be sure your info will never be sold to a third-party.
+  %small(class="col-md-6") This information will be used to locate nearby communities and offers only. We value privacy and transparency as well so you can be sure your info will never be sold to a third-party.
   %div(class="col-md-3 col-md-offset-3")
     %button(data-toggle="tab" data-target="#step1" name="back" class="btn")Back
     %input(name="submit" type="submit" value="I'm done!" class="btn btn-primary")

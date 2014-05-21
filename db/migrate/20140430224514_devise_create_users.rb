@@ -37,6 +37,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
 
 
       t.timestamps
+      t.timestamp :deleted_at
     end
 
     add_index :users, :username,             unique: true

@@ -60,5 +60,5 @@ Rails.application.routes.draw do
   
   # This is at the very end of the file
   # as it needs to match anything not explicitly routed, and redirect it (if GET and format = HTML) to the index page.
-  get "*page" => "index#index", constraints: { format: :html}
+  get "*page" => "index#index", constraints: lambda{|req| req.format == :html }
 end

@@ -22,7 +22,7 @@ define [
       @delegate('click', 'button[data-toggle=tab]', @selectTab)
       @subscribeEvent 'registerErrors', @displayRegisterErrors
 
-    render: ->
+    attach: ->
       super
       step1 = new RegisterStep1View autoRender: true, region: 'step1'
       @subview 'step1', step1
