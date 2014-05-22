@@ -1,10 +1,12 @@
 define [
   'views/base/collection_view'
-], (CollectionView, template) ->
+  'views/community_option'
+], (CollectionView, CommunityOption, template) ->
   'use strict'
 
   class CommunitySelectView extends CollectionView
     noWrap: true
     templateName: 'community_select'
-    itemView: 'community_option'
+    itemView: CommunityOption
     listSelector: '[name=community_id]'
+    fallbackSelector: '#no-communities'

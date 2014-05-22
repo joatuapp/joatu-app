@@ -14,22 +14,26 @@ define [
 
     attach: ->
       super
-      @communities = new Communities
-      communitySelect = new CommunitySelectView autoRender: true, region: 'communitySelect', collection: @communities
-      @subview 'communitySelect', communitySelect
       @setupAutocomplete()
 
     setupAutocomplete: ->
       input = $('#autocomplete_location').get(0)
-      options = {
-      }
-
+      options = {}
       @autoComplete = new google.maps.places.Autocomplete(input, options)
       google.maps.event.addListener(@autoComplete, 'place_changed', @placeSelected)
 
     placeSelected: =>
       @populateHiddenFieldsFromPlace()
-      @communities.fetch()
+      @displayCommunitySelect()
+
+    displayCommunitySelect: ->
+      unless @communitySelect
+        @communities = new Communities
+        @communitySelect = new CommunitySelectView region: 'communitySelect', collection: @communities
+        @subview 'communitySelect', @communitySelect
+
+      place = @autoComplete.getPlace()
+      @communities.fetch({data: {latitude: place.geometry.location.k, longitude: place.geometry.location.A}})
 
     populateHiddenFieldsFromPlace: ->
       place = @autoComplete.getPlace()
@@ -45,4 +49,5 @@ define [
         if $.inArray('country', component.types) >= 0
           $('#user_country').val(component.long_name)
 
-      $('#user_location_point').val('POINT (' + place.geometry.location.A + ' ' + place.geometry.location.k + ')')
+      $('#user_location_latitude').val(place.geometry.location.k)
+      $('#user_location_longitude').val(place.geometry.location.A)

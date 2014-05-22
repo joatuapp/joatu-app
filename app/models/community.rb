@@ -1,14 +1,18 @@
 class Community < ActiveRecord::Base
 
-  def self.near(wkt_point, distance_in_meters = 5000)
-    if wkt_point
+  def self.near(latitude = nil, longitude = nil, distance_in_meters = nil)
+    # Default distance if not given (or given with nil)
+    # is 5km.
+    distance_in_meters ||= 5000
+
+    if latitude && longitude
       where(%{
         ST_DWithin(
           location,
-          ST_GeographyFromText('SRID=4326;%s'),
+          ST_GeographyFromText('SRID=4326;POINT(%f %f)'),
           %d
         )
-      } % [wkt_point, distance_in_meters])
+      } % [longitude, latitude, distance_in_meters])
     else
       self
     end

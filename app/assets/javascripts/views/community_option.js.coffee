@@ -5,3 +5,4 @@ define [
 
   class CommunityOption extends View
     templateName: 'community_option'
+    noWrap: true
