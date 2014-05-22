@@ -54,4 +54,5 @@ define [
         if $.inArray('country', component.types) >= 0
           $('#user_country').val(component.long_name)
 
-      $('#user_current_location').val('POINT(' + place.geometry.location.A + ' ' + place.geometry.location.k + ')')
+      $('#user_latitude').val(place.geometry.location.k)
+      $('#user_longitude').val(place.geometry.location.A)

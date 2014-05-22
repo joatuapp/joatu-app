@@ -35,7 +35,9 @@ RailsAdmin.config do |config|
   config.model Community do
     edit do
       field :name
-      field :latitude, :map
+      field :location_latitude, :map do
+        longitude_field :location_longitude
+      end
     end
   end
 end

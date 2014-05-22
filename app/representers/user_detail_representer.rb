@@ -5,7 +5,8 @@ class UserDetailRepresenter < ApplicationRepresenter
   property :surname
   property :birth_date
   property :sex
-  property :current_location
+  property :current_location_latitude, as: :latitude
+  property :current_location_longitude, as: :longitude
   property :postal_code
   property :neighbourhood
   property :city

@@ -1,5 +1,8 @@
 class Community < ActiveRecord::Base
 
+  include HasLatLngAccessiblePoint
+  lat_lng_accessible_point_columns :location
+
   def self.near(latitude = nil, longitude = nil, distance_in_meters = nil)
     # Default distance if not given (or given with nil)
     # is 5km.
@@ -16,33 +19,5 @@ class Community < ActiveRecord::Base
     else
       self
     end
-  end
-
-  # These lat/lng accessors are for both
-  # convenience and also are used by the
-  # rails_admin gem to let us easily set locaitons
-  # in the admin interface.
-  def latitude
-    location ? location.y : nil
-  end
-
-  def longitude
-    location ? location.x : nil
-  end
-
-  def latitude=(lat)
-    @latitude = lat
-    update_location
-  end
-
-  def longitude=(lng)
-    @longitude = lng
-    update_location
-  end
-
-  protected
-
-  def update_location
-    self.location = "POINT(#{@longitude} #{@latitude})" if @latitude && @longitude
   end
 end
