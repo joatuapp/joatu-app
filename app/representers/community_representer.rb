@@ -1,5 +1,6 @@
 class CommunityRepresenter < ApplicationRepresenter
   property :id
   property :name
-  property :location
+  property :latitude
+  property :longitude
 end

@@ -4,7 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :confirmable, 
          :trackable, :validatable,
-         :token_authenticatable
+         :token_authenticatable,
+         :authentication_keys => [:login]
 
   attr_accessor :login # Holds data that can be used to login.
 

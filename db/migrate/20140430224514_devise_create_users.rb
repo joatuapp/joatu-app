@@ -17,6 +17,9 @@ class DeviseCreateUsers < ActiveRecord::Migration
       ## Token authenticatable
       t.string :authentication_token
 
+      ## Whether this user has admin privilages:
+      t.boolean :is_admin, default: false, null: false
+
       ## Trackable
       t.integer  :sign_in_count, default: 0, null: false
       t.datetime :current_sign_in_at
