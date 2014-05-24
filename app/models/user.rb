@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
 
   attr_accessor :login # Holds data that can be used to login.
 
+  before_save :ensure_authentication_token
+
   # Relations
   has_one :detail, class: UserDetail
 

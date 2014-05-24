@@ -1,7 +1,8 @@
 define [
   'views/base/view'
+  'models/user'
   'form2js'
-], (View, form2js, template) ->
+], (View, User, form2js, template) ->
   'use strict'
 
   class LoginView extends View
@@ -21,5 +22,13 @@ define [
 
     login: (event) ->
       event.preventDefault()
-      data = form2js(event.currentTarget, '.', true)
-      @publishEvent '!login', data
+      user = new User
+      user.set(form2js(event.currentTarget, '.', true))
+      user.sign_in(success: @loginSuccess, error: @loginError) 
+
+    loginSuccess: (model, response, options) =>
+      model.set(response)
+      @publishEvent '!createSession', model
+      $(@el).find('.modal').modal 'hide'
+
+    loginError: (model, response, options) =>

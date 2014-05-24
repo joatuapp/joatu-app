@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     devise_for :users, controllers: { sessions: 'sessions', registrations: 'registrations' }
 
     resources :communities
+    get 'users/me' => 'users#me'
   end
 
   # This is at the very end of the file

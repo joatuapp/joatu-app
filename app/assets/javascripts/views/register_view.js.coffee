@@ -3,8 +3,9 @@ define [
   'views/register_step1_view'
   'views/register_step2_view'
   'views/register_step3_view'
+  'models/user'
   'form2js'
-], (View, RegisterStep1View, RegisterStep2View, RegisterStep3View, form2js, template) ->
+], (View, RegisterStep1View, RegisterStep2View, RegisterStep3View, User, form2js, template) ->
   'use strict'
 
   class RegisterView extends View
@@ -31,8 +32,12 @@ define [
 
     register: (event) ->
       event.preventDefault()
-      data = form2js(event.currentTarget, '.', true)
-      @publishEvent '!register', data
+      user = new User
+      if user.save(form2js(event.currentTarget, '.', true))
+        @publishEvent '!createSession', user
+        Chaplin.utils.redirectTo name: 'root'
+      else
+        @displayRegisterErrors(user.errors)
 
     displayRegisterErrors: (error_data) ->
       for field, error of error_data

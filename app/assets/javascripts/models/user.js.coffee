@@ -1,7 +1,15 @@
 define [
+  'chaplin'
   'models/base/model'
-], (Model) ->
+], (Chaplin, Model) ->
   'use strict'
 
   class User extends Model
-    # This model is intentionally left blank
+
+    urlRoot: ->
+      Chaplin.mediator.api_base_url + "/users"
+    
+    sign_in: (options) ->
+      options ||= {}
+      options.url = @urlRoot() + '/sign_in'
+      @save(@attributes, options)
