@@ -1,21 +1,7 @@
 %h1 JOATU works best for local communities.
 %h3 Geographical information makes it happen.
 
-%div(class="form-group current-location")
-  %div(class="col-md-8 col-md-offset-2")
-    %div(class="input-group")
-      %span(class="input-group-addon glyphicon glyphicon-search")
-      %input(type="text" id="autocomplete_location" class="form-control" placeholder="Please enter your address or postal code so we can find the closest communities to you.")
-
 %div(id="community_select_container")
-
-%input(type="hidden" name="latitude" id="user_latitude")
-%input(type="hidden" name="longitude" id="user_longitude")
-%input(type="hidden" name="postal_code" id="user_postal_code")
-%input(type="hidden" name="neighbourhood" id="user_neighbourhood")
-%input(type="hidden" name="city" id="user_city")
-%input(type="hidden" name="province" id="user_province")
-%input(type="hidden" name="country" id="user_country")
 
 %div(class="form-group")
   %small(class="col-md-6") This information will be used to locate nearby communities and offers only. We value privacy and transparency as well so you can be sure your info will never be sold to a third-party.
