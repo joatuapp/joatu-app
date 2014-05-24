@@ -5,9 +5,12 @@ paths:
   backbone: 'backbone-1.1.0'
   chaplin: 'chaplin-1.0.0'
   form2js: 'form2js'
+  i18n: 'i18n'
 shim:
   'backbone':
     deps: ['underscore', 'jquery']
     exports: 'Backbone'
   'bootstrap':
     deps: ['jquery']
+  'i18n':
+    exports: 'I18n'

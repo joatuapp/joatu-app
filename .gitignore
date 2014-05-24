@@ -24,3 +24,4 @@ config/secrets.yml
 # Ignore the public/assets folder, we'll compile assets
 # on the server:
 public/assets
+public/javascripts
