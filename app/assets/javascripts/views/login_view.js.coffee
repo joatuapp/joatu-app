@@ -39,3 +39,4 @@ define [
       else
         message = new Flash message: "Login Error."
       error = new FlashView model: message, container: $(@el).find('.errors')
+      @subview 'error', error
