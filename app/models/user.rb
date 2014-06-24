@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class User < UserBase
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -8,17 +8,9 @@ class User < ActiveRecord::Base
          :token_authenticatable,
          :authentication_keys => [:login]
 
-  attr_accessor :login # Holds data that can be used to login.
-
   before_save :ensure_authentication_token
 
-  # Relations
-  has_one :detail, class: UserDetail
-
-  # Validations:
-  validates :username, presence: true, uniqueness: {case_sensitive: false}
-  validates :email, presence: true, confirmation: true
-  validates :email_confirmation, presence: true, on: :create
+  attr_accessor :login # Holds data that can be used to login.
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup

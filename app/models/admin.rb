@@ -1,5 +1,4 @@
-class Admin < ActiveRecord::Base
-  self.table_name = :users
+class Admin < UserBase
   default_scope { where(is_admin: true) }
 
   devise :database_authenticatable, 

@@ -4,6 +4,5 @@ class UserDetail < ActiveRecord::Base
   lat_lng_accessible_point_columns :current_location
 
   belongs_to :user
-
-  validates :primary_community_id, presence: true
+  belongs_to :primary_community
 end
