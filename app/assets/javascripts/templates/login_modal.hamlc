@@ -3,6 +3,7 @@
     %div(class="modal-content")
       %div(class="modal-body")
         %form(class="form-inline")
+          %div(class="errors")
           %div(class="form-group")
             %label(for="login" class="sr-only")
               Email

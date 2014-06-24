@@ -1,8 +1,10 @@
 define [
   'views/base/view'
+  'views/flash_view'
   'models/user'
+  'models/flash'
   'form2js'
-], (View, User, form2js, template) ->
+], (View, FlashView, User, Flash, form2js, template) ->
   'use strict'
 
   class LoginView extends View
@@ -32,3 +34,8 @@ define [
       $(@el).find('.modal').modal 'hide'
 
     loginError: (model, response, options) =>
+      if response.status == 401
+        message = new Flash message: "Invalid username or password."
+      else
+        message = new Flash message: "Login Error."
+      error = new FlashView model: message, container: $(@el).find('.errors')
