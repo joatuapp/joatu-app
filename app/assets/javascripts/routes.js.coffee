@@ -7,4 +7,5 @@ define ->
 
     match '', 'home#show', name: 'root'
     match 'register', 'register#show', name: 'register'
+    match 'logout', 'session#logout', name: 'logout'
 

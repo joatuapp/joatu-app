@@ -21,7 +21,7 @@ define [
       @initSession()
 
     initSession: ->
-      if auth_token = utils.sessionStorage('authentication_token')
+      if !Chaplin.mediator.user && auth_token = utils.sessionStorage('authentication_token')
         user = new User
         userDataRequest = $.ajax
           type: 'get'
@@ -65,7 +65,6 @@ define [
         Chaplin.mediator.publish 'loginStatus', true
       else
         Chaplin.mediator.publish 'loginStatus', false
-        @logout
 
     disposeLoginView: =>
       return unless @loginView
