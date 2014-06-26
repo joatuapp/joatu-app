@@ -1,6 +1,6 @@
 class CreateUserDetails < ActiveRecord::Migration
   def change
-    create_table :user_details do |t|
+    create_table :user_details, id: :uuid do |t|
       t.uuid :user_id
       t.uuid :primary_community_id
 

@@ -1,4 +1,5 @@
 class Community < ActiveRecord::Base
+  acts_as_paranoid
 
   include HasLatLngAccessiblePoint
   lat_lng_accessible_point_columns :location

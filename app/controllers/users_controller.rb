@@ -1,8 +1,15 @@
 class UsersController < ApiController
-  before_filter :authenticate_user!
+  # TODO: Uncomment this!
+  # before_filter :authenticate_user!
 
   def me
-    authorize! :read, current_user
+    authorize current_user
     respond_with current_user
+  end
+
+  def show
+    @user = User.find(params[:id])
+    authorize @user
+    respond_with @user
   end
 end

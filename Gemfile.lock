@@ -6,11 +6,27 @@ GIT
       railties (>= 3.1.1)
 
 GIT
+  remote: git://github.com/netzpirat/haml_coffee_assets.git
+  revision: 1c5038429dbcf14151759913352376107d62c891
+  specs:
+    haml_coffee_assets (1.16.0)
+      coffee-script (~> 2.0)
+      sprockets (~> 2.0)
+      tilt (~> 1.1)
+
+GIT
   remote: git://github.com/sudosu/rails_admin_map_field.git
   revision: 47251289ae32a8f1fb3bf44dccd76ec4d3405ab6
   specs:
     rails_admin_map_field (0.0.2)
       rails (>= 3.0.0)
+
+PATH
+  remote: ~/workspace/rails_admin_pundit
+  specs:
+    rails_admin_pundit (0.0.1)
+      pundit (>= 0.2.3)
+      rails_admin (>= 0.6.2)
 
 GEM
   remote: https://rubygems.org/
@@ -66,7 +82,6 @@ GEM
     byebug (3.1.2)
       columnize (~> 0.8)
       debugger-linecache (~> 1.2)
-    cancancan (1.7.1)
     capistrano (3.2.1)
       i18n
       rake (>= 10.0.0)
@@ -121,7 +136,7 @@ GEM
       i18n (~> 0.5)
     fastercsv (1.5.5)
     ffi (1.9.3)
-    font-awesome-rails (4.0.3.2)
+    font-awesome-rails (4.1.0.0)
       railties (>= 3.2, < 5.0)
     foreman (0.63.0)
       dotenv (>= 0.7)
@@ -143,16 +158,12 @@ GEM
       rspec (>= 2.14, < 4.0)
     haml (4.0.5)
       tilt
-    haml_coffee_assets (1.16.0)
-      coffee-script (~> 2.0)
-      sprockets (~> 2.0)
-      tilt (~> 1.1)
     highline (1.6.21)
     hike (1.2.3)
     i18n (0.6.9)
     i18n-js (2.1.2)
       i18n
-    jquery-rails (3.1.0)
+    jquery-rails (3.1.1)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (4.2.1)
@@ -194,6 +205,8 @@ GEM
       coderay (~> 1.0)
       method_source (~> 0.8)
       slop (~> 3.4)
+    pundit (0.2.3)
+      activesupport (>= 3.0.0)
     rack (1.5.2)
     rack-cors (0.2.9)
     rack-pjax (0.7.0)
@@ -346,7 +359,6 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.1.2)
   brakeman
   byebug
-  cancancan
   capistrano (~> 3.2.0)
   capistrano-bundler (~> 1.1.2)
   capistrano-rails (~> 1.1)
@@ -364,16 +376,18 @@ DEPENDENCIES
   guard-ctags-bundler
   guard-rspec
   haml
-  haml_coffee_assets
+  haml_coffee_assets!
   i18n-js
   kaminari
   newrelic_rpm
   paranoia (~> 2.0)
   pg
+  pundit
   rack-cors
   rails (= 4.1)
   rails_admin
   rails_admin_map_field!
+  rails_admin_pundit!
   requirejs-rails!
   rgeo
   roar-rails

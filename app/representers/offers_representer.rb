@@ -1,0 +1,2 @@
+class OffersRepresenter < ApplicationCollectionRepresenter
+end

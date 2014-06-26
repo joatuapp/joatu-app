@@ -34,8 +34,10 @@ gem 'devise'
 gem 'devise-token_authenticatable'
 # gem 'koala', '~> 1.8.0rc1' # Commenting, might not need
 
-# Cancancan for authorization
-gem 'cancancan'
+# Pundit for authorization
+gem "pundit"
+# gem "rails_admin_pundit", :github => "sudosu/rails_admin_pundit"
+gem "rails_admin_pundit", :path => "~/workspace/rails_admin_pundit"
 
 # Cors extension for rack, let's us do cross domain JS requests:
 gem 'rack-cors', require: 'rack/cors'
@@ -66,7 +68,7 @@ group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
   #gem 'compass-rails'
-  gem 'haml_coffee_assets'
+  gem 'haml_coffee_assets', github: 'netzpirat/haml_coffee_assets'
   gem 'uglifier'
 end
 

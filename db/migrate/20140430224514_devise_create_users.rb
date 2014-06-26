@@ -1,5 +1,7 @@
 class DeviseCreateUsers < ActiveRecord::Migration
   def change
+    enable_extension 'uuid-ossp'
+
     create_table :users, id: :uuid do |t|
       t.string :username, limit: 64, null: false, default: ""
 

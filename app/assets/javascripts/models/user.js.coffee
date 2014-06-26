@@ -13,3 +13,16 @@ define [
       options ||= {}
       options.url = @urlRoot() + '/sign_in'
       @save(@attributes, options)
+
+    full_name: ->
+      name = ''
+      if @get('given_name')?
+        name += @get('given_name')
+
+      if @get('surname')?
+        name += ' ' + @get('surname')
+
+      if name.length == 0
+        name = "unknown"
+
+      $.trim(name)
