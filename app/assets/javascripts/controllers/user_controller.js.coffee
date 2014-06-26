@@ -16,5 +16,5 @@ define [
 
     show: (params) ->
       @model = new User(id: params["id"])
-      @model.fetch()
       @view = new ProfileView model: @model, region: 'main', autoRender: true
+      @model.fetch()

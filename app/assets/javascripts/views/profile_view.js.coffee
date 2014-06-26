@@ -7,5 +7,5 @@ define [
     templateName: 'profile'
     className: 'profile'
 
-    getTemplateData: () ->
-      model: @model
+    listen:
+      'change model': 'render'

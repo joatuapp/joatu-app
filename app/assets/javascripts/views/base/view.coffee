@@ -13,3 +13,6 @@ define [
         throw new Error "View template #{@templateName} not found"
 
       templateFunction
+
+    getTemplateData: () ->
+      @model.attributes if @model

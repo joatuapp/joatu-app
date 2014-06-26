@@ -1,7 +1,8 @@
 define [
   'chaplin'
   'models/base/model'
-], (Chaplin, Model) ->
+  'models/user_detail'
+], (Chaplin, Model, UserDetail) ->
   'use strict'
 
   class User extends Model
@@ -14,15 +15,9 @@ define [
       options.url = @urlRoot() + '/sign_in'
       @save(@attributes, options)
 
-    full_name: ->
-      name = ''
-      if @get('given_name')?
-        name += @get('given_name')
+    parse: (response, options) ->
+      if response['detail']
+        @set('detail', new UserDetail(response['detail']))
+        delete response['detail']
 
-      if @get('surname')?
-        name += ' ' + @get('surname')
-
-      if name.length == 0
-        name = "unknown"
-
-      $.trim(name)
+      response

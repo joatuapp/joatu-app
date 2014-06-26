@@ -21,7 +21,7 @@ class CreateUserDetails < ActiveRecord::Migration
       t.timestamps
       t.timestamp :deleted_at
 
-      t.index :user_id
+      t.index :user_id, unique: true
       t.index :primary_community_id
       t.index :current_location, spatial: true
     end
