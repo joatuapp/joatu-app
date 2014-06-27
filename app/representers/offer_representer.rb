@@ -8,8 +8,8 @@ class OfferRepresenter < ApplicationRepresenter
 
   property :title
   property :description
-  property :latitude
-  property :longitude
+  property :location_latitude
+  property :location_longitude
   property :address1
   property :address2
   property :neighbourhood

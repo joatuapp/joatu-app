@@ -1,4 +1,4 @@
-class UserSessionRepresenter < UserRepresenter
+class UserSessionRepresenter < UserWithDetailRepresenter
   property :authentication_token
   property :active_for_authentication, decorator_scope: true
 

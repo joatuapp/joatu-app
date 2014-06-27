@@ -13,6 +13,7 @@ end
 module JoatuApp
   class Application < Rails::Application
     config.autoload_paths += %W(#{config.root}/app/representers/concerns)
+    config.autoload_paths += %W(#{config.root}/app/meta_models)
 
     config.assets.initialize_on_precompile = true
     # Settings in config/environments/* take precedence over those specified here.

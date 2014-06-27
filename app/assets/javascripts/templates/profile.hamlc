@@ -1,2 +1,2 @@
 %h3
-  = @detail.full_name() if @detail
+  = @model.full_name()

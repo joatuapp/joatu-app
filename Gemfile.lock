@@ -21,8 +21,17 @@ GIT
     rails_admin_map_field (0.0.2)
       rails (>= 3.0.0)
 
-PATH
-  remote: ~/workspace/rails_admin_pundit
+GIT
+  remote: git://github.com/undergroundwebdesigns/associates.git
+  revision: ac0dd97d376db596a8754ff69634539b346d286c
+  specs:
+    associates (0.0.4)
+      activerecord (>= 3.2.14)
+      activesupport (>= 3.2.14)
+
+GIT
+  remote: git://github.com/undergroundwebdesigns/rails_admin_pundit.git
+  revision: 7e433f592d169357475ce3d4e4456f8a9925e85b
   specs:
     rails_admin_pundit (0.0.1)
       pundit (>= 0.2.3)
@@ -356,6 +365,7 @@ PLATFORMS
 DEPENDENCIES
   activerecord-postgis-adapter
   annotate
+  associates!
   bcrypt-ruby (~> 3.1.2)
   brakeman
   byebug

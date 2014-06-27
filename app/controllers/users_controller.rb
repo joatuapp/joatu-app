@@ -7,12 +7,16 @@ class UsersController < ApiController
   end
 
   def show
-    scope = User
-    if params[:detail]
-      scope = scope.includes(:detail)
-    end
-    @user = scope.find(params[:id])
-    authorize @user
-    respond_with @user, expand_detail: !!params[:detail]
+    user = User.find(params[:id])
+    @user = UserWithDetail.new(user: user, user_detail: user.detail)
+    authorize @user.user
+    respond_with @user
+  end
+
+  def update
+    user = User.find(params[:id])
+    @user = UserWithDetail.new(user: user, user_detail: user.detail)
+    @user = consume! @user
+    respond_with @user.save
   end
 end

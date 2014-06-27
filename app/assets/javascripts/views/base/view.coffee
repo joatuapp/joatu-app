@@ -15,4 +15,7 @@ define [
       templateFunction
 
     getTemplateData: () ->
-      @model.attributes if @model
+      if @model
+        data = @model.attributes
+        data["model"] = @model
+        data

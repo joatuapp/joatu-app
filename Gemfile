@@ -36,8 +36,10 @@ gem 'devise-token_authenticatable'
 
 # Pundit for authorization
 gem "pundit"
-# gem "rails_admin_pundit", :github => "sudosu/rails_admin_pundit"
-gem "rails_admin_pundit", :path => "~/workspace/rails_admin_pundit"
+gem "rails_admin_pundit", :github => "undergroundwebdesigns/rails_admin_pundit"
+
+# Associates lets us create meta-models.
+gem 'associates', github: "undergroundwebdesigns/associates"
 
 # Cors extension for rack, let's us do cross domain JS requests:
 gem 'rack-cors', require: 'rack/cors'

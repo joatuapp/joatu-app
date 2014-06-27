@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: communities
+#
+#  id         :uuid             not null, primary key
+#  name       :string(128)
+#  location   :spatial          point, 4326
+#  created_at :datetime
+#  updated_at :datetime
+#  deleted_at :datetime
+#
+
 class Community < ActiveRecord::Base
   acts_as_paranoid
 

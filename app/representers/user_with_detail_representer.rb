@@ -1,5 +1,7 @@
-class UserDetailRepresenter < ApplicationRepresenter
-  property :user_id
+class UserWithDetailRepresenter < ApplicationRepresenter
+  property :id, writeable: false
+  property :username
+  property :email
   property :primary_community_id, as: :community_id
   property :given_name
   property :surname
