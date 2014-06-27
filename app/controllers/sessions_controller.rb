@@ -1,4 +1,7 @@
 class SessionsController < ApiController
+
+  skip_after_action :verify_authorized
+
   def create
     user = User.find_for_database_authentication(login: params[:login])
    

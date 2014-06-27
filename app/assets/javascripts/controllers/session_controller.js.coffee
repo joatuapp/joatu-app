@@ -23,6 +23,9 @@ define [
     initSession: ->
       if !Chaplin.mediator.user && auth_token = utils.sessionStorage('authentication_token')
         user = new User
+        user.set authentication_token: auth_token
+        Chaplin.mediator.user = user
+
         userDataRequest = $.ajax
           type: 'get'
           url: user.urlRoot() + '/me'
@@ -31,7 +34,6 @@ define [
           }
         userDataRequest.done (data) =>
           user.set(data)
-          Chaplin.mediator.user = user
           @publishEvents()
       else
         @publishEvents()

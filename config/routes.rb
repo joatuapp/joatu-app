@@ -13,8 +13,8 @@ Rails.application.routes.draw do
 
     resources :communities
 
-    resources :users
     get 'users/me' => 'users#me'
+    resources :users
   end
 
   # This is at the very end of the file
