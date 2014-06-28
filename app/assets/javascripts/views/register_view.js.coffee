@@ -3,9 +3,7 @@ define [
   'views/register_step1_view'
   'views/register_step2_view'
   'views/register_step3_view'
-  'models/user'
-  'form2js'
-], (View, RegisterStep1View, RegisterStep2View, RegisterStep3View, User, form2js, template) ->
+], (View, RegisterStep1View, RegisterStep2View, RegisterStep3View, template) ->
   'use strict'
 
   class RegisterView extends View
@@ -19,21 +17,24 @@ define [
 
     initialize: (options) ->
       super
+
       @delegate('submit', 'form', @register)
       @delegate('click', 'button[data-toggle=tab]', @selectTab)
       @subscribeEvent 'registerErrors', @displayRegisterErrors
 
-    attach: ->
+    render: ->
       super
       step1 = new RegisterStep1View autoRender: true, region: 'step1'
       @subview 'step1', step1
       step2 = new RegisterStep2View autoRender: true, region: 'step2'
       @subview 'step2', step2
 
+      window.model = @model
+      @modelBinder.bind(@model, @$el)
+
     register: (event) ->
       event.preventDefault()
-      user = new User
-      if user.save(form2js(event.currentTarget, '.', true))
+      if @model.save()
         @publishEvent '!createSession', user
         Chaplin.utils.redirectTo name: 'root'
       else

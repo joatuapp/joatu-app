@@ -1,10 +1,15 @@
 define [
   'chaplin'
+  'backbone-modelbinder'
   'lib/view_helper' # Just load the view helpers, no return value
-], (Chaplin) ->
+], (Chaplin, BackboneModelBinder) ->
   'use strict'
 
   class View extends Chaplin.View
+
+    initialize: (options) ->
+      super
+      @modelBinder = new BackboneModelBinder
 
     getTemplateFunction: ->
       #console.log 'View#getTemplateFunction', @templateName, JST[@templateName]
@@ -13,9 +18,3 @@ define [
         throw new Error "View template #{@templateName} not found"
 
       templateFunction
-
-    getTemplateData: () ->
-      if @model
-        data = @model.attributes
-        data["model"] = @model
-        data
