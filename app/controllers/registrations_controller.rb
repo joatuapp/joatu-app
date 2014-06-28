@@ -2,7 +2,8 @@ class RegistrationsController < ApiController
 
   def create
     user = User.new
-    user_with_detail = UserWithDetail.new user: user, user_detail: user.detail
+    authorize user
+    user_with_detail = UserWithDetail.new user: user, user_detail: user.build_detail
     user_with_detail = consume! user_with_detail
     user.password = user.password_confirmation = params[:password]
     user.email_confirmation = params[:email_confirmation]

@@ -1,9 +1,13 @@
 define [
+  'chaplin'
   'views/base/view'
   'views/register_step1_view'
   'views/register_step2_view'
   'views/register_step3_view'
-], (View, RegisterStep1View, RegisterStep2View, RegisterStep3View, template) ->
+  'models/flash'
+  'views/flash_view'
+  'backbone-validation'
+], (Chaplin, View, RegisterStep1View, RegisterStep2View, RegisterStep3View, Flash, FlashView) ->
   'use strict'
 
   class RegisterView extends View
@@ -19,8 +23,7 @@ define [
       super
 
       @delegate('submit', 'form', @register)
-      @delegate('click', 'button[data-toggle=tab]', @selectTab)
-      @subscribeEvent 'registerErrors', @displayRegisterErrors
+      @delegate('click', '[role=tab]', @selectTab)
 
     render: ->
       super
@@ -29,41 +32,36 @@ define [
       step2 = new RegisterStep2View autoRender: true, region: 'step2'
       @subview 'step2', step2
 
-      window.model = @model
+      Backbone.Validation.bind(@)
       @modelBinder.bind(@model, @$el)
+
+    dispose: ->
+      Backbone.Validation.unbind(@)
+      super
 
     register: (event) ->
       event.preventDefault()
-      if @model.save()
-        @publishEvent '!createSession', user
+      request = @model.save()
+      request.done(=>
+        @publishEvent '!createSession', @model
         Chaplin.utils.redirectTo name: 'root'
-      else
-        @displayRegisterErrors(user.errors)
-
-    displayRegisterErrors: (error_data) ->
-      for field, error of error_data
-        input = $('[name='+field+']')
-        formgroup = input.closest('.form-group')
-        icon = $('<span/>', {
-          class: 'glyphicon glyphicon-remove form-control-feedback'
-        })
-        error_message = $('<span/>', {
-          class: 'help-block',
-          text: error[0]
-        })
-        formgroup.addClass('has-error')
-        error_message.insertAfter(input)
-        icon.insertAfter(input)
-        input.on('focus', @removeError)
-
-    removeError: (event) ->
-      formgroup = $(event.currentTarget).closest('.form-group')
-      formgroup.removeClass('has-error')
-      formgroup.find('.form-control-feedback').remove()
-      formgroup.find('.help-block').remove()
-      $(event.currentTarget).off('focus', @removeError)
+      )
+      request.fail(=>
+        @displayFormError()
+        # TODO: Handle server side failure.
+        # should only need to cover connection issues
+        # as data should (normally) be 
+        # validated client side.
+      )
 
     selectTab: (event) ->
-      newStep = $(event.currentTarget).attr('data-target').substring(1)
-      $('.register-steps .step').removeClass('active')
-      $('.register-steps .'+ newStep).addClass('active')
+      event.preventDefault()
+      if @model.isValid(true)
+        $(event.currentTarget).tab('show')
+      else
+        @displayFormError()
+
+    displayFormError: ->
+      model = new Flash(message: "Please fix the errors on the form.")
+      flash = new FlashView(container: @$('.register-flash'), model: model)
+      @subview 'flash', flash

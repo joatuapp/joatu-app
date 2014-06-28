@@ -1,11 +1,12 @@
 %div(class="register-steps-bar clearfix")
   %ul(class="register-steps" id="registration_steps")
     %li(class="active step step1")
-      %a(data-target="#step1" data-toggle="tab") 1
+      %a(data-target="#step1" role="tab") 1
     %li(class="step step2")
-      %a(data-target="#step2" data-toggle="tab") 2
+      %a(data-target="#step2" role="tab") 2
 
 %form(class="form-horizontal")
+  %div(class="register-flash")
   %div(class="tab-content")
     %div(class="tab-pane active" id="step1")
     %div(class="tab-pane" id="step2")

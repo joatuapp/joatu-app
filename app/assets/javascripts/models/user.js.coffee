@@ -5,6 +5,12 @@ define [
   'use strict'
 
   class User extends Model
+    validation:
+      username:
+        required: true
+      email:
+        required: true,
+        pattern: 'email'
 
     urlRoot: ->
       Chaplin.mediator.api_base_url + "/users"

@@ -4,6 +4,7 @@ paths:
   underscore: 'lodash.underscore-2.4.1'
   backbone: 'backbone-1.1.0'
   'backbone-modelbinder': 'backbone-modelbinder-1.0.5.min'
+  'backbone-validation': 'backbone-validation-0.9.1'
   chaplin: 'chaplin-1.0.0'
   form2js: 'form2js'
   i18n: 'i18n'
