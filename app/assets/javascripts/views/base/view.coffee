@@ -2,6 +2,7 @@ define [
   'chaplin'
   'backbone-modelbinder'
   'lib/view_helper' # Just load the view helpers, no return value
+  'backbone-validation'
 ], (Chaplin) ->
   'use strict'
 

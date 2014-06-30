@@ -30,24 +30,24 @@ admin_data = [
     username: 'awillemsma',
     email: 'alex@undergroundwebdevelopment.com',
     password: initial_password,
-    detail_attributes: {
-      primary_community_id: communities.first.id,
-      given_name: 'Alex',
-      surname: 'Willemsma',
-      birth_date: Date.new(1989, 07, 28),
-      sex: 'male',
-      current_location: "POINT(-123.044859 49.282964)",
-      postal_code: 'V5K1W3',
-      neighbourhood: 'Hastings-Sunrise',
-      city: 'Vancouver',
-      province: 'British Columnbia',
-      country: 'Canada',
-    },
+    primary_community_id: communities.first.id,
+    given_name: 'Alex',
+    surname: 'Willemsma',
+    birth_date: Date.new(1989, 07, 28),
+    sex: 'male',
+    current_location: "POINT(-123.044859 49.282964)",
+    postal_code: 'V5K1W3',
+    neighbourhood: 'Hastings-Sunrise',
+    city: 'Vancouver',
+    province: 'British Columnbia',
+    country: 'Canada',
   }
 ]
 
 admin_data.each do |a|
-  a[:email_confirmation] = a[:email]
-  a[:password_confirmation] = a[:password]
-  Admin.create! a
+  a[:is_admin] = true
+  admin = UserWithDetail.new a
+  admin.user.email_confirmation = a[:email]
+  admin.confirmed_at = DateTime.now
+  admin.save!
 end

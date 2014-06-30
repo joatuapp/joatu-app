@@ -54,7 +54,8 @@ define [
 
     showLoginView: ->
       return if @loginView
-      @loginView = new LoginView
+      user = new User
+      @loginView = new LoginView model: user
       @loginView.delegate('hidden.bs.modal', '.modal', @disposeLoginView)
 
     destroySession: ->

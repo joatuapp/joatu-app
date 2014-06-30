@@ -1,10 +1,8 @@
 define [
   'views/base/view'
   'views/flash_view'
-  'models/user'
   'models/flash'
-  'form2js'
-], (View, FlashView, User, Flash, form2js, template) ->
+], (View, FlashView, Flash) ->
   'use strict'
 
   class LoginView extends View
@@ -17,6 +15,13 @@ define [
       super
       @delegate('submit', 'form', @login)
 
+    render: ->
+      super
+      # NOTE: Not using validation, as it will
+      # (correctly) fail for login. Not really
+      # needed anyway.
+      @modelBinder.bind(@model, @$el)
+
     attach: ->
       super
       if @region == 'modal'
@@ -24,18 +29,17 @@ define [
 
     login: (event) ->
       event.preventDefault()
-      user = new User
-      user.set(form2js(event.currentTarget, '.', true))
-      user.sign_in(success: @loginSuccess, error: @loginError) 
+      @model.sign_in(success: @loginSuccess, error: @loginError) 
 
     loginSuccess: (model, response, options) =>
-      model.set(response)
+      @model.set(response)
       @publishEvent '!createSession', model
       $(@el).find('.modal').modal 'hide'
 
     loginError: (model, response, options) =>
       if response.status == 401
-        message = new Flash message: "Invalid username or password."
+        msg_content = if response.responseJSON.error then response.responseJSON.error else "Invalid username or password."
+        message = new Flash message: msg_content
       else
         message = new Flash message: "Login Error."
       error = new FlashView model: message, container: $(@el).find('.errors')
