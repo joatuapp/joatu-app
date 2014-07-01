@@ -5,7 +5,7 @@
       %img.current-user-image
     %ul.dropdown-menu
       %li 
-        %a My Profile
+        %a.my-profile-link My Profile
       %li 
         %a My Offers
       %li 
