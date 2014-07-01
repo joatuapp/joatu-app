@@ -123,6 +123,8 @@ group :test, :development do
   gem 'rspec'
   gem 'rspec-rails', '~> 2.0'
   gem 'rspec_api_documentation'
+
+  gem "codeclimate-test-reporter", require: nil
   
   # Dotenv loads env variables from a .env file when the
   # environment is bootstraped (eg, through foreman).
