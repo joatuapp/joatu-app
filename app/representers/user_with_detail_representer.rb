@@ -14,4 +14,7 @@ class UserWithDetailRepresenter < ApplicationRepresenter
   property :city
   property :province
   property :country
+
+  property :created_at, writeable: false
+  property :updated_at, writeable: false
 end

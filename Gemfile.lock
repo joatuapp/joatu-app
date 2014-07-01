@@ -31,7 +31,7 @@ GIT
 
 GIT
   remote: git://github.com/undergroundwebdesigns/rails_admin_pundit.git
-  revision: 7e433f592d169357475ce3d4e4456f8a9925e85b
+  revision: 2f3e70c32f819382b87b9495d87aec6a607779a5
   specs:
     rails_admin_pundit (0.0.1)
       pundit (>= 0.2.3)
@@ -73,9 +73,13 @@ GEM
       activerecord (>= 2.3.0)
       rake (>= 0.8.7)
     arel (5.0.1.20140414130214)
+    autoprefixer-rails (2.1.0.20140628)
+      execjs
     bcrypt (3.1.7)
     bcrypt-ruby (3.1.5)
       bcrypt (>= 3.1.3)
+    bootstrap-sass (3.2.0.0)
+      sass (~> 3.2)
     brakeman (2.4.3)
       erubis (~> 2.6)
       fastercsv (~> 1.5)
@@ -366,7 +370,9 @@ DEPENDENCIES
   activerecord-postgis-adapter
   annotate
   associates!
+  autoprefixer-rails
   bcrypt-ruby (~> 3.1.2)
+  bootstrap-sass (~> 3.2.0)
   brakeman
   byebug
   capistrano (~> 3.2.0)

@@ -22,6 +22,10 @@ define [
       # needed anyway.
       @modelBinder.bind(@model, @$el)
 
+    dispose: ->
+     @modelBinder.unbind()
+     super
+
     attach: ->
       super
       if @region == 'modal'

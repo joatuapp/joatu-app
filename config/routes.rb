@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  api_actions = [:index, :show, :create, :update, :destroy]
+
   # Admin routes:
   devise_for :admins
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
@@ -14,7 +16,9 @@ Rails.application.routes.draw do
     resources :communities
 
     get 'users/me' => 'users#me'
-    resources :users
+    resources :users, only: api_actions do
+      resources :offers, only: api_actions
+    end
   end
 
   # This is at the very end of the file

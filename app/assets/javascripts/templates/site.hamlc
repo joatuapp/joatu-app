@@ -1,6 +1,7 @@
 %div(id="navbar-top" class="navbar navbar-default" role="navigation")
 
-%div(id="main-container" class="container")
+%div.container-fluid
+  %div#main-container.row
 
 %footer(id="footer")
 

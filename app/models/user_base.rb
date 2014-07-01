@@ -35,7 +35,7 @@ class UserBase < ActiveRecord::Base
   has_one :detail, class: UserDetail, foreign_key: :user_id
   accepts_nested_attributes_for :detail
 
-  has_many :offers
+  has_many :offers, foreign_key: :user_id
   has_many :offer_categories, through: :offers
 
   # Validations:

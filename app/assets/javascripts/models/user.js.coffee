@@ -20,7 +20,7 @@ define [
       options.url = @urlRoot() + '/sign_in'
       @save(@attributes, options)
 
-    full_name: ->
+    full_name: =>
       name = ''
       if @get('given_name')?
         name += @get('given_name')
@@ -32,10 +32,3 @@ define [
         name = "unknown"
 
       $.trim(name)
-
-    parse: (response, options) ->
-      if response['detail']
-        @set('detail', new UserDetail(response['detail']))
-        delete response['detail']
-
-      response

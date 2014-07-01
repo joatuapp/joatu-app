@@ -6,7 +6,7 @@ RailsAdmin.config do |config|
   config.authenticate_with do
     warden.authenticate! scope: :admin
   end
-  config.current_user_method(&:current_user)
+  config.current_user_method(&:current_admin)
 
   ## == Pundit ==
   config.authorize_with :pundit
@@ -42,6 +42,7 @@ RailsAdmin.config do |config|
   end
 end
 
-class RailsAdmin::Config::Fields::Types::Uuid < RailsAdmin::Config::Fields::Base
+# This fixes RailsAdmin so that it will display UUID fields.
+class RailsAdmin::Config::Fields::Types::Uuid < RailsAdmin::Config::Fields::Types::String
     RailsAdmin::Config::Fields::Types::register(self)
 end

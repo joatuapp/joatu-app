@@ -1,5 +1,6 @@
 class CommunitiesController < ApiController
   def index
-    respond_with @communities.near(params[:latitude], params[:longitude], params[:distance]).page(params[:page])
+    @communities = policy_scope(Community.near(params[:latitude], params[:longitude], params[:distance])).page(params[:page])
+    respond_with @communities
   end
 end

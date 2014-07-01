@@ -1,2 +1,5 @@
-%h3
-  = @model.full_name()
+%div.picture-bar
+  %img.profile-image
+  %h2.profile-fullname
+%div.profile-menu
+%div#offers-container

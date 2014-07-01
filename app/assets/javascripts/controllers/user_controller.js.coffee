@@ -17,4 +17,4 @@ define [
     show: (params) ->
       @model = new User(id: params["id"])
       @view = new ProfileView model: @model, region: 'main', autoRender: true
-      @model.fetch({data: {detail: true}})
+      @model.fetch()

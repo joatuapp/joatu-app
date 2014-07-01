@@ -37,6 +37,7 @@ define [
 
     dispose: ->
       Backbone.Validation.unbind(@)
+      @modelBinder.unbind()
       super
 
     register: (event) ->

@@ -20,4 +20,7 @@ class OfferRepresenter < ApplicationRepresenter
 
   property :timeframe
   property :length
+
+  property :created_at, writeable: false
+  property :updated_at, writeable: false
 end
