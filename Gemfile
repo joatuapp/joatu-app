@@ -117,10 +117,10 @@ group :seed, :test, :development do
 end
 
 group :test, :development do
+  gem 'rb-fsevent' if `uname` =~ /Darwin/
+  gem 'spring-commands-rspec'
   gem 'rspec'
   gem 'rspec-rails', '~> 2.0'
-  # gem 'spork', '~> 1.0rc'
-  # gem 'guard-spork'
   gem 'rspec_api_documentation'
   
   # Dotenv loads env variables from a .env file when the

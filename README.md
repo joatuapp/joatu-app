@@ -1,6 +1,8 @@
 README
 ======
 
+[![Code Climate](https://codeclimate.com/github/joatuapp/joatu-app.png)](https://codeclimate.com/github/joatuapp/joatu-app)
+
 About the Project
 -----------------
 The Jack Of All Trade Universe is an online marketplace for self-organized exchanges. The JoatUnit is a currency that is generated to promote community activities such as planting community gardens or teaching classes. More information can be found at [joatu.com](http://www.joatu.com)
