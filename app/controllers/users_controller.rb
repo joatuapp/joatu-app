@@ -3,7 +3,8 @@ class UsersController < ApiController
 
   def me
     authorize current_user, :show?
-    respond_with current_user
+    @user = UserWithDetail.new(user: current_user, user_detail: current_user.detail)
+    respond_with @user
   end
 
   def show

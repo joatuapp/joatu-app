@@ -25,24 +25,23 @@
 #  deleted_at             :datetime
 #
 
-# This is the base class of the user and admin models. 
-class UserBase < ActiveRecord::Base
+class Image < UserBase
   acts_as_paranoid
 
-  self.table_name = :users
+  belongs_to :imageable, polymorphic: true
+  belongs_to :owner, class: User, foreign_key: :owner_id
 
-  # Relations
-  has_one :detail, class: UserDetail, foreign_key: :user_id
-  accepts_nested_attributes_for :detail
+  has_attached_file(:image, 
+                    styles: {tiny: "32x32>", thumbnail: "170x170>"},
+                    convert_options: {tiny: "-quality 75 -thumbnail", thumbnail: "-quality 85 -thumbnail"},
+                    preserve_files: true,
+                    path: ":rails_root/public/system/:class/:attachment/:style/:id.extension",
+                    url: "/system/:class/:attachment/:style/:id.:extension",
+                    default_url: "/assets/:style/default_profile_pic.png",
+                   )
 
-  has_many :offers, foreign_key: :user_id
-  has_many :offer_categories, through: :offers
-
-  has_many :owned_images, class: Image, foreign_key: :owner_id
-  has_many :images, as: :imageable
-
-  # Validations:
-  validates :username, presence: true, uniqueness: {case_sensitive: false}
-  validates :email, presence: true, confirmation: true
-  validates :email_confirmation, presence: true, on: :create
+  validates_attachment :image, 
+    presence: true,
+    content_type: { content_type: /\Aimage\/.*\Z/ },
+    size: { in: 0..10.megabytes }
 end

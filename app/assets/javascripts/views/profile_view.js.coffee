@@ -30,7 +30,7 @@ define [
       bindings = {
         given_name: fullname_binding,
         surname: fullname_binding,
-        primary_image_url: {selector: '.profile-image', converter: this.model.profile_image_url, elAttribute:'src'}
+        profile_image_url_thumbnail: {selector: '.profile-image', elAttribute:'src'}
         about_me: '.about-me'
       }
       @modelBinder.bind(@model, @$el, bindings)

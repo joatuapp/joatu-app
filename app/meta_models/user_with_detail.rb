@@ -16,7 +16,15 @@ class UserWithDetail
     user.password_confirmation = value
   end
 
-  def primary_image_url
-    :default
+  def profile_image_url(style)
+    user_detail.profile_image.image.url(style)
+  end
+
+  def profile_image_url_tiny
+    profile_image_url(:tiny)
+  end
+
+  def profile_image_url_thumbnail
+    profile_image_url(:thumbnail)
   end
 end

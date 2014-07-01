@@ -16,7 +16,8 @@ class UserWithDetailRepresenter < ApplicationRepresenter
   property :province
   property :country
 
-  property :primary_image_url
+  property :profile_image_url_tiny
+  property :profile_image_url_thumbnail
 
   property :created_at, writeable: false
   property :updated_at, writeable: false

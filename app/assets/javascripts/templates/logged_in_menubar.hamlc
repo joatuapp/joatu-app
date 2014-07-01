@@ -1,10 +1,24 @@
 %ul.nav.navbar-nav
-  %li.active
-    %a(href="/")
-      Home
+  %li.dropdown
+    %a.dropdown-toggle(href="#", data-toggle="dropdown")
+      %span.current-user-fullname
+      %img.current-user-image
+    %ul.dropdown-menu
+      %li 
+        %a My Profile
+      %li 
+        %a My Offers
+      %li 
+        %a My Friends
+      %li 
+        %a My Community
   %li
-    %a(href="/logout")
+    %a.notifications.dropdown-toggle(href="#", data-toggle="dropdown")
+    %ul.dropdown-menu
+      %li No notifications yet.
+  %li
+    %a.account-edit.text-hide(href="/account")
+      Account
+  %li
+    %a.logout.text-hide(href="/logout")
       Logout
-  %li
-    %a(href="/contact")
-      Contact

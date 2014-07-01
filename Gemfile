@@ -52,6 +52,8 @@ gem 'haml'
 # I18n for JS files & templates.
 gem 'i18n-js'
 
+gem 'paperclip', '~> 4.1'
+
 group :admin, :development, :test do
   gem 'rails_admin'
   gem "rails_admin_map_field", :github => "sudosu/rails_admin_map_field"

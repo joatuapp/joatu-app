@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140701022522) do
+ActiveRecord::Schema.define(version: 20140701082210) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,24 @@ ActiveRecord::Schema.define(version: 20140701022522) do
   end
 
   add_index "communities", ["location"], :name => "index_communities_on_location", :spatial => true
+
+  create_table "images", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
+    t.uuid     "owner_id"
+    t.uuid     "imageable_id"
+    t.string   "imageable_type"
+    t.string   "caption"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "image_fingerprint"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "deleted_at"
+  end
+
+  add_index "images", ["imageable_id", "imageable_type"], :name => "index_images_on_imageable_id_and_imageable_type"
+  add_index "images", ["owner_id"], :name => "index_images_on_owner_id"
 
   create_table "offer_categories", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "name",       null: false
@@ -76,6 +94,7 @@ ActiveRecord::Schema.define(version: 20140701022522) do
     t.datetime "updated_at"
     t.datetime "deleted_at"
     t.text     "about_me"
+    t.uuid     "profile_image_id"
   end
 
   add_index "user_details", ["current_location"], :name => "index_user_details_on_current_location", :spatial => true
