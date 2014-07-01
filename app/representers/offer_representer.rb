@@ -1,10 +1,8 @@
 class OfferRepresenter < ApplicationRepresenter
   property :id, writeable: false 
   property :user_id
-  property :offer_category, as: :category do
-    property :id, writer: lambda {|doc, args| doc["offer_category_id"] = id}
-    property :name, writeable: false
-  end
+  property :category_name, writeable: false
+  property :offer_category_id, as: :category_id
 
   property :title
   property :description

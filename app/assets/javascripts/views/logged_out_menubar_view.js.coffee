@@ -6,7 +6,8 @@ define [
 
   class LoggedOutMenubarView extends View
     templateName: 'logged_out_menubar'
-    className: 'logged-out-menubar'
+    className: 'collapse navbar-collapse'
+    id: 'top-navbar'
 
     initialize: (options) ->
       super

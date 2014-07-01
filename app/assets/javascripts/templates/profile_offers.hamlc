@@ -1,0 +1,9 @@
+%h3 Offers
+  %small.loading
+    Loading
+    %img(src="/assets/loading.gif")
+.offers-list.row
+.no-offers
+  %h3
+    %span.profile-fullname
+    is not currently offering anything.

@@ -35,11 +35,6 @@ define [
       Backbone.Validation.bind(@)
       @modelBinder.bind(@model, @$el)
 
-    dispose: ->
-      Backbone.Validation.unbind(@)
-      @modelBinder.unbind()
-      super
-
     register: (event) ->
       event.preventDefault()
       request = @model.save()

@@ -6,8 +6,8 @@ define [
   class SiteView extends View
     el: 'body'
     regions:
-      navbar: '#navbar-top'
+      navbar: '.navbar-default'
       main: '#main-container'
-      footer: '#footer'
+      footer: 'footer'
       modal: "#modal-container"
     templateName: 'site'

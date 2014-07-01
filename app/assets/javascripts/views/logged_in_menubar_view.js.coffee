@@ -5,4 +5,5 @@ define [
 
   class LoggedInMenubarView extends View
     templateName: 'logged_in_menubar'
-    className: 'logged-in-menubar'
+    className: 'collapse navbar-collapse'
+    id: 'top-navbar'

@@ -1,5 +1,5 @@
-%ul(class="nav navbar-nav")
-  %button(class="btn btn-default navbar-btn" data-action="login")
+%ul.nav.navbar-nav
+  %button.btn.btn-default.navbar-btn( data-action="login")
     = I18n.t('login')
-  %button(class="btn btn-primary navbar-btn" data-action="register")
+  %button.btn.btn-primary.navbar-btn( data-action="register")
     = I18n.t('sign_up')

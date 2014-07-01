@@ -5,6 +5,7 @@ class UserWithDetailRepresenter < ApplicationRepresenter
   property :primary_community_id, as: :community_id
   property :given_name
   property :surname
+  property :about_me
   property :birth_date
   property :sex
   property :current_location_latitude, as: :latitude
@@ -14,6 +15,8 @@ class UserWithDetailRepresenter < ApplicationRepresenter
   property :city
   property :province
   property :country
+
+  property :primary_image_url
 
   property :created_at, writeable: false
   property :updated_at, writeable: false

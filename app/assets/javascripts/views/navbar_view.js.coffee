@@ -10,7 +10,8 @@ define [
       super
       @subscribeEvent 'loginStatus', @loginStatusChange
 
-    className: 'container'
+    className: 'container-fluid'
+
     regions:
       navbar_center: '#navbar-center'
       navbar_right: '#navbar-right'

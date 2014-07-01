@@ -1,9 +1,12 @@
-%div(class="navbar-header")
-  %a(href="/" class="navbar-brand")
-    %span(class="sr-only")
-      JoatU
-    %a(href="/about" class="navbar-left about-icon")
-      %span(class="sr-only")
-        About
-%div(id="navbar-center" class="navbar-center")
-%div(id="navbar-right" class="navbar-right")
+.navbar-header
+  %button.navbar-toggle(data-toggle="collapse" data-target="#top-navbar")
+    %span.sr-only Toggle Navigation
+    %span.icon-bar
+    %span.icon-bar
+    %span.icon-bar
+  %a.navbar-brand.text-hide(href="/")
+    JoatU
+  %a.navbar-left.about-icon.text-hide(href="/about")
+    About
+#navbar-center.navbar-center
+#navbar-right.navbar-right

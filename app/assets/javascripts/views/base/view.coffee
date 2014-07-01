@@ -62,5 +62,6 @@ define [
       templateFunction
 
     dispose: ->
+      Backbone.Validation.unbind(@)
       @modelBinder.unbind()
       super

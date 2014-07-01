@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140625154831) do
+ActiveRecord::Schema.define(version: 20140701022522) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 20140625154831) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "deleted_at"
+    t.text     "about_me"
   end
 
   add_index "user_details", ["current_location"], :name => "index_user_details_on_current_location", :spatial => true

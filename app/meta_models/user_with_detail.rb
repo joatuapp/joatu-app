@@ -15,4 +15,8 @@ class UserWithDetail
     user.password = value
     user.password_confirmation = value
   end
+
+  def primary_image_url
+    :default
+  end
 end

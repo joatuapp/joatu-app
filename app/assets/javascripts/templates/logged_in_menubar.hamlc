@@ -1,5 +1,5 @@
-%ul(class="nav navbar-nav")
-  %li(class="active")
+%ul.nav.navbar-nav
+  %li.active
     %a(href="/")
       Home
   %li

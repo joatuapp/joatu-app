@@ -32,3 +32,6 @@ define [
         name = "unknown"
 
       $.trim(name)
+
+    profile_image_url: =>
+      '/assets/default_profile_pic.png'

@@ -5,4 +5,8 @@ define [
   'use strict'
 
   class ProfileOffersView extends CollectionView
+    templateName: 'profile_offers'
     itemView: ProfileOfferView
+    listSelector: '.offers-list'
+    fallbackSelector: '.no-offers'
+    loadingSelector: '.loading'
