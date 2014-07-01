@@ -426,7 +426,6 @@ DEPENDENCIES
   rails_admin
   rails_admin_map_field!
   rails_admin_pundit!
-  rb-fsevent
   requirejs-rails!
   rgeo
   roar-rails

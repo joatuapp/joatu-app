@@ -118,7 +118,6 @@ group :seed, :test, :development do
 end
 
 group :test, :development do
-  gem 'rb-fsevent' if `uname` =~ /Darwin/
   gem 'spring-commands-rspec'
   gem 'rspec'
   gem 'rspec-rails', '~> 2.0'
