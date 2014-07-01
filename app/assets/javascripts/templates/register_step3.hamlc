@@ -1,0 +1,60 @@
+%h1 JOATU works with offers from the community
+%h3 What is the best skill you have to offer? How valuable is it?
+  %small (Don't worry, you can edit this later.)
+
+%div(class="form-group")
+  %label(for="skill" class="col-md-3") Primary skill
+  %div(class="input-group col-md-9")
+    %span(class="input-group-addon glyphicon glyphicon-search")
+    %input(type="text" name="skill" class="form-control" placeholder="Please type in or Select your primary skill")
+    %div(class="input-group-btn")
+      %button(type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown")
+        %span(class="glyphicon glyphicon-chevron-down")
+      %ul(class="dropdown-menu pull-right")
+        %li
+          %a Baking cookies
+
+%div(class="form-group")
+  %label(for="average_length" class="col-md-3") Average length of offer
+  %div(class="col-md-3")
+    %select(name="average_length" class="form-control")
+      %option(value="1") 1 hour
+  %label(for="where" class="col-md-3") Where
+  %div(class="col-md-3")
+    %select(name="where" class="form-control")
+      %option(value="private") Private Area
+
+%div(class="form-group")
+  %label(for="when" class="col-md-3") When
+  %div(class="col-md-3")
+    %select(name="when" class="form-control")
+      %option(value="morning") Morning
+      %option(value="afternoon") Afternoon
+      %option(value="evening") Evening
+      %option(value="night") Night
+
+  %label(for="who" class="col-md-3") Who
+  %div(class="col-md-3")
+    %select(name="who" class="form-control")
+      %option(value="graduate_student") Graduate Student
+
+%div(class="form-group")
+  %label(for="why" class="col-md-3") Why
+  %div(class="col-md-9")
+    %input(type="text" name="why" class="form-control" placeholder="Say why you are offering this")
+
+%div(class="form-group")
+  %label(for="title" class="col-md-3") Title
+  %div(class="col-md-9")
+    %input(type="text" name="title" class="form-control" placeholder="Give a title to this offer. This will be shown first in search results")
+
+%div(class="form-group")
+  %label(for="description" class="col-md-3") Description
+  %div(class="col-md-9")
+    %textarea(class="form-control" name="description" placeholder="Enter a short description of this offer")
+
+%div(class="form-group")
+  %small(class="col-md-6") All entered information will stay private unless you decide otherwise. We value privacy and transparency as well so you can be sure your info will never be sold to a third-party.
+  %div(class="col-md-3 col-md-offset-3")
+    %button(data-toggle="tab" data-target="#step2" name="back" class="btn")Back
+    %input(name="submit" type="submit" value="I'm done!" class="btn btn-primary")

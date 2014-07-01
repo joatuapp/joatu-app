@@ -1,0 +1,4 @@
+%div{ class: "alert alert-#{@type} alert-dismissable" }
+  %button(type="button" data-dismiss="alert" class="close" aria-hidden=true)
+    &times;
+  = @message

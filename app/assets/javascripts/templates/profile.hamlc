@@ -1,0 +1,9 @@
+.summary-bar.row
+  .thumbnail.col-md-2.col-md-offset-2
+    %img.profile-image
+    %h2.profile-fullname
+  .about-me-container.col-md-6
+    %h3 About Me
+    .about-me
+.profile-content.row
+  .col-md-12#offers-container

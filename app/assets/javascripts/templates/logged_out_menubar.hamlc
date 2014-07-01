@@ -1,0 +1,5 @@
+%ul.nav.navbar-nav
+  %button.btn.btn-default.navbar-btn( data-action="login")
+    = I18n.t('login')
+  %button.btn.btn-primary.navbar-btn( data-action="register")
+    = I18n.t('sign_up')

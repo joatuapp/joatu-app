@@ -1,0 +1,7 @@
+%img(src="/assets/JOATULogo_Big-2x.png")
+
+%form(action="/search" class="form-inline center-block")
+  %span(class="glyphicon glyphicon-search")
+  %input(type="search" class="form-control" placeholder="What product or service are you looking for?")
+  %span(class="glyphicon glyphicon-chevron-down")
+

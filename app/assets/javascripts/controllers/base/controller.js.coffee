@@ -1,6 +1,12 @@
-define ['chaplin'], (Chaplin) ->
+define [
+  'chaplin'
+  'views/site_view'
+  'views/navbar_view'
+], (Chaplin, SiteView, NavbarView) ->
   'use strict'
 
   class Controller extends Chaplin.Controller
-
-    # Place your application-specific controller features here
+    beforeAction: ->
+      super
+      @reuse 'site', SiteView
+      @reuse 'navbar', NavbarView, region: 'navbar'

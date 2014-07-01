@@ -1,20 +1,26 @@
 # Require HAML Coffee templates
 #= require hamlcoffee
+#= require i18n/translations
 #= require_tree ./templates
 
 # Bootstrap the application
 require [
-  'hello_world_application'
+  'jquery'
+  'bootstrap'
+  'joatu_application'
   'routes'
+  'i18n'
   # Require base controllers manually so they are
   # precompiled by the Rails Asset Pipeline
-  'controllers/hello_world_controller'
-], (HelloWorldApplication, routes) ->
+  # ALEX NOTE: I'm not actually sure this is necessary
+  # so skipping for now.
+], ($, _bootstrap, JoatuApplication, routes, I18n) ->
   'use strict'
 
-  new HelloWorldApplication
+  new JoatuApplication
     # Set your application name here so the document title is set to
     # “Controller title – Site title” (see Chaplin.Layout#adjustTitle)
-    title: 'Chaplin Example Application'
+    title: I18n.t('joatu_title')
+    
     # The routes for this app
     routes: routes

@@ -1,0 +1,8 @@
+.navbar.navbar-default(role="navigation")
+
+.container-fluid
+  #main-container.row
+
+%footer
+
+#modal-container
