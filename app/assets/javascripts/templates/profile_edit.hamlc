@@ -1,0 +1,55 @@
+%form.row{role: "form"}
+  %ul.nav.nav-pills.nav-stacked.col-sm-3#profile-edit-tabs{role: "tablist"}
+    %li.active
+      %a{href: "#login-info", role: "tab"} Login Info
+    %li
+      %a{href: "#profile", role: "tab"} Profile
+
+  .tab-content.col-sm-9
+    .tab-pane.active#login-info
+      .form-group
+        %label{for: "username"} Username
+        %input.form-control{type: "text", id: "username", name: "username"}
+      .form-group
+        %label{for: "email"} Email
+        %input.form-control{type: "email", id: "email", name: "email"}
+      .form-group
+        %label{for: "password"} New password
+        %input.form-control{type: "password", id: "password", name: "password"}
+        %span.help-block Enter a new password here to reset your password, otherwise leave blank.
+      .form-group
+        %label{for: "password_confirmation"} Confirm new password
+        %input.form-control{type: "password", id: "password_confirmation", name: "password_confirmation"}
+
+    .tab-pane#profile
+      .form-group
+        %label{for: "given_name"} Given Name
+        %input.form-control{type: "text", id: "given_name", name: "given_name"}
+
+      .form-group
+        %label{for: "surname"} Surname
+        %input.form-control{type: "text", id: "surname", name: "surname"}
+
+      .form-group
+        %label{for: "birthdate"} Birthdate
+        %input.form-control{type: "date", id: "birthdate", name: "birthdate"}
+
+      .form-group
+        %label.radio-inline
+          %input{type: "radio", name: "sex", value: "male"} Male
+        %label.radio-inline
+          %input{type: "radio", name: "sex", value: "female"} Female
+        %label.radio-inline
+          %input{type: "radio", name: "sex", value: "other"} Other
+
+      .form-group
+        %label Current Community
+        %p.form-control-static#current-community
+      %label{for: "autocomplete_location"} Change your community:
+      #community_select_container.clearfix
+
+      .form-group
+        %label{for: "about_me"} About Me
+        %textarea.form-control#about_me{name: "about_me", rows: 5}
+        %span.help-block Introduce yourself to your community.
+    %button.btn.btn-primary.pull-right{type: "submit"} Save

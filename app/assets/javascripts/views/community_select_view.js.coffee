@@ -5,6 +5,7 @@ define [
   'use strict'
 
   class CommunitySelectView extends CollectionView
+    autoRender: true
     templateName: 'community_select'
     itemView: CommunityOption
     listSelector: '[name=community_id]'

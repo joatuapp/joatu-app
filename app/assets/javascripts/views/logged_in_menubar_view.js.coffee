@@ -12,7 +12,6 @@ define [
     render: ->
       super
 
-      window.model = Chaplin.mediator.user
       fullname_binding = {
         selector: '.current-user-fullname',
         converter: Chaplin.mediator.user.full_name

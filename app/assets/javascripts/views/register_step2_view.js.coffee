@@ -14,5 +14,5 @@ define [
 
     attach: (options) ->
       super
-      @communitySelect = new CommunitySelectView region: 'communitySelect', collection: new Communities, autoRender: true
+      @communitySelect = new CommunitySelectView region: 'communitySelect', collection: new Communities
       @subview 'communitySelect', @communitySelect
