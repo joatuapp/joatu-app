@@ -7,6 +7,10 @@ class UserWithDetail
   delegate :active_for_authentication?, to: :user
   delegate :current_location_latitude, :current_location_longitude, :current_location_latitude=, :current_location_longitude=, to: :user_detail
 
+  def community_name
+    user_detail.primary_community.name if user_detail.primary_community
+  end
+
   def password
     user.password
   end

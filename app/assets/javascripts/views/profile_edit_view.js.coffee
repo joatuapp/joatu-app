@@ -24,9 +24,9 @@ define [
       @communitySelect = new CommunitySelectView region: 'communitySelect', collection: new Communities
       @subview 'communitySelect', @communitySelect
 
-      # Backbone.Validation.bind(@)
+      Backbone.Validation.bind(@)
       bindings = Backbone.ModelBinder.createDefaultBindings(@$el, 'name');
-      delete bindings["password"]
+      bindings["community_name"] = "#current-community"
       @modelBinder.bind(@model, @$el, bindings)
 
     switchTabs: (event) ->

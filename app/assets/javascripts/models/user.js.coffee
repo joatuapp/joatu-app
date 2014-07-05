@@ -11,6 +11,9 @@ define [
       email:
         required: true,
         pattern: 'email'
+      password: fn: 'passwordConfirmed', required: false
+      password_confirmation: fn: 'passwordConfirmed', required: false
+
 
     urlRoot: ->
       Chaplin.mediator.api_base_url + "/users"
@@ -33,5 +36,7 @@ define [
 
       $.trim(name)
 
-    profile_image_url: =>
-      '/assets/default_profile_pic.png'
+    passwordConfirmed: (value, attr, computed) ->
+      if computed.password? && computed.password_confirmation?
+        unless computed.password == computed.password_confirmation
+          return "Does not match"

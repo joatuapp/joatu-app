@@ -32,6 +32,8 @@ class UserDetail < ActiveRecord::Base
   belongs_to :user
   belongs_to :primary_community, class: Community
 
+  validates :user_id, presence: true
+
   def profile_image
     self[:profile_image] || Image.new
   end
