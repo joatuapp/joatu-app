@@ -20,16 +20,26 @@ define [
         given_name: fullname_binding,
         surname: fullname_binding,
         profile_image_url_tiny: {selector: '.current-user-image', elAttribute:'src'}
-        id: {
+        id: [{
           selector: '.my-profile-link', 
           converter: @generateProfileLink
           elAttribute:'href'
-        }
+        },{
+          selector: '.edit-profile-link', 
+          converter: @generateEditProfileLink
+          elAttribute:'href'
+        }]
       }
       @modelBinder.bind(Chaplin.mediator.user, @$el, bindings)
 
     generateProfileLink: (direction, value, model) =>
       if value?
         Chaplin.utils.reverse('profile', id: value)
+      else
+        ''
+
+    generateEditProfileLink: (direction, value, model) =>
+      if value?
+        Chaplin.utils.reverse('edit_profile', id: value)
       else
         ''

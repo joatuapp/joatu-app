@@ -7,6 +7,8 @@
       %li 
         %a.my-profile-link My Profile
       %li 
+        %a.edit-profile-link Edit Profile
+      %li 
         %a My Offers
       %li 
         %a My Friends
