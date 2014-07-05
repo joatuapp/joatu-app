@@ -11,14 +11,14 @@ define [
     listSelector: '[name=community_id]'
     fallbackSelector: '#no-communities'
 
-    attach: ->
+    render: ->
       super
       @listenTo @collection, "add", @collectionUpdateHandler
       @listenTo @collection, "remove", @collectionUpdateHandler
       @setupAutocomplete()
 
     setupAutocomplete: ->
-      input = $('#autocomplete_location').get(0)
+      input = @$el.find('#autocomplete_location').get(0)
       options = {}
       @autoComplete = new google.maps.places.Autocomplete(input, options)
       google.maps.event.addListener(@autoComplete, 'place_changed', @placeSelected)
@@ -29,7 +29,7 @@ define [
 
     displayCommunitySelect: ->
       place = @autoComplete.getPlace()
-      @collection.fetch({data: {latitude: place.geometry.location.k, longitude: place.geometry.location.A}})
+      @collection.fetch({data: {latitude: place.geometry.location.k, longitude: place.geometry.location.B}})
 
     collectionUpdateHandler: ->
       if @collection.length > 0
@@ -57,4 +57,4 @@ define [
           $('#user_country').val(component.long_name)
 
       $('#user_latitude').val(place.geometry.location.k)
-      $('#user_longitude').val(place.geometry.location.A)
+      $('#user_longitude').val(place.geometry.location.B)

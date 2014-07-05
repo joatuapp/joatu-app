@@ -20,7 +20,6 @@ define [
       @delegate('submit', 'form', @save)
 
     render: (options) ->
-      window.model = @model
       super
       @communitySelect = new CommunitySelectView region: 'communitySelect', collection: new Communities
       @subview 'communitySelect', @communitySelect

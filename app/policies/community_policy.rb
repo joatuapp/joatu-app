@@ -1,4 +1,4 @@
-class UserPolicy < ApplicationPolicy
+class CommunityPolicy < ApplicationPolicy
   class Scope
     attr_reader :user, :scope
 
@@ -14,10 +14,14 @@ class UserPolicy < ApplicationPolicy
   end
 
   def create?
-    true
+    user.is_admin?
   end
 
   def update?
-    user.is_admin? || user.id == scope.id
+    user.is_admin?
+  end
+
+  def destroy?
+    user.is_admin?
   end
 end

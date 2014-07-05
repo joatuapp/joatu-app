@@ -17,6 +17,7 @@ class UsersController < ApiController
   def update
     user = User.find(params[:id])
     @user = UserWithDetail.new(user: user, user_detail: user.detail)
+    authorize @user.user
     @user = consume! @user
     respond_with @user.save
   end
