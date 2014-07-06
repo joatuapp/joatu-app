@@ -30,8 +30,8 @@ GIT
       rails (>= 3.0.0)
 
 GIT
-  remote: git://github.com/undergroundwebdesigns/rails_admin_pundit.git
-  revision: 2f3e70c32f819382b87b9495d87aec6a607779a5
+  remote: git://github.com/sudosu/rails_admin_pundit.git
+  revision: e94a445db5e313d05550b9ebfba51c2cd98eae85
   specs:
     rails_admin_pundit (0.0.1)
       pundit (>= 0.2.3)

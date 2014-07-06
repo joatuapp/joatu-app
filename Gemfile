@@ -36,7 +36,7 @@ gem 'devise-token_authenticatable'
 
 # Pundit for authorization
 gem "pundit"
-gem "rails_admin_pundit", :github => "undergroundwebdesigns/rails_admin_pundit"
+gem "rails_admin_pundit", :github => "sudosu/rails_admin_pundit"
 
 # Associates lets us create meta-models.
 gem 'associates', github: "phildionne/associates"
