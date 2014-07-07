@@ -1,0 +1,7 @@
+%h3{name: "title"}
+%p.lead{name: "summary"}
+.btn-group
+  %button.btn.btn-default.edit-button
+    %span.glyphicon.glyphicon-edit
+  %button.btn.btn-default.remove-button
+    %span.glyphicon.glyphicon-remove

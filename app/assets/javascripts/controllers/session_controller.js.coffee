@@ -3,8 +3,9 @@ define [
   'controllers/base/controller'
   'models/user'
   'views/login_view'
+  'views/modal_view'
   'lib/utils'
-], (Chaplin, Controller, User, LoginView, utils) ->
+], (Chaplin, Controller, User, LoginView, ModalView, utils) ->
   'use strict'
 
   class SessionController extends Controller
@@ -53,10 +54,11 @@ define [
         @showLoginView()
 
     showLoginView: ->
-      return if @loginView
+      return if @loginModalView
       user = new User
-      @loginView = new LoginView model: user
-      @loginView.delegate('hidden.bs.modal', '.modal', @disposeLoginView)
+      loginView = new LoginView model: user
+      @loginModalView = new ModalView content: loginView, className: 'modal modal-login', autoRender: true
+      @loginModalView.delegate('hidden.bs.modal', @disposeLoginModalView)
 
     destroySession: ->
       @disposeUser()
@@ -69,10 +71,10 @@ define [
       else
         Chaplin.mediator.publish 'loginStatus', false
 
-    disposeLoginView: =>
-      return unless @loginView
-      @loginView.dispose()
-      @loginView = null
+    disposeLoginModalView: =>
+      return unless @loginModalView
+      @loginModalView.dispose()
+      @loginModalView = null
 
     disposeUser: =>
       return unless Chaplin.mediator.user

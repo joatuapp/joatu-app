@@ -8,8 +8,7 @@ define [
   class LoginView extends View
     className: ''
     autoRender: true
-    region: 'modal'
-    templateName: 'login_modal'
+    templateName: 'login_form'
 
     initialize: (options) ->
       super
@@ -26,11 +25,6 @@ define [
      @modelBinder.unbind()
      super
 
-    attach: ->
-      super
-      if @region == 'modal'
-        $(@el).find('.modal').modal 'show'
-
     login: (event) ->
       event.preventDefault()
       @model.sign_in(success: @loginSuccess, error: @loginError) 
@@ -38,7 +32,6 @@ define [
     loginSuccess: (model, response, options) =>
       @model.set(response)
       @publishEvent '!createSession', model
-      $(@el).find('.modal').modal 'hide'
 
     loginError: (model, response, options) =>
       if response.status == 401

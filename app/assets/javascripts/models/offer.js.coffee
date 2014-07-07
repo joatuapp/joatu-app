@@ -5,3 +5,6 @@ define [
   'use strict'
 
   class Offer extends Model
+    urlRoot: ->
+      Chaplin.mediator.api_base_url + "/offers"
+    

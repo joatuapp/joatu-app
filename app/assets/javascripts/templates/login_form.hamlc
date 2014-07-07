@@ -1,0 +1,12 @@
+%form(class="form-inline")
+  %div(class="errors")
+  %div(class="form-group")
+    %label(for="login" class="sr-only")
+      Email
+    %input(class="form-control" type="text", name="login" placeholder="Username or E-mail")
+  %div(class="form-group")
+    %label(for="password" class="sr-only")
+      Password
+    %input(class="form-control" type="password", name="password" placeholder="Password")
+  %div(class="form-group")
+    %input(class="login-submit" type="submit" value="")

@@ -96,6 +96,7 @@ group :development do
   gem 'guard-ctags-bundler'
   gem 'guard-rspec'
   gem 'terminal-notifier-guard'
+  gem 'guard-coffeescript'
   gem 'brakeman', :require => false
   gem 'guard-brakeman'
 
