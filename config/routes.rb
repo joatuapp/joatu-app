@@ -17,8 +17,10 @@ Rails.application.routes.draw do
 
     get 'users/me' => 'users#me'
     resources :users, only: api_actions do
-      resources :offers, only: api_actions
+      resources :offers, only: [:index, :create]
     end
+
+    resources :offers, only: [:show, :update, :destroy]
   end
 
   # This is at the very end of the file

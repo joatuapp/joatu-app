@@ -1,8 +1,9 @@
 define [
+  'chaplin'
   'views/base/view'
   'views/modal_header_view'
   'views/modal_footer_view'
-], (View, ModalHeaderView, ModalFooterView) ->
+], (Chaplin, View, ModalHeaderView, ModalFooterView) ->
   'use strict'
 
   class ModalView extends View
@@ -17,6 +18,16 @@ define [
       'modal-footer': '.modal-footer'
     
     initialize: (options) ->
+      # This code uses the mediator to make sure theres
+      # only one instance of this view in existance at
+      # any given time. That means other parts of the code
+      # don't have to worry about opening multiple modal
+      # boxes at the same time.
+      if Chaplin.mediator.modal?
+        Chaplin.mediator.modal.dispose()
+
+      Chaplin.mediator.modal = @
+
       # Can't over-ride region, should never need to!
       delete options["region"] if options["region"]?
 

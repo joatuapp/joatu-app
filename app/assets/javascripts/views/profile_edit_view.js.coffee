@@ -2,9 +2,8 @@ define [
   'views/base/view'
   'views/community_select_view'
   'models/communities'
-  'models/flash'
   'views/flash_view'
-], (View, CommunitySelectView, Communities, Flash, FlashView) ->
+], (View, CommunitySelectView, Communities, FlashView) ->
   'use strict'
 
   class ProfileEditView extends View
@@ -45,7 +44,6 @@ define [
       )
 
     displayFormError: ->
-      model = new Flash(message: "Please fix the errors on the form.")
-      flash = new FlashView(container: @$('.register-flash'), model: model)
+      flash = new FlashView(container: @$('.register-flash'), message: "Please fix the errors on the form.")
       @subview 'flash', flash
 

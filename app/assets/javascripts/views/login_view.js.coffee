@@ -1,8 +1,7 @@
 define [
   'views/base/view'
   'views/flash_view'
-  'models/flash'
-], (View, FlashView, Flash) ->
+], (View, FlashView) ->
   'use strict'
 
   class LoginView extends View
@@ -35,9 +34,8 @@ define [
 
     loginError: (model, response, options) =>
       if response.status == 401
-        msg_content = if response.responseJSON.error then response.responseJSON.error else "Invalid username or password."
-        message = new Flash message: msg_content
+        message = if response.responseJSON.error then response.responseJSON.error else "Invalid username or password."
       else
-        message = new Flash message: "Login Error."
-      error = new FlashView model: message, container: $(@el).find('.errors')
+        message = "Login Error."
+      error = new FlashView message: message, container: $(@el).find('.errors')
       @subview 'error', error

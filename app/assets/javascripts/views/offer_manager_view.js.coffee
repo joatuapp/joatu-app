@@ -8,7 +8,12 @@ define [
     autoRender: true
     templateName: 'offer_manager'
     itemView: OfferManagerInstanceView
-    itemSelector: "#offers-collection"
+    listSelector: "#offers-collection"
     loadingSelector: "#offers-loading"
     fallbackSelector: "#offers-fallback"
     className: 'offer-manager container-fluid'
+
+    initialize: (options) ->
+      super
+
+      window.col = @collection

@@ -11,4 +11,8 @@ class OfferPolicy < ApplicationPolicy
       scope
     end
   end
+
+  def destroy?
+    user.is_admin? || scope.user_id == user.id
+  end
 end

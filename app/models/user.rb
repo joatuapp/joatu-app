@@ -39,10 +39,6 @@ class User < UserBase
 
   attr_accessor :login # Holds data that can be used to login.
 
-  validates :username, presence: true
-  validates :email, confirmation: true
-  validates :password, confirmation: true
-
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup
 

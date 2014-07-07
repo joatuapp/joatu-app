@@ -1,0 +1,7 @@
+%div{ class: "alert alert-warning alert-dismissable" }
+  %button(type="button" data-dismiss="alert" class="close" aria-hidden=true)
+    &times;
+  = @message
+  %button.btn.btn-default.confirm-no No
+  %button.btn.btn-primary.confirm-yes Yes
+

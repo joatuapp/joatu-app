@@ -15,14 +15,6 @@ GIT
       tilt (~> 1.1)
 
 GIT
-  remote: git://github.com/phildionne/associates.git
-  revision: fb8cdb9be9922b97539e66fbc2898f8549f1f4c2
-  specs:
-    associates (0.0.4)
-      activerecord (>= 3.2.14)
-      activesupport (>= 3.2.14)
-
-GIT
   remote: git://github.com/sudosu/rails_admin_map_field.git
   revision: 47251289ae32a8f1fb3bf44dccd76ec4d3405ab6
   specs:
@@ -36,6 +28,13 @@ GIT
     rails_admin_pundit (0.0.1)
       pundit (>= 0.2.3)
       rails_admin (>= 0.6.2)
+
+PATH
+  remote: ~/workspace/associates
+  specs:
+    associates (0.0.4)
+      activerecord (>= 3.2.14)
+      activesupport (>= 3.2.14)
 
 GEM
   remote: https://rubygems.org/

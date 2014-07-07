@@ -5,14 +5,6 @@ define [
   'use strict'
 
   class Collection extends Chaplin.Collection
-    # Mixin a synchronization state machine.
-    _.extend @prototype, Chaplin.SyncMachine
-    initialize: (models, options) ->
-      @on 'request', @beginSync
-      @on 'sync', @finishSync
-      @on 'error', @unsync
-      super
-
     # Use the project base model per default, not Chaplin.Model
     model: Model
 
