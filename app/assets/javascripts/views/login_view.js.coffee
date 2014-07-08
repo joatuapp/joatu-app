@@ -31,6 +31,7 @@ define [
     loginSuccess: (model, response, options) =>
       @model.set(response)
       @publishEvent '!createSession', model
+      @closeIfModal()
 
     loginError: (model, response, options) =>
       if response.status == 401

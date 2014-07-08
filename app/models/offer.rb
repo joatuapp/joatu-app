@@ -35,6 +35,6 @@ class Offer < ActiveRecord::Base
   default_scope { includes(:offer_category) }
 
   def category_name
-    offer_category.name
+    offer_category ? offer_category.name : nil
   end
 end

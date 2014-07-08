@@ -61,6 +61,10 @@ define [
 
       templateFunction
 
+    closeIfModal: ->
+      if Chaplin.mediator.modal.contentView == @
+        Chaplin.mediator.modal.dispose()
+
     dispose: ->
       Backbone.Validation.unbind(@)
       @modelBinder.unbind()

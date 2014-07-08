@@ -42,7 +42,6 @@ define [
     createSession: (user) ->
       Chaplin.mediator.user = user
       @publishEvents()
-      @disposeLoginModalView()
       utils.sessionStorage('authentication_token', user.get('authentication_token'))
 
     logout: =>

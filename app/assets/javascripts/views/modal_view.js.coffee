@@ -54,12 +54,14 @@ define [
 
       @delegate 'hidden.bs.modal', @dispose
 
-    render: ->
-      super
-
     attach: ->
       super
       @headerView.render() if @headerView
       @contentView.render()
       @footerView.render() if @footerView
       @$el.modal 'show'
+
+    dispose: =>
+      return if @disposed
+      @$el.modal 'hide'
+      super

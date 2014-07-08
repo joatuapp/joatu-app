@@ -24,7 +24,6 @@ define [
     showEditModal: ->
       offerEditView = new OfferEditFormView model: @model
       editModal = new ModalView content: offerEditView, autoRender: true
-      editModal.render()
 
     confirmAndRemove: ->
       @confirm.dispose() if @confirm?
