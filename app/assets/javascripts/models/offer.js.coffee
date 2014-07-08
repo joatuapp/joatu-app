@@ -6,7 +6,7 @@ define [
 
   class Offer extends Model
     urlRoot: ->
-      if @collection? && @isNew()?
+      if @collection? && @isNew()
         @collection.url()
       else
         Chaplin.mediator.api_base_url + "/offers"
