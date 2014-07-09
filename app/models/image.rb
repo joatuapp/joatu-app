@@ -33,7 +33,7 @@
 #  index_users_on_username              (username) UNIQUE
 #
 
-class Image < UserBase
+class Image < ActiveRecord::Base
   acts_as_paranoid
 
   belongs_to :imageable, polymorphic: true

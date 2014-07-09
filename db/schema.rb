@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140709031353) do
+ActiveRecord::Schema.define(version: 20140709151317) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 20140709031353) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "deleted_at"
+    t.string   "type",          limit: 128
   end
 
   add_index "offers", ["user_id"], :name => "index_offers_on_user_id"
@@ -110,7 +111,7 @@ ActiveRecord::Schema.define(version: 20140709031353) do
 
   add_index "user_details", ["current_location"], :name => "index_user_details_on_current_location", :spatial => true
   add_index "user_details", ["primary_community_id"], :name => "index_user_details_on_primary_community_id"
-  add_index "user_details", ["user_id"], :name => "index_user_details_on_user_id"
+  add_index "user_details", ["user_id"], :name => "index_user_details_on_user_id", :unique => true
 
   create_table "users", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "username",               limit: 64, default: "",    null: false

@@ -20,17 +20,23 @@
 #  created_at    :datetime
 #  updated_at    :datetime
 #  deleted_at    :datetime
+#  type          :string(128)
 #
 # Indexes
 #
 #  index_offers_on_user_id  (user_id)
 #
 
-class Offer < ActiveRecord::Base
+class Offer::Base < ActiveRecord::Base
+  include StiBase
+  include HasLatLngAccessiblePoint
+
   acts_as_paranoid
   acts_as_taggable
+  acts_as_sti_base
 
-  include HasLatLngAccessiblePoint
+  self.table_name = :offers
+
   lat_lng_accessible_point_columns :location
 
   belongs_to :user

@@ -1,4 +1,7 @@
 class OffersController < ApiController
+
+  skip_after_action :verify_authorized, only: :types
+
   def index
     @offers = policy_scope(Offer).where(user_id: params[:user_id])
     respond_with @offers.page(params[:page])
@@ -32,5 +35,10 @@ class OffersController < ApiController
     authorize @offer
     @offer.destroy
     head :no_content
+  end
+
+  def types
+    @types = Offer::Base.types.keys.inject({}) { |h, type| h[type] = type.to_s.pluralize.humanize; h }
+    respond_with @types, represent_with: TypesRepresenter
   end
 end

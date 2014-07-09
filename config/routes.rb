@@ -20,6 +20,7 @@ Rails.application.routes.draw do
       resources :offers, only: [:index, :create]
     end
 
+    get 'offers/types' => 'offers#types'
     resources :offers, only: [:show, :update, :destroy]
   end
 

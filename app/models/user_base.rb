@@ -43,8 +43,7 @@ class UserBase < ActiveRecord::Base
   has_one :detail, class: UserDetail, foreign_key: :user_id
   accepts_nested_attributes_for :detail
 
-  has_many :offers, foreign_key: :user_id
-  has_many :offer_categories, through: :offers
+  has_many :offers, class: Offer::Base, foreign_key: :user_id
 
   has_many :owned_images, class: Image, foreign_key: :owner_id
   has_many :images, as: :imageable
