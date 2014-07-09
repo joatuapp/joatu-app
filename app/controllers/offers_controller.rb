@@ -38,7 +38,7 @@ class OffersController < ApiController
   end
 
   def types
-    @types = Offer::Base.types.keys.inject({}) { |h, type| h[type] = type.to_s.pluralize.humanize; h }
+    @types = Offer::Base.types.inject({}) { |h, (type, klass)| h[klass] = type.to_s.pluralize.humanize; h }
     respond_with @types, represent_with: TypesRepresenter
   end
 end
