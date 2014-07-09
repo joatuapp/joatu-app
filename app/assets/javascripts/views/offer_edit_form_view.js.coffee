@@ -11,12 +11,29 @@ define [
       super
       @delegate('submit', 'form', @save)
       @delegate('click', '.cancel', @cancel)
+      window.model = @model
 
     render: (options) ->
       super
+
+      # This needs to go before the model binding, so that
+      # the model can bind to the elements it creates.
+      tagsInputOptions = {
+        # Confirm on enter, space, tab, or comma (respectively)
+        confirmKeys: [13, 32, 9, 188] 
+      }
+      @tagsInputs = @$el.find("input[data-role=tagsinput], select[multiple][data-role=tagsinput]").tagsinput(tagsInputOptions)
+
       Backbone.Validation.bind(@)
       bindings = Backbone.ModelBinder.createDefaultBindings(@$el, 'name');
       @modelBinder.bind(@model, @$el, bindings)
+
+
+    dispose: ->
+      if @tagsInputs
+        _.each @tagsInputs, (tagInput) ->
+          tagInput.destroy()
+      super
 
     save: (event) ->
       @model.collection = @collection if @collection?

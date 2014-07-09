@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140701082210) do
+ActiveRecord::Schema.define(version: 20140709031353) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,36 +46,47 @@ ActiveRecord::Schema.define(version: 20140701082210) do
   add_index "images", ["imageable_id", "imageable_type"], :name => "index_images_on_imageable_id_and_imageable_type"
   add_index "images", ["owner_id"], :name => "index_images_on_owner_id"
 
-  create_table "offer_categories", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
-    t.string   "name",       null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.datetime "deleted_at"
-  end
-
   create_table "offers", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.uuid     "user_id"
-    t.uuid     "offer_category_id"
-    t.string   "title",             limit: 128
+    t.string   "title",         limit: 128
     t.string   "summary"
     t.text     "description"
-    t.spatial  "location",          limit: {:srid=>4326, :type=>"point", :geographic=>true}
-    t.string   "address1",          limit: 128
-    t.string   "address2",          limit: 128
-    t.string   "postal_code",       limit: 32
-    t.string   "neighbourhood",     limit: 128
-    t.string   "city",              limit: 128
-    t.string   "province",          limit: 128
-    t.string   "country",           limit: 128
-    t.string   "timeframe",         limit: 128
+    t.spatial  "location",      limit: {:srid=>4326, :type=>"point", :geographic=>true}
+    t.string   "address1",      limit: 128
+    t.string   "address2",      limit: 128
+    t.string   "postal_code",   limit: 32
+    t.string   "neighbourhood", limit: 128
+    t.string   "city",          limit: 128
+    t.string   "province",      limit: 128
+    t.string   "country",       limit: 128
+    t.string   "timeframe",     limit: 128
     t.integer  "length"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.datetime "deleted_at"
   end
 
-  add_index "offers", ["offer_category_id"], :name => "index_offers_on_offer_category_id"
   add_index "offers", ["user_id"], :name => "index_offers_on_user_id"
+
+  create_table "taggings", force: true do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context",       limit: 128
+    t.datetime "created_at"
+  end
+
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], :name => "taggings_idx", :unique => true
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], :name => "index_taggings_on_taggable_id_and_taggable_type_and_context"
+
+  create_table "tags", force: true do |t|
+    t.string  "name"
+    t.integer "taggings_count", default: 0
+  end
+
+  add_index "tags", ["name"], :name => "index_tags_on_name", :unique => true
 
   create_table "user_details", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.uuid     "user_id"

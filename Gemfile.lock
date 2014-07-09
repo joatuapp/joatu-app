@@ -68,6 +68,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    acts-as-taggable-on (3.3.0)
+      activerecord (>= 3, < 5)
     annotate (2.6.3)
       activerecord (>= 2.3.0)
       rake (>= 0.8.7)
@@ -390,6 +392,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord-postgis-adapter
+  acts-as-taggable-on
   annotate
   associates!
   autoprefixer-rails

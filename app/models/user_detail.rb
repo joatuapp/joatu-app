@@ -21,6 +21,12 @@
 #  about_me             :text
 #  profile_image_id     :uuid
 #
+# Indexes
+#
+#  index_user_details_on_current_location      (current_location)
+#  index_user_details_on_primary_community_id  (primary_community_id)
+#  index_user_details_on_user_id               (user_id)
+#
 
 class UserDetail < ActiveRecord::Base
   acts_as_paranoid

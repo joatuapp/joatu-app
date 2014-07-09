@@ -1,10 +1,8 @@
 class OfferRepresenter < ApplicationRepresenter
   property :id, writeable: false 
   property :user_id
-  property :category_name, writeable: false
-  property :offer_category_id, as: :category_id
-
   property :title
+  property :summary
   property :description
   property :location_latitude
   property :location_longitude
@@ -18,6 +16,8 @@ class OfferRepresenter < ApplicationRepresenter
 
   property :timeframe
   property :length
+
+  property :tag_list, as: :tags
 
   property :created_at, writeable: false
   property :updated_at, writeable: false

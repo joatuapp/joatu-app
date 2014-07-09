@@ -24,6 +24,14 @@
 #  updated_at             :datetime
 #  deleted_at             :datetime
 #
+# Indexes
+#
+#  index_users_on_authentication_token  (authentication_token) UNIQUE
+#  index_users_on_confirmation_token    (confirmation_token) UNIQUE
+#  index_users_on_email                 (email) UNIQUE
+#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
+#  index_users_on_username              (username) UNIQUE
+#
 
 # Read about factories at https://github.com/thoughtbot/factory_girl
 

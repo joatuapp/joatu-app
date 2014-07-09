@@ -11,3 +11,6 @@ define [
       else
         Chaplin.mediator.api_base_url + "/offers"
     
+    defaults: {
+      tags: []
+    }

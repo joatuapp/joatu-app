@@ -9,6 +9,10 @@
 #  updated_at :datetime
 #  deleted_at :datetime
 #
+# Indexes
+#
+#  index_communities_on_location  (location)
+#
 
 class Community < ActiveRecord::Base
   acts_as_paranoid

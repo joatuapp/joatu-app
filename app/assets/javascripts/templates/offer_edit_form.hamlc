@@ -9,6 +9,12 @@
     %label{for: "description"} Description
     %textarea.form-control{id: "description", name: "description"}
   .form-group
+    %label{for: "tags"} Tags
+    %select.form-control{id: "tags", name: "tags", 'data-role': 'tagsinput', multiple: true}
+      - for tag in @tags
+        %option{value: tag}
+          = tag
+  .form-group
     %label{for: "timeframe"} Availability timeframe
     %select.form-control{id: "timeframe", name: "timeframe"}
       %option{value: "all"} Anytime
@@ -23,7 +29,7 @@
       %option{value: "", selected: true} No estimate
       - for x in [1..5]
         %option{value: x} 
-          x
+          = x
 
   .form-group.pull-right
     %button.btn.cancel Cancel

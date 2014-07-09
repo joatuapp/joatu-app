@@ -17,6 +17,9 @@ gem 'activerecord-postgis-adapter'
 # Active record support gems.
 gem 'annotate'
 
+# Taggable:
+gem 'acts-as-taggable-on'
+
 # Paranoia causes destroy calls to set a
 # "deleted_at" timestamp rather than actually deleting anything. Allows us to recover deleted data later.
 gem 'paranoia', '~> 2.0'

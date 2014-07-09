@@ -9,6 +9,7 @@ class OffersController < ApiController
     consume! @offer
     @offer.user_id = current_user.id
     authorize @offer
+    @offer.save
     respond_with @offer
   end
 
@@ -22,6 +23,7 @@ class OffersController < ApiController
     @offer = Offer.find(params[:id])
     consume! @offer
     authorize @offer
+    @offer.save
     respond_with @offer
   end
 

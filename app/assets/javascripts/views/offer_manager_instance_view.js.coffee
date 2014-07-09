@@ -16,7 +16,6 @@ define [
       @delegate 'click', '.edit-button', @showEditModal
       @delegate 'click', '.remove-button', @confirmAndRemove
 
-
     render: ->
       super
       @modelBinder.bind(@model, @$el)
