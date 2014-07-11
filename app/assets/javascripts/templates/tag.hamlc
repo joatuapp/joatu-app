@@ -1,2 +1,1 @@
-.tag
-  = name
+%button.tag.btn.btn-primary{name: "tag"}

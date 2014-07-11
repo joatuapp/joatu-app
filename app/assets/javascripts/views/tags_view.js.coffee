@@ -5,5 +5,6 @@ define [
   'use strict'
 
   class TagsView extends CollectionView
-    className: 'tags'
+    className: 'tags list-inline'
+    tagName: 'ul'
     itemView: TagView

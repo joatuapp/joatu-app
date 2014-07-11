@@ -8,6 +8,6 @@ define [
     parse: (response, options) ->
       out = []
       _.each(response, (tag) ->
-        out.push {name: tag}
+        out.push {tag: tag}
       )
       out

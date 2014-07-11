@@ -8,7 +8,6 @@ define [
   class Offer extends Model
     initialize: (options) ->
       super
-      window.offer = @
       @tagsCollection = new Tags
       @listenTo @, 'change:tags', @updateTagsCollection
       @updateTagsCollection()
