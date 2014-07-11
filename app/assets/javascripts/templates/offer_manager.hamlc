@@ -1,6 +1,7 @@
-%h1 Offer Manager
-%button.add-offer.btn.btn-success.pull-right
-  %span.glyphicon.glyphicon-plus Add Offer
+.top.clearfix
+  %h1 Offer Manager
+  %button.add-offer.btn.btn-success.pull-right
+    %span.glyphicon.glyphicon-plus Add Offer
 #offers-collection
 #offers-loading
 #offers-fallback

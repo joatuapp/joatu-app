@@ -1,4 +1,4 @@
-%form.row{role: "form"}
+%form{role: "form"}
   .form-group
     %label{for: "title"} Title
     %input.form-control{type: "text", id: "title", name: "title"}

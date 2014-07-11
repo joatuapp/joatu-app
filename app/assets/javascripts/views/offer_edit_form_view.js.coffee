@@ -6,6 +6,7 @@ define [
 
   class OfferEditFormView extends View
     templateName: 'offer_edit_form'
+    className: 'clearfix'
 
     initialize: (options) ->
       super
