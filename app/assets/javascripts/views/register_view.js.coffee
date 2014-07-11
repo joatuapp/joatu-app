@@ -4,10 +4,9 @@ define [
   'views/register_step1_view'
   'views/register_step2_view'
   'views/register_step3_view'
-  'models/flash'
   'views/flash_view'
   'backbone-validation'
-], (Chaplin, View, RegisterStep1View, RegisterStep2View, RegisterStep3View, Flash, FlashView) ->
+], (Chaplin, View, RegisterStep1View, RegisterStep2View, RegisterStep3View, FlashView) ->
   'use strict'
 
   class RegisterView extends View
@@ -58,6 +57,5 @@ define [
         @displayFormError()
 
     displayFormError: ->
-      model = new Flash(message: "Please fix the errors on the form.")
-      flash = new FlashView(container: @$('.register-flash'), model: model)
+      flash = new FlashView(container: @$('.register-flash'), model: model, message: "Please fix the errors on the form.")
       @subview 'flash', flash

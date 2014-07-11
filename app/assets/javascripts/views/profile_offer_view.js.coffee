@@ -1,7 +1,8 @@
 define [
   'chaplin'
   'views/base/view'
-], (Chaplin, View) ->
+  'views/tags_view'
+], (Chaplin, View, TagsView) ->
   'use strict'
 
   class ProfileOfferView extends View
@@ -12,16 +13,14 @@ define [
       super
       bindings = {
         title: '.offer-title',
-        description: '.offer-description',
-        category_name: '.offer-category'
-        category_id: {
-          selector: '.offer-category',
-          elAttribute: 'href',
-          converter: @categorySearchUrl
-        }
+        description: '.offer-description'
       }
 
       @modelBinder.bind(@model, @$el, bindings)
+
+      tags = new TagsView collection: @model.tagsCollection, container: @$el.find(".tag-container"), autoRender: true
+      @subview 'tags', tags
+
 
     categorySearchUrl: (direction, value, mode) =>
       if value?

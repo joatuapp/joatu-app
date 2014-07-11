@@ -1,6 +1,7 @@
 define [
   'chaplin'
   'backbone-modelbinder'
+  'bootstrap-tagsinput'
   'lib/view_helper' # Just load the view helpers, no return value
   'backbone-validation'
 ], (Chaplin) ->
@@ -60,6 +61,10 @@ define [
         throw new Error "View template #{@templateName} not found"
 
       templateFunction
+
+    closeIfModal: ->
+      if Chaplin.mediator.modal.contentView == @
+        Chaplin.mediator.modal.dispose()
 
     dispose: ->
       Backbone.Validation.unbind(@)

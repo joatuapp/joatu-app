@@ -1,0 +1,11 @@
+.panel.panel-default
+  .panel-heading
+    %h3.offer-title.panel-title
+  .panel-body
+    %p.offer-summary.lead
+    .tag-container
+    .btn-group.pull-right
+      %button.btn.btn-default.edit-button
+        %span.glyphicon.glyphicon-edit
+      %button.btn.btn-default.remove-button
+        %span.glyphicon.glyphicon-remove

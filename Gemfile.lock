@@ -15,14 +15,6 @@ GIT
       tilt (~> 1.1)
 
 GIT
-  remote: git://github.com/phildionne/associates.git
-  revision: fb8cdb9be9922b97539e66fbc2898f8549f1f4c2
-  specs:
-    associates (0.0.4)
-      activerecord (>= 3.2.14)
-      activesupport (>= 3.2.14)
-
-GIT
   remote: git://github.com/sudosu/rails_admin_map_field.git
   revision: 47251289ae32a8f1fb3bf44dccd76ec4d3405ab6
   specs:
@@ -36,6 +28,13 @@ GIT
     rails_admin_pundit (0.0.1)
       pundit (>= 0.2.3)
       rails_admin (>= 0.6.2)
+
+PATH
+  remote: ~/workspace/associates
+  specs:
+    associates (0.0.4)
+      activerecord (>= 3.2.14)
+      activesupport (>= 3.2.14)
 
 GEM
   remote: https://rubygems.org/
@@ -69,6 +68,8 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
+    acts-as-taggable-on (3.3.0)
+      activerecord (>= 3, < 5)
     annotate (2.6.3)
       activerecord (>= 2.3.0)
       rake (>= 0.8.7)
@@ -170,6 +171,9 @@ GEM
       thor (>= 0.18.1)
     guard-brakeman (0.8.1)
       brakeman (>= 2.1.1)
+      guard (>= 1.1.0)
+    guard-coffeescript (1.2.1)
+      coffee-script (>= 2.2.0)
       guard (>= 1.1.0)
     guard-ctags-bundler (1.0.2)
       guard (~> 2.0)
@@ -388,6 +392,7 @@ PLATFORMS
 
 DEPENDENCIES
   activerecord-postgis-adapter
+  acts-as-taggable-on
   annotate
   associates!
   autoprefixer-rails
@@ -410,6 +415,7 @@ DEPENDENCIES
   foreman
   guard
   guard-brakeman
+  guard-coffeescript
   guard-ctags-bundler
   guard-rspec
   haml

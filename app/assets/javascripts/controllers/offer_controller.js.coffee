@@ -1,9 +1,9 @@
 define [
   'controllers/base/controller'
-  'models/offer'
-  'views/offer_view'
+  'models/offers'
+  'views/offer_manager_view'
   'controllers/session_controller'
-], (Controller, Offer, OfferView, SessionController) ->
+], (Controller, Offers, OffersManagerView, SessionController) ->
   'use strict'
 
   class OfferController extends Controller
@@ -14,6 +14,7 @@ define [
 
     title: 'Edit offers'
 
-    show: (params) ->
-      @model = new Offer id: params["id"]
-      @view = new OfferView model: @model, region: 'main', autoRender: true
+    edit: (params) ->
+      @collection = new Offers user_id: params["user_id"]
+      @collection.fetch()
+      @view = new OffersManagerView collection: @collection, region: 'main', autoRender: true

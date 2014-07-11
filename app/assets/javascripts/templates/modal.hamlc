@@ -1,0 +1,7 @@
+.modal-dialog
+  .modal-content
+    - if @headerView
+      .modal-header 
+    .modal-body
+    - if @footerView
+      .modal-footer

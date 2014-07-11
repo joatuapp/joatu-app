@@ -17,10 +17,10 @@ define [
 
     show: (params) ->
       @model = new User(id: params["id"])
-      @view = new ProfileView model: @model, region: 'main', autoRender: true
       @model.fetch()
+      @view = new ProfileView model: @model, region: 'main', autoRender: true
 
     edit: (params) ->
       @model = new User(id: params["id"])
-      @view = new ProfileEditView model: @model, region: 'main', autoRender: true
       @model.fetch()
+      @view = new ProfileEditView model: @model, region: 'main', autoRender: true

@@ -21,6 +21,12 @@
 #  about_me             :text
 #  profile_image_id     :uuid
 #
+# Indexes
+#
+#  index_user_details_on_current_location      (current_location)
+#  index_user_details_on_primary_community_id  (primary_community_id)
+#  index_user_details_on_user_id               (user_id)
+#
 
 class UserDetail < ActiveRecord::Base
   acts_as_paranoid
@@ -31,8 +37,6 @@ class UserDetail < ActiveRecord::Base
   belongs_to :profile_image, class: Image, foreign_key: :profile_image_id
   belongs_to :user
   belongs_to :primary_community, class: Community
-
-  validates :user_id, presence: true
 
   def profile_image
     self[:profile_image] || Image.new

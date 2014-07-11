@@ -2,13 +2,17 @@ define [
   'chaplin'
   'models/base/collection'
   'models/offer'
-], (Chaplin, Collection, Offer) ->
+  'models/user'
+], (Chaplin, Collection, Offer, User) ->
   'use strict'
 
   class Offers extends Collection
     initialize: (options) ->
       super
-      @user = options["user"] if options["user"]?
+      if options["user"]?
+        @user = options["user"]
+      else if options["user_id"]?
+        @user = new User id: options["user_id"]
 
     url: ->
       if @user

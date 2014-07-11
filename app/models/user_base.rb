@@ -24,6 +24,14 @@
 #  updated_at             :datetime
 #  deleted_at             :datetime
 #
+# Indexes
+#
+#  index_users_on_authentication_token  (authentication_token) UNIQUE
+#  index_users_on_confirmation_token    (confirmation_token) UNIQUE
+#  index_users_on_email                 (email) UNIQUE
+#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
+#  index_users_on_username              (username) UNIQUE
+#
 
 # This is the base class of the user and admin models. 
 class UserBase < ActiveRecord::Base
@@ -35,8 +43,7 @@ class UserBase < ActiveRecord::Base
   has_one :detail, class: UserDetail, foreign_key: :user_id
   accepts_nested_attributes_for :detail
 
-  has_many :offers, foreign_key: :user_id
-  has_many :offer_categories, through: :offers
+  has_many :offers, class: Offer::Base, foreign_key: :user_id
 
   has_many :owned_images, class: Image, foreign_key: :owner_id
   has_many :images, as: :imageable

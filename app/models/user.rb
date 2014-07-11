@@ -24,6 +24,14 @@
 #  updated_at             :datetime
 #  deleted_at             :datetime
 #
+# Indexes
+#
+#  index_users_on_authentication_token  (authentication_token) UNIQUE
+#  index_users_on_confirmation_token    (confirmation_token) UNIQUE
+#  index_users_on_email                 (email) UNIQUE
+#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
+#  index_users_on_username              (username) UNIQUE
+#
 
 class User < UserBase
 
@@ -38,10 +46,6 @@ class User < UserBase
   before_save :ensure_authentication_token
 
   attr_accessor :login # Holds data that can be used to login.
-
-  validates :username, presence: true
-  validates :email, confirmation: true
-  validates :password, confirmation: true
 
   def self.find_for_database_authentication(warden_conditions)
     conditions = warden_conditions.dup

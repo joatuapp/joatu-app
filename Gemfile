@@ -17,6 +17,9 @@ gem 'activerecord-postgis-adapter'
 # Active record support gems.
 gem 'annotate'
 
+# Taggable:
+gem 'acts-as-taggable-on'
+
 # Paranoia causes destroy calls to set a
 # "deleted_at" timestamp rather than actually deleting anything. Allows us to recover deleted data later.
 gem 'paranoia', '~> 2.0'
@@ -39,7 +42,8 @@ gem "pundit"
 gem "rails_admin_pundit", :github => "sudosu/rails_admin_pundit"
 
 # Associates lets us create meta-models.
-gem 'associates', github: "phildionne/associates"
+# gem 'associates', github: "phildionne/associates"
+gem 'associates', path: "~/workspace/associates"
 
 # Cors extension for rack, let's us do cross domain JS requests:
 gem 'rack-cors', require: 'rack/cors'
@@ -96,6 +100,7 @@ group :development do
   gem 'guard-ctags-bundler'
   gem 'guard-rspec'
   gem 'terminal-notifier-guard'
+  gem 'guard-coffeescript'
   gem 'brakeman', :require => false
   gem 'guard-brakeman'
 
