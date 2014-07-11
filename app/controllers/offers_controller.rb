@@ -8,30 +8,30 @@ class OffersController < ApiController
   end
 
   def create
-    @offer = Offer.new(type: params[:type])
+    @offer = Offer::Base.new(type: params[:type])
     consume! @offer
     @offer.user_id = current_user.id
     authorize @offer
     @offer.save
-    respond_with @offer, represent_with: OfferRepresenter
+    respond_with @offer
   end
 
   def show
-    @offer = Offer.find(params[:id])
+    @offer = Offer::Base.find(params[:id])
     authorize @offer
-    respond_with @offer, represent_with: OfferRepresenter
+    respond_with @offer
   end
 
   def update
-    @offer = Offer.find(params[:id])
+    @offer = Offer::Base.find(params[:id])
     consume! @offer
     authorize @offer
     @offer.save
-    respond_with @offer, represent_with: OfferRepresenter
+    respond_with @offer
   end
 
   def destroy
-    @offer = Offer.find(params[:id])
+    @offer = Offer::Base.find(params[:id])
     authorize @offer
     @offer.destroy
     head :no_content

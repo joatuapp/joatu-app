@@ -3,4 +3,4 @@
     %h3.offer-title.panel-title
   .panel-body
     %p.offer-description
-    #tag-container
+    .tag-container

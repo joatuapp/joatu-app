@@ -18,7 +18,7 @@ define [
 
       @modelBinder.bind(@model, @$el, bindings)
 
-      tags = new TagsView collection: @model.tagsCollection, container: "#tag-container", autoRender: true
+      tags = new TagsView collection: @model.tagsCollection, container: @$el.find(".tag-container"), autoRender: true
       @subview 'tags', tags
 
 
