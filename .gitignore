@@ -25,3 +25,5 @@ config/secrets.yml
 # on the server:
 public/assets
 public/javascripts
+
+gems.tags
