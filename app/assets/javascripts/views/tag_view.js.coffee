@@ -9,4 +9,7 @@ define [
 
     render: ->
       super
-      @modelBinder.bind(@model, @$el)
+      bindings = {
+        tag: '.tag'
+      }
+      @modelBinder.bind(@model, @$el, bindings)

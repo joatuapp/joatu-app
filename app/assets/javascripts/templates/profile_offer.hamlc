@@ -1,7 +1,6 @@
 .panel.panel-default
   .panel-heading
     %h3.offer-title.panel-title
-  %p.offer-description.panel-body
-  %ul.labels.list-inline
-    %li.label.label-default
-      %a.offer-category
+  .panel-body
+    %p.offer-description
+    #tag-container
