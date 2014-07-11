@@ -9,4 +9,3 @@ define [
     itemView: ProfileOfferView
     listSelector: '.offers-list'
     fallbackSelector: '.no-offers'
-    loadingSelector: '.loading'
