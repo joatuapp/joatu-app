@@ -40,4 +40,8 @@ class Offer::Base < ActiveRecord::Base
   lat_lng_accessible_point_columns :location
 
   belongs_to :user
+
+  def self.policy_class
+    OfferPolicy
+  end
 end

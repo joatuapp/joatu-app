@@ -3,7 +3,8 @@ define [
   'views/offer_edit_form_view'
   'views/modal_view'
   'views/confirm_view'
-], (View, OfferEditFormView, ModalView, ConfirmView) ->
+  'views/tags_view'
+], (View, OfferEditFormView, ModalView, ConfirmView, TagsView) ->
   'use strict'
 
   class OfferManagerInstanceView extends View
@@ -19,6 +20,9 @@ define [
     render: ->
       super
       @modelBinder.bind(@model, @$el)
+
+      tags = new TagsView collection: @model.tagsCollection, container: "#tag-container", autoRender: true
+      @subview 'tags', tags
 
     showEditModal: ->
       offerEditView = new OfferEditFormView model: @model

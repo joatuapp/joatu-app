@@ -3,23 +3,23 @@ class OffersController < ApiController
   skip_after_action :verify_authorized, only: :types
 
   def index
-    @offers = policy_scope(Offer).where(user_id: params[:user_id])
+    @offers = policy_scope(Offer::Base).where(user_id: params[:user_id])
     respond_with @offers.page(params[:page])
   end
 
   def create
-    @offer = Offer.new
+    @offer = Offer.new(type: params[:type])
     consume! @offer
     @offer.user_id = current_user.id
     authorize @offer
     @offer.save
-    respond_with @offer
+    respond_with @offer, represent_with: OfferRepresenter
   end
 
   def show
     @offer = Offer.find(params[:id])
     authorize @offer
-    respond_with @offer
+    respond_with @offer, represent_with: OfferRepresenter
   end
 
   def update
@@ -27,7 +27,7 @@ class OffersController < ApiController
     consume! @offer
     authorize @offer
     @offer.save
-    respond_with @offer
+    respond_with @offer, represent_with: OfferRepresenter
   end
 
   def destroy

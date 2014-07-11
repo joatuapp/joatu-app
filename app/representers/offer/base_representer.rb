@@ -1,4 +1,4 @@
-class OfferRepresenter < ApplicationRepresenter
+class Offer::BaseRepresenter < ApplicationRepresenter
   property :id, writeable: false 
   property :user_id
   property :title

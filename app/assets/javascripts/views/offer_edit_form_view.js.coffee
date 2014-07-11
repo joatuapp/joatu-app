@@ -11,7 +11,6 @@ define [
       super
       @delegate('submit', 'form', @save)
       @delegate('click', '.cancel', @cancel)
-      window.model = @model
 
     render: (options) ->
       super

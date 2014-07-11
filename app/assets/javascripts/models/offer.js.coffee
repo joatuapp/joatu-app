@@ -1,10 +1,18 @@
 define [
   'chaplin'
   'models/base/model'
-], (Chaplin, Model) ->
+  'models/tags'
+], (Chaplin, Model, Tags) ->
   'use strict'
 
   class Offer extends Model
+    initialize: (options) ->
+      super
+      window.offer = @
+      @tagsCollection = new Tags
+      @listenTo @, 'change:tags', @updateTagsCollection
+      @updateTagsCollection()
+
     urlRoot: ->
       if @collection? && @isNew()
         @collection.url()
@@ -14,3 +22,7 @@ define [
     defaults: {
       tags: []
     }
+
+    updateTagsCollection: =>
+      foo = "bar"
+      @tagsCollection.set(@get('tags'), parse: true)
