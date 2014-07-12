@@ -8,13 +8,14 @@ class SessionsController < ApiController
     if user && user.valid_password?(params[:password])
       sign_in(:user, user)
       user_with_detail = UserWithDetail.new user: user, user_detail: user.detail
-      respond_with user_with_detail, represent_with: UserSessionRepresenter
+      respond_with user_with_detail, represent_with: UserSessionRepresenter, status: :created
     else
       invalid_login_attempt
     end
   end
 
   def destroy
+    return head :unauthorized unless current_user
     current_user.reset_authentication_token!
     sign_out(:user)
     head :no_content
