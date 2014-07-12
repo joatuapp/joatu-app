@@ -1,8 +1,9 @@
 define [
   'views/base/view'
   'views/profile_offers_view'
+  'views/tags_view'
   'models/offers'
-], (View, ProfileOffersView, Offers) ->
+], (View, ProfileOffersView, TagsView, Offers) ->
   'use strict'
 
   class ProfileView extends View
@@ -11,6 +12,7 @@ define [
 
     regions:
       offers: '#offers-container'
+      currencies: '#currencies-container'
 
     initialize: ->
       super
@@ -22,6 +24,9 @@ define [
 
       offersView = new ProfileOffersView autoRender: true, region: 'offers', collection: @offers
       @subview 'offers', offersView
+
+      acceptedCurrenciesView = new TagsView collection: @model.acceptedCurrenciesCollection, region: 'currencies',  autoRender: true
+      @subview 'accepted_currencies', acceptedCurrenciesView
       
       fullname_binding = {
         selector: '.profile-fullname',

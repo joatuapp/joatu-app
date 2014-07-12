@@ -1,10 +1,12 @@
 define [
   'chaplin'
   'models/base/collection'
-], (Chaplin, Collection) ->
+  'models/tag'
+], (Chaplin, Collection, Tag) ->
   'use strict'
 
   class Tags extends Collection
+    model: Tag
     parse: (response, options) ->
       out = []
       _.each(response, (tag) ->

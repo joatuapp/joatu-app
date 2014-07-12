@@ -36,6 +36,8 @@
 # This is the base class of the user and admin models. 
 class UserBase < ActiveRecord::Base
   acts_as_paranoid
+  acts_as_taggable_on :accepted_currencies
+
 
   self.table_name = :users
 

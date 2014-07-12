@@ -5,6 +5,7 @@ define [
   'use strict'
 
   class TagsView extends CollectionView
-    className: 'tags list-inline'
-    tagName: 'ul'
     itemView: TagView
+    templateName: 'tags'
+    listSelector: '.tags'
+    fallbackSelector: '.empty'

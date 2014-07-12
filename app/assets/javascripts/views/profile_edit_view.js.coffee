@@ -1,9 +1,10 @@
 define [
   'views/base/view'
   'views/community_select_view'
+  'views/tag_select_view'
   'models/communities'
   'views/flash_view'
-], (View, CommunitySelectView, Communities, FlashView) ->
+], (View, CommunitySelectView, TagSelectView, Communities, FlashView) ->
   'use strict'
 
   class ProfileEditView extends View
@@ -12,6 +13,7 @@ define [
 
     regions:
       communitySelect: "#community_select_container"
+      tagSelect: "#tag_select_container"
 
     initialize: (options) ->
       super
@@ -22,6 +24,9 @@ define [
       super
       @communitySelect = new CommunitySelectView region: 'communitySelect', collection: new Communities
       @subview 'communitySelect', @communitySelect
+
+      @acceptedCurrenciesSelect = new TagSelectView region: 'tagSelect', collection: @model.acceptedCurrenciesCollection, label: "Accepted Currencies", field_name: "accepted_currencies"
+      @subview 'acceptedCurrenciesSelect', @acceptedCurrenciesSelect
 
       Backbone.Validation.bind(@)
       bindings = Backbone.ModelBinder.createDefaultBindings(@$el, 'name');

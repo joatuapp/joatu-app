@@ -1,0 +1,4 @@
+.form-group
+  %label{for: @field_id} 
+    = @label
+  %select.form-control{id: @field_id, name: @field_name, 'data-role': 'tagsinput', multiple: true}

@@ -1,7 +1,8 @@
 define [
   'chaplin'
   'models/base/model'
-], (Chaplin, Model) ->
+  'models/tags'
+], (Chaplin, Model, Tags) ->
   'use strict'
 
   class User extends Model
@@ -14,6 +15,15 @@ define [
       password: fn: 'passwordConfirmed', required: false
       password_confirmation: fn: 'passwordConfirmed', required: false
 
+    defaults: {
+      accepted_currencies: []
+    }
+
+    initialize: (options) ->
+      super
+      @acceptedCurrenciesCollection = new Tags
+      @listenTo @, 'change:accepted_currencies', @updateAcceptedCurrenciesCollection
+      @updateAcceptedCurrenciesCollection()
 
     urlRoot: ->
       Chaplin.mediator.api_base_url + "/users"
@@ -40,3 +50,6 @@ define [
       if computed.password? && computed.password_confirmation?
         unless computed.password == computed.password_confirmation
           return "Does not match"
+
+    updateAcceptedCurrenciesCollection: =>
+      @acceptedCurrenciesCollection.set(@get('accepted_currencies'), parse: true)

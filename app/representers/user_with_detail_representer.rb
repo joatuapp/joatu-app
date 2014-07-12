@@ -17,6 +17,8 @@ class UserWithDetailRepresenter < ApplicationRepresenter
   property :province
   property :country
 
+  property :accepted_currency_list, as: :accepted_currencies
+
   property :profile_image_url_tiny, writeable: false
   property :profile_image_url_thumbnail, writeable: false
 

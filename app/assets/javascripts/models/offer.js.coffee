@@ -23,5 +23,4 @@ define [
     }
 
     updateTagsCollection: =>
-      foo = "bar"
       @tagsCollection.set(@get('tags'), parse: true)
