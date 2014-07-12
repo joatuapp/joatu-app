@@ -37,5 +37,11 @@
 
 FactoryGirl.define do
   factory :user do
+    username Faker::Internet.user_name
+    email Faker::Internet.email
+    email_confirmation { email }
+    password Faker::Internet.password
+
+    association :detail, factory: :user_detail
   end
 end

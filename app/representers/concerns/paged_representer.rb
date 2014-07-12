@@ -8,7 +8,7 @@ module PagedRepresenter
 
     # Adds the items collection
     # to the representer
-    base.collection :items, decorator: decorator, class: klass, decorator_scope: true
+    base.collection :items, decorator: decorator, class: klass, decorator: :decorator
 
     base.class_eval do
       def items
