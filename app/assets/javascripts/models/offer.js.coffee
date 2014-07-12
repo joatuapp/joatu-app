@@ -9,8 +9,8 @@ define [
     initialize: (options) ->
       super
       @tagsCollection = new Tags
-      @listenTo @, 'change:tags', @updateTagsCollection
       @updateTagsCollection()
+      @listenTo @, "change:tags", @updateTagsCollection
 
     urlRoot: ->
       if @collection? && @isNew()

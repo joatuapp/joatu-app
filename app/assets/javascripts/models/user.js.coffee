@@ -22,7 +22,7 @@ define [
     initialize: (options) ->
       super
       @acceptedCurrenciesCollection = new Tags
-      @listenTo @, 'change:accepted_currencies', @updateAcceptedCurrenciesCollection
+      @listenTo @, "change:accepted_currencies", @updateAcceptedCurrenciesCollection
       @updateAcceptedCurrenciesCollection()
 
     urlRoot: ->
@@ -51,5 +51,5 @@ define [
         unless computed.password == computed.password_confirmation
           return "Does not match"
 
-    updateAcceptedCurrenciesCollection: =>
+    updateAcceptedCurrenciesCollection: ->
       @acceptedCurrenciesCollection.set(@get('accepted_currencies'), parse: true)

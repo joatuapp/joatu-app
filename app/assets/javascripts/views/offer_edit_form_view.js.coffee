@@ -1,12 +1,16 @@
 define [
   'views/base/view'
   'views/flash_view'
-], (View, FlashView) ->
+  'views/tag_select_view'
+], (View, FlashView, TagSelectView) ->
   'use strict'
 
   class OfferEditFormView extends View
     templateName: 'offer_edit_form'
     className: 'clearfix'
+
+    regions:
+      'tag_select': '#tag_select_container'
 
     initialize: (options) ->
       super
@@ -15,14 +19,8 @@ define [
 
     render: (options) ->
       super
-
-      # This needs to go before the model binding, so that
-      # the model can bind to the elements it creates.
-      tagsInputOptions = {
-        # Confirm on enter, space, tab, or comma (respectively)
-        confirmKeys: [13, 32, 9, 188] 
-      }
-      @tagsInputs = @$el.find("input[data-role=tagsinput], select[multiple][data-role=tagsinput]").tagsinput(tagsInputOptions)
+      @tagSelectView = new TagSelectView region: 'tag_select', collection: @model.tagsCollection
+      @subview 'tag_select', @tagSelectView
 
       Backbone.Validation.bind(@)
       bindings = Backbone.ModelBinder.createDefaultBindings(@$el, 'name');

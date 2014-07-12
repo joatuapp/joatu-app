@@ -9,11 +9,7 @@
     %label{for: "description"} Description
     %textarea.form-control{id: "description", name: "description"}
   .form-group
-    %label{for: "tags"} Tags
-    %select.form-control{id: "tags", name: "tags", 'data-role': 'tagsinput', multiple: true}
-      - for tag in @tags
-        %option{value: tag}
-          = tag
+    #tag_select_container
   .form-group
     %label{for: "timeframe"} Availability timeframe
     %select.form-control{id: "timeframe", name: "timeframe"}
