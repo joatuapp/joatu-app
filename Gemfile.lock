@@ -29,8 +29,9 @@ GIT
       pundit (>= 0.2.3)
       rails_admin (>= 0.6.2)
 
-PATH
-  remote: ~/workspace/associates
+GIT
+  remote: git://github.com/undergroundwebdesigns/associates.git
+  revision: 48b646ca4ad2c453c847bf4bedb6637e0de16205
   specs:
     associates (0.0.4)
       activerecord (>= 3.2.14)

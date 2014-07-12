@@ -43,7 +43,7 @@ gem "rails_admin_pundit", :github => "sudosu/rails_admin_pundit"
 
 # Associates lets us create meta-models.
 # gem 'associates', github: "phildionne/associates"
-gem 'associates', path: "~/workspace/associates"
+gem 'associates', github: "undergroundwebdesigns/associates"
 
 # Cors extension for rack, let's us do cross domain JS requests:
 gem 'rack-cors', require: 'rack/cors'
