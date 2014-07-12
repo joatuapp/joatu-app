@@ -18,6 +18,7 @@ class Offer::BaseRepresenter < ApplicationRepresenter
   property :length
 
   property :tag_list, as: :tags
+  property :availability_list, as: :availabilities
 
   property :created_at, writeable: false
   property :updated_at, writeable: false

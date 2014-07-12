@@ -23,11 +23,15 @@ define [
         id: [{
           selector: '.my-profile-link', 
           converter: @generateProfileLink
-          elAttribute:'href'
+          elAttribute: 'href'
         },{
           selector: '.edit-profile-link', 
           converter: @generateEditProfileLink
-          elAttribute:'href'
+          elAttribute: 'href'
+        },{
+          selector: '.manage-offers-link',
+          converter: @generateManageOffersLink
+          elAttribute: 'href'
         }]
       }
       @modelBinder.bind(Chaplin.mediator.user, @$el, bindings)
@@ -41,5 +45,11 @@ define [
     generateEditProfileLink: (direction, value, model) =>
       if value?
         Chaplin.utils.reverse('edit_profile', id: value)
+      else
+        ''
+
+    generateManageOffersLink: (direction, value, model) =>
+      if value?
+        Chaplin.utils.reverse('manage_offers', user_id: value)
       else
         ''

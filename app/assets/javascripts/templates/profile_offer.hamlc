@@ -3,4 +3,7 @@
     %h3.offer-title.panel-title
   .panel-body
     %p.offer-description
+    %h4 Tags
     .tag-container
+    %h4 Available For
+    .availability-container

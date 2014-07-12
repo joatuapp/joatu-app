@@ -11,6 +11,7 @@ define [
 
     regions:
       'tag_select': '#tag_select_container'
+      'availability_select': '#availability_select_container'
 
     initialize: (options) ->
       super
@@ -22,16 +23,12 @@ define [
       @tagSelectView = new TagSelectView region: 'tag_select', collection: @model.tagsCollection
       @subview 'tag_select', @tagSelectView
 
+      @availabilitySelectView = new TagSelectView region: 'availability_select', collection: @model.availabilitiesCollection, label: "Availabile for", fieldName: "availabilities"
+      @subview 'availability_select', @availabilitySelectView
+
       Backbone.Validation.bind(@)
       bindings = Backbone.ModelBinder.createDefaultBindings(@$el, 'name');
       @modelBinder.bind(@model, @$el, bindings)
-
-
-    dispose: ->
-      if @tagsInputs
-        _.each @tagsInputs, (tagInput) ->
-          tagInput.destroy()
-      super
 
     save: (event) ->
       @model.collection = @collection if @collection?

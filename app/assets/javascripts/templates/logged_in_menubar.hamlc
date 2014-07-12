@@ -9,7 +9,7 @@
       %li 
         %a.edit-profile-link Edit Profile
       %li 
-        %a My Offers
+        %a.manage-offers-link Manage Offers
       %li 
         %a My Friends
       %li 

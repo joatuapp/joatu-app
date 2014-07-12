@@ -21,6 +21,8 @@ define [
       tags = new TagsView collection: @model.tagsCollection, container: @$el.find(".tag-container"), autoRender: true
       @subview 'tags', tags
 
+      availabilities = new TagsView collection: @model.availabilitiesCollection, container: @$el.find(".availability-container"), autoRender: true
+      @subview 'availabilities', availabilities
 
     categorySearchUrl: (direction, value, mode) =>
       if value?

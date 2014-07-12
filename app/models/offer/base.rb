@@ -33,6 +33,7 @@ class Offer::Base < ActiveRecord::Base
 
   acts_as_paranoid
   acts_as_taggable
+  acts_as_taggable_on :availabilities
   acts_as_sti_base
 
   self.table_name = :offers

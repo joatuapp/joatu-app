@@ -29,6 +29,9 @@ define [
       tags = new TagsView collection: @model.tagsCollection, container: @$el.find(".tag-container"), autoRender: true
       @subview 'tags', tags
 
+      availabilities = new TagsView collection: @model.availabilitiesCollection, container: @$el.find(".availability-container"), autoRender: true
+      @subview 'availabilities', availabilities
+
     showEditModal: ->
       offerEditView = new OfferEditFormView model: @model
       editModal = new ModalView content: offerEditView, autoRender: true

@@ -12,6 +12,10 @@ define [
       @updateTagsCollection()
       @listenTo @, "change:tags", @updateTagsCollection
 
+      @availabilitiesCollection = new Tags
+      @updateAvailabilitiesCollection()
+      @listenTo @, "change:availabilities", @updateAvailabilitiesCollection
+
     urlRoot: ->
       if @collection? && @isNew()
         @collection.url()
@@ -24,3 +28,6 @@ define [
 
     updateTagsCollection: =>
       @tagsCollection.set(@get('tags'), parse: true)
+
+    updateAvailabilitiesCollection: =>
+      @availabilitiesCollection.set(@get('availabilities'), parse: true)

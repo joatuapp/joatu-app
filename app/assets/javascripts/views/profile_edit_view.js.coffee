@@ -25,7 +25,7 @@ define [
       @communitySelect = new CommunitySelectView region: 'communitySelect', collection: new Communities
       @subview 'communitySelect', @communitySelect
 
-      @acceptedCurrenciesSelect = new TagSelectView region: 'tagSelect', collection: @model.acceptedCurrenciesCollection, label: "Accepted Currencies", field_name: "accepted_currencies"
+      @acceptedCurrenciesSelect = new TagSelectView region: 'tagSelect', collection: @model.acceptedCurrenciesCollection, label: "Accepted Currencies", fieldName: "accepted_currencies"
       @subview 'acceptedCurrenciesSelect', @acceptedCurrenciesSelect
 
       Backbone.Validation.bind(@)

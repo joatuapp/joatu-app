@@ -12,29 +12,30 @@ define [
 
     initialize: (options) ->
       super
-      @field_name = options.field_name || "tags"
-      @field_id = options.field_id || @field_name
-      @label = options.label || "Tags"
+      @fieldName = options.fieldName || "tags"
+      @fieldId = options.fieldId || @fieldName
+
+      @options = options
       
     render: ->
       super
-      tagsInputOptions = {
+      tagsInputOptions = $.extend({}, @options, {
         # Confirm on enter, tab, or comma (respectively)
         confirmKeys: [13, 9, 188] 
-      }
+      })
 
       @tagsInputs = @$el.find("select[multiple][data-role=tagsinput]").tagsinput(tagsInputOptions)
       _.each @tagsInputs, (input) =>
         input.removeAll()
         @collection.each (model) =>
-          input.add(model.attributes)
+          input.add(model.get('tag'))
 
       @listenTo @collection, "add", @collectionUpdateHandler
       @listenTo @collection, "remove", @collectionUpdateHandler
 
     getTemplateData: ->
       model_data = super
-      $.extend({}, model_data, {field_name: @field_name, label: @label, field_id: @field_id})
+      $.extend({}, model_data, {fieldName: @fieldName, fieldId: @fieldId})
 
     collectionUpdateHandler: (model, collection, options) =>
       if @tagsInputs
