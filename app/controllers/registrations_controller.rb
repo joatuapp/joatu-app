@@ -17,6 +17,6 @@ class RegistrationsController < ApiController
     else
       user.clean_up_passwords
     end
-    respond_with user_with_detail, represent_with: UserSessionRepresenter
+    respond_with user_with_detail, represent_with: UserSessionRepresenter, status: :created, location: url_for(user)
   end
 end
