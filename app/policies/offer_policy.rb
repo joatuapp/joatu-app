@@ -12,19 +12,29 @@ class OfferPolicy < ApplicationPolicy
     end
   end
 
+  def index?
+    true
+  end
+
+  def show?
+    true
+  end
+
   def create?
-    admin_or_owner
+    admin_or_owner?
   end
 
   def update?
-    admin_or_owner
+    admin_or_owner?
   end
 
   def destroy?
-    admin_or_owner
+    admin_or_owner?
   end
 
-  def admin_or_owner
-    user.is_admin? || scope.user_id == user.id
+  protected
+
+  def admin_or_owner?
+    user.is_admin? || (user.id && record.user_id == user.id)
   end
 end
