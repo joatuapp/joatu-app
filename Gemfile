@@ -114,6 +114,8 @@ group :development do
   # Commenting out right now so that it doesn't bug us about knife configs.
   # We're not at the chef / cap stage yet, so we don't care.
   # gem 'capistrano-chef'
+  #
+  gem 'travis'
 end
 
 # These gems are required for testing and to run seeds:

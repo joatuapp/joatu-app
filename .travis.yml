@@ -1,15 +1,16 @@
 language: ruby
-bundler_args: --without development production --deployment
+bundler_args: "--without development production --deployment"
 rvm:
-  - 2.1.0
+- 2.1.0
 env:
-  - CODECLIMATE_REPO_TOKEN=33f5c18ba545e92e2744e55d1f0689ec91cf6cb2bb2e30d98c0f5cbfefede757
-
+- CODECLIMATE_REPO_TOKEN=33f5c18ba545e92e2744e55d1f0689ec91cf6cb2bb2e30d98c0f5cbfefede757
 addons:
-  postgresql: "9.3"
- 
+  postgresql: '9.3'
 before_script:
-  - cp config/database.travis.yml config/database.yml
-  - cp config/secrets.yml.example config/secrets.yml
-  - psql -c 'create database travis_ci_test;' -U postgres
-  - psql -U postgres -c "create extension postgis"
+- cp config/database.travis.yml config/database.yml
+- cp config/secrets.yml.example config/secrets.yml
+- psql -c 'create database travis_ci_test;' -U postgres
+- psql -U postgres -c "create extension postgis"
+notifications:
+  slack:
+    secure: p6EaU4uR3ij6wS85B3HJOX6bH9IKbs9NCuPXfmulLigbRaLRPRtp0j7fZRaidjZvb/up5MMv6uJXJmjByrVL4FHY6NJVkNEY4LhRa/yKG50ld7JZEWvzkGHKXgAW4Sl/w++f5WQKhSX6M6PdOqWNg6cokpQizCUbUTKEmT20ohg=
