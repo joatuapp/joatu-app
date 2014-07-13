@@ -40,7 +40,9 @@ class Offer::Base < ActiveRecord::Base
 
   lat_lng_accessible_point_columns :location
 
-  belongs_to :user
+  belongs_to :user, inverse_of: :offers
+
+  validates :user, presence: true
 
   def self.policy_class
     OfferPolicy
