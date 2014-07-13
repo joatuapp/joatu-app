@@ -4,22 +4,19 @@ module HasLatLngAccessiblePoint
   module ClassMethods
     def lat_lng_accessible_point_columns(columns)
       Array(columns).each do |col|
-        define_method "#{col}_latitude" do
-          self.send(col) ? self.send(col).y : instance_variable_get("@#{col}_latitude")
+        col_mappings = {latitude: :y, longitude: :x}
+
+        col_mappings.each do |method_suffix, getter|
+          define_method "#{col}_#{method_suffix}" do
+            self.send(col) ? self.send(col).send(getter) : instance_variable_get("@#{col}_#{method_suffix}")
+          end
         end
 
-        define_method "#{col}_longitude" do
-          self.send(col) ? self.send(col).x : instance_variable_get("@#{col}_longitude")
-        end
-
-        define_method "#{col}_latitude=" do |val|
-          instance_variable_set("@#{col}_latitude", val)
-          send("update_#{col}")
-        end
-
-        define_method "#{col}_longitude=" do |val|
-          instance_variable_set("@#{col}_longitude", val)
-          send("update_#{col}")
+        col_mappings.each do |method_suffix, getter|
+          define_method "#{col}_#{method_suffix}=" do |val|
+            instance_variable_set("@#{col}_#{method_suffix}", val)
+            send("update_#{col}")
+          end
         end
 
         define_method "update_#{col}" do

@@ -24,4 +24,6 @@ describe Offer::Base do
     subject.user = nil
     expect(subject).to_not be_valid
   end
+
+  it_behaves_like "it has a lat lng accessible point", :location
 end
