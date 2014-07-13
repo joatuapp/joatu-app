@@ -39,7 +39,7 @@ GIT
 
 GIT
   remote: git://github.com/undergroundwebdesigns/pivotal-integration.git
-  revision: f55e1f7b256511b7ae345ac1694c743dd3d0d8ef
+  revision: cf827662f45e1db6b73a85e5699ee11d156d1708
   specs:
     pivotal-integration (1.6.0.2)
       activesupport
