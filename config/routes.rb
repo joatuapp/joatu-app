@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   # Admin routes:
   devise_for :admins
-  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  if defined? RailsAdmin
+    mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  end
 
   # Front page (index) route:
   root 'index#index'
