@@ -37,6 +37,16 @@ GIT
       activerecord (>= 3.2.14)
       activesupport (>= 3.2.14)
 
+GIT
+  remote: git://github.com/undergroundwebdesigns/pivotal-integration.git
+  revision: 074a9d533a152bc83853a191caa2e5a793e09eb3
+  specs:
+    pivotal-integration (1.6.0.2)
+      activesupport
+      highline (~> 1.6)
+      launchy
+      pivotal-tracker (~> 0.5)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -133,6 +143,8 @@ GEM
       execjs
     coffee-script-source (1.7.0)
     columnize (0.8.9)
+    crack (0.4.2)
+      safe_yaml (~> 1.0.0)
     debugger-linecache (1.2.0)
     devise (3.2.4)
       bcrypt (~> 3.0)
@@ -198,6 +210,8 @@ GEM
       rspec (>= 2.14, < 4.0)
     haml (4.0.5)
       tilt
+    happymapper (0.4.1)
+      libxml-ruby (~> 2.0)
     highline (1.6.21)
     hike (1.2.3)
     i18n (0.6.9)
@@ -215,6 +229,7 @@ GEM
     kgio (2.9.2)
     launchy (2.4.2)
       addressable (~> 2.3)
+    libxml-ruby (2.7.0)
     listen (2.7.3)
       celluloid (>= 0.15.2)
       celluloid-io (>= 0.15.0)
@@ -237,10 +252,11 @@ GEM
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.0)
-    newrelic_rpm (3.8.0.218)
     nio4r (1.0.0)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
+    nokogiri-happymapper (0.5.9)
+      nokogiri (~> 1.5)
     orm_adapter (0.5.0)
     paperclip (4.1.1)
       activemodel (>= 3.0.0)
@@ -250,6 +266,14 @@ GEM
     paranoia (2.0.2)
       activerecord (~> 4.0)
     pg (0.17.1)
+    pivotal-tracker (0.5.12)
+      builder
+      crack
+      happymapper (>= 0.3.2)
+      nokogiri (>= 1.4.3)
+      nokogiri (>= 1.5.5)
+      nokogiri-happymapper (>= 0.5.4)
+      rest-client (~> 1.6.0)
     polyglot (0.3.4)
     pry (0.9.12.6)
       coderay (~> 1.0)
@@ -308,6 +332,9 @@ GEM
       multi_json
       nokogiri
       uber
+    rest-client (1.6.8)
+      mime-types (~> 1.16)
+      rdoc (>= 2.4.2)
     rgeo (0.3.20)
     rgeo-activerecord (1.0.0)
       activerecord (~> 4.0)
@@ -460,10 +487,10 @@ DEPENDENCIES
   haml_coffee_assets!
   i18n-js
   kaminari
-  newrelic_rpm
   paperclip (~> 4.1)
   paranoia (~> 2.0)
   pg
+  pivotal-integration!
   pundit
   rack-cors
   rails (= 4.1)
