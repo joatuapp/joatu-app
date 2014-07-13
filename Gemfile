@@ -46,9 +46,6 @@ end
 group :development do
   gem 'coffee-rails-source-maps'
 
-  # Foreman for scripting
-  gem 'foreman'
-
   # Thor (uses childpress) and provides us with
   # easy to write setup scripts.
   gem 'thor'

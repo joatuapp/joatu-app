@@ -39,7 +39,7 @@ GIT
 
 GIT
   remote: git://github.com/undergroundwebdesigns/pivotal-integration.git
-  revision: 074a9d533a152bc83853a191caa2e5a793e09eb3
+  revision: d7c66d8a736bea0c03103bac29c80ac2977b1df0
   specs:
     pivotal-integration (1.6.0.2)
       activesupport
@@ -180,9 +180,6 @@ GEM
     ffi (1.9.3)
     font-awesome-rails (4.1.0.0)
       railties (>= 3.2, < 5.0)
-    foreman (0.63.0)
-      dotenv (>= 0.7)
-      thor (>= 0.13.6)
     formatador (0.2.4)
     gh (0.13.2)
       addressable
@@ -214,7 +211,7 @@ GEM
       libxml-ruby (~> 2.0)
     highline (1.6.21)
     hike (1.2.3)
-    i18n (0.6.9)
+    i18n (0.6.11)
     i18n-js (2.1.2)
       i18n
     jquery-rails (3.1.1)
@@ -241,8 +238,8 @@ GEM
       treetop (~> 1.4.8)
     method_source (0.8.2)
     mime-types (1.25.1)
-    mini_portile (0.5.3)
-    minitest (5.3.4)
+    mini_portile (0.6.0)
+    minitest (5.4.0)
     multi_json (1.9.3)
     multipart-post (2.0.0)
     mustache (0.99.5)
@@ -253,8 +250,8 @@ GEM
       net-ssh (>= 2.6.5)
     net-ssh (2.9.0)
     nio4r (1.0.0)
-    nokogiri (1.6.1)
-      mini_portile (~> 0.5.0)
+    nokogiri (1.6.2.1)
+      mini_portile (= 0.6.0)
     nokogiri-happymapper (0.5.9)
       nokogiri (~> 1.5)
     orm_adapter (0.5.0)
@@ -268,11 +265,13 @@ GEM
     pg (0.17.1)
     pivotal-tracker (0.5.12)
       builder
+      builder
       crack
       happymapper (>= 0.3.2)
       nokogiri (>= 1.4.3)
       nokogiri (>= 1.5.5)
       nokogiri-happymapper (>= 0.5.4)
+      rest-client (~> 1.6.0)
       rest-client (~> 1.6.0)
     polyglot (0.3.4)
     pry (0.9.12.6)
@@ -418,7 +417,7 @@ GEM
     test_xml (0.1.6)
       nokogiri (>= 1.3.2)
     thor (0.19.1)
-    thread_safe (0.3.3)
+    thread_safe (0.3.4)
     tilt (1.4.1)
     timers (1.1.0)
     tins (1.1.0)
@@ -438,7 +437,7 @@ GEM
       polyglot (>= 0.3.1)
     typhoeus (0.6.9)
       ethon (>= 0.7.1)
-    tzinfo (1.1.0)
+    tzinfo (1.2.1)
       thread_safe (~> 0.1)
     uber (0.0.4)
     uglifier (2.5.0)
@@ -477,7 +476,6 @@ DEPENDENCIES
   dotenv-rails
   factory_girl_rails (~> 4.0)
   faker
-  foreman
   guard
   guard-brakeman
   guard-coffeescript
