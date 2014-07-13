@@ -4,6 +4,8 @@ describe UserBase do
 
   subject { FactoryGirl.build(:user_base) }
 
+  it_behaves_like "it has a valid factory"
+
   it "has a detail object" do
     expect(subject).to respond_to :detail
   end
@@ -56,11 +58,5 @@ describe UserBase do
     expect(subject).to be_valid
   end
 
-  it "soft deletes" do
-    subject.save!
-    subject.destroy
-
-    user = UserBase.unscoped.find(subject.id)
-    expect(user).to_not be_nil
-  end
+  it_behaves_like "it soft deletes"
 end

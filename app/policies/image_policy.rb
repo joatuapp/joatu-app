@@ -1,4 +1,4 @@
-class CommunityPolicy < ApplicationPolicy
+class ImagePolicy < ApplicationPolicy
   class Scope
     attr_reader :user, :scope
 
@@ -22,14 +22,20 @@ class CommunityPolicy < ApplicationPolicy
   end
 
   def create?
-    user.is_admin?
+    admin_or_owner?
   end
 
   def update?
-    user.is_admin?
+    admin_or_owner?
   end
 
   def destroy?
-    user.is_admin?
+    admin_or_owner?
+  end
+
+  protected
+
+  def admin_or_owner?
+    user.is_admin? || (user.id && record.owner_id == user.id)
   end
 end

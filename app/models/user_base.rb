@@ -42,10 +42,10 @@ class UserBase < ActiveRecord::Base
   self.table_name = :users
 
   # Relations
-  has_one :detail, class: UserDetail, foreign_key: :user_id
+  has_one :detail, class: UserDetail, foreign_key: :user_id, inverse_of: :user
   accepts_nested_attributes_for :detail
 
-  has_many :offers, class: Offer::Base, foreign_key: :user_id
+  has_many :offers, class: Offer::Base, foreign_key: :user_id, inverse_of: :user
 
   has_many :owned_images, class: Image, foreign_key: :owner_id
   has_many :images, as: :imageable

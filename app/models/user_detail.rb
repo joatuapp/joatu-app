@@ -35,8 +35,10 @@ class UserDetail < ActiveRecord::Base
   lat_lng_accessible_point_columns :current_location
 
   belongs_to :profile_image, class: Image, foreign_key: :profile_image_id
-  belongs_to :user
+  belongs_to :user, inverse_of: :detail
   belongs_to :primary_community, class: Community
+
+  validates :user, presence: true
 
   def profile_image
     self[:profile_image] || Image.new

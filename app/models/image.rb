@@ -37,14 +37,14 @@ class Image < ActiveRecord::Base
   acts_as_paranoid
 
   belongs_to :imageable, polymorphic: true
-  belongs_to :owner, class: User, foreign_key: :owner_id
+  belongs_to :owner, class: User, foreign_key: :owner_id,inverse_of: :owned_images
+
+  validates :owner, presence: true
 
   has_attached_file(:image, 
                     styles: {tiny: "32x32>", thumbnail: "170x170>"},
-                    convert_options: {tiny: "-quality 75 -thumbnail", thumbnail: "-quality 85 -thumbnail"},
+                    convert_options: {tiny: "-quality 75", thumbnail: "-quality 85"},
                     preserve_files: true,
-                    path: ":rails_root/public/system/:class/:attachment/:style/:id.extension",
-                    url: "/system/:class/:attachment/:style/:id.:extension",
                     default_url: "/assets/:style/default_profile_pic.png",
                    )
 

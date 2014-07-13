@@ -41,7 +41,5 @@ FactoryGirl.define do
     email { Faker::Internet.email }
     email_confirmation { email }
     password { Faker::Internet.password(10) }
-
-    association :detail, factory: :user_detail
   end
 end

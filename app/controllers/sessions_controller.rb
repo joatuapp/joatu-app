@@ -7,7 +7,7 @@ class SessionsController < ApiController
 
     if user && user.valid_password?(params[:password])
       sign_in(:user, user)
-      user_with_detail = UserWithDetail.new user: user, user_detail: user.detail
+      user_with_detail = UserWithDetail.new user: user, user_detail: (user.detail || user.build_detail)
       respond_with user_with_detail, represent_with: UserSessionRepresenter, status: :created
     else
       invalid_login_attempt
