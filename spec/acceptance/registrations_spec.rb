@@ -30,7 +30,7 @@ resource 'Registrations' do
       it "returns a location header pointing to the new resource" do
         do_request
         expect(response_headers).to have_key "Location"
-        expect(response_headers["Location"]).to match(/\/users\/[A-Z0-9]+/)
+        expect(response_headers["Location"]).to match(/\/users\/[-a-z0-9]+/)
       end
     end
 
