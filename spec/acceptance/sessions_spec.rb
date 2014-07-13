@@ -1,5 +1,4 @@
-require 'spec_helper'
-require 'rspec_api_documentation/dsl'
+require 'acceptance_spec_helper'
 
 resource "Sessions" do
   root_url = "http://#{ENV["API_SUBDOMAIN"] || 'api'}.joatu.com"
