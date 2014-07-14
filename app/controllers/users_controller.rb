@@ -1,5 +1,6 @@
 class UsersController < ApiController
-  before_filter :authenticate_user!
+
+  before_action :authenticate_user!
 
   def me
     authorize current_user, :show?
@@ -19,6 +20,7 @@ class UsersController < ApiController
     @user = UserWithDetail.new(user: user, user_detail: user.detail)
     authorize @user.user
     @user = consume! @user
-    respond_with @user.save
+    @user.save
+    respond_with @user
   end
 end

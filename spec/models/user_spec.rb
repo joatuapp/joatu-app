@@ -4,9 +4,7 @@ describe User do
 
   subject { FactoryGirl.build(:user) }
 
-  it "has a valid factory" do
-    expect(subject).to be_valid
-  end
+  it_behaves_like "it has a valid factory"
 
   it "has an accessable 'login' method" do
     expect(subject).to respond_to :login
