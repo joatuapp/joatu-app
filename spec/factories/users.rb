@@ -41,5 +41,11 @@ FactoryGirl.define do
     email { Faker::Internet.email }
     email_confirmation { email }
     password { Faker::Internet.password(10) }
+    
+    factory :user_with_detail do
+      after(:create) do |user, eval|
+        user.create_detail(attributes_for(:user_detail))
+      end
+    end
   end
 end

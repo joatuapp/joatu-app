@@ -1,5 +1,7 @@
 class OffersController < ApiController
 
+  before_action :authenticate_user!, except: :types
+
   skip_after_action :verify_authorized, only: :types
 
   def index
@@ -13,7 +15,7 @@ class OffersController < ApiController
     @offer.user_id = current_user.id
     authorize @offer
     @offer.save
-    respond_with @offer
+    respond_with @offer, status: :created, location: offer_url(@offer)
   end
 
   def show
