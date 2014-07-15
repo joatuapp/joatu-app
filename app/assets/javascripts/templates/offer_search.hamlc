@@ -1,0 +1,6 @@
+.top.clearfix
+  %h1 Offer Search
+#offers-collection
+#offers-loading
+#offers-fallback
+  %h3 No offers found

@@ -15,6 +15,8 @@ Rails.application.routes.draw do
   constraints(subdomain: ENV["API_SUBDOMAIN"] || 'api') do
     devise_for :users, controllers: { sessions: 'sessions', registrations: 'registrations' }
 
+    get 'search/:action', controller: :search
+
     resources :communities
 
     get 'users/me' => 'users#me'

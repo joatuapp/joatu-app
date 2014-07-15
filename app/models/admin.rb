@@ -23,12 +23,14 @@
 #  created_at             :datetime
 #  updated_at             :datetime
 #  deleted_at             :datetime
+#  primary_community_id   :uuid
 #
 # Indexes
 #
 #  index_users_on_authentication_token  (authentication_token) UNIQUE
 #  index_users_on_confirmation_token    (confirmation_token) UNIQUE
 #  index_users_on_email                 (email) UNIQUE
+#  index_users_on_primary_community_id  (primary_community_id)
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_users_on_username              (username) UNIQUE
 #

@@ -5,7 +5,7 @@ class OffersController < ApiController
   skip_after_action :verify_authorized, only: :types
 
   def index
-    @offers = policy_scope(Offer::Base).where(user_id: params[:user_id])
+    @offers = policy_scope(Offer::Base.where(user_id: params[:user_id]))
     respond_with @offers.page(params[:page])
   end
 
