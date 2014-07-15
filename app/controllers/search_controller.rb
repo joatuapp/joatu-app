@@ -10,7 +10,7 @@ class SearchController < ApiController
       query = query.tagged_with(params[:search])
     end
     if community = current_user.primary_community
-      query = query.where('user.primary_community_id' => community.id)
+      query = query.where('users.primary_community_id' => community.id)
     end
     @offers = policy_scope(query)
     respond_with @offers.page(params[:page]), represent_with: OffersRepresenter

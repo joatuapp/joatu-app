@@ -23,7 +23,7 @@
 # Indexes
 #
 #  index_user_details_on_current_location  (current_location)
-#  index_user_details_on_user_id           (user_id)
+#  index_user_details_on_user_id           (user_id) UNIQUE
 #
 
 class UserDetail < ActiveRecord::Base

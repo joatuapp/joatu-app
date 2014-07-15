@@ -16,11 +16,11 @@ define [
           @user = new User id: options["user_id"]
 
     url: ->
-      if @use_search_url
+      if @should_use_search_url
         Chaplin.mediator.api_base_url + "/search/offers"
       else if @user
         Chaplin.mediator.api_base_url + "/users/#{@user.id}/offers"
     model: Offer
 
     use_search_url: (val = true) ->
-      @use_search_url = !!val
+      @should_use_search_url = !!val

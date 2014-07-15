@@ -71,9 +71,9 @@ ActiveRecord::Schema.define(version: 20140715021823) do
 
   create_table "taggings", force: true do |t|
     t.integer  "tag_id"
-    t.integer  "taggable_id"
+    t.uuid     "taggable_id"
     t.string   "taggable_type"
-    t.integer  "tagger_id"
+    t.uuid     "tagger_id"
     t.string   "tagger_type"
     t.string   "context",       limit: 128
     t.datetime "created_at"
@@ -109,7 +109,7 @@ ActiveRecord::Schema.define(version: 20140715021823) do
   end
 
   add_index "user_details", ["current_location"], :name => "index_user_details_on_current_location", :spatial => true
-  add_index "user_details", ["user_id"], :name => "index_user_details_on_user_id"
+  add_index "user_details", ["user_id"], :name => "index_user_details_on_user_id", :unique => true
 
   create_table "users", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
     t.string   "username",               limit: 64, default: "",    null: false
