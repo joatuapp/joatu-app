@@ -10,8 +10,11 @@ class ActsAsTaggableOnMigration < ActiveRecord::Migration
 
       # You should make sure that the column created is
       # long enough to store the required class names.
-      t.references :taggable, polymorphic: true
-      t.references :tagger, polymorphic: true
+      t.uuid :taggable_id
+      t.string :taggable_type
+
+      t.uuid :tagger_id
+      t.string :tagger_type
 
       # Limit is created to prevent MySQL error on index
       # length for MyISAM table type: http://bit.ly/vgW2Ql

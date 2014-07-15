@@ -1,0 +1,11 @@
+.top.clearfix
+  %h1 Offer Search
+  %form.form-inline
+    .form-group
+      %label.sr-only{for: "search-input"} Search for
+      %select.form-control#search-input{type: "text", 'data-role': 'tagsinput', multiple: true}
+    %button.btn.btn-default{type: "submit"} Go!
+#offers-collection
+#offers-loading
+#offers-fallback
+  %h3 No offers found
