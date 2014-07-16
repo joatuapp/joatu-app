@@ -27,3 +27,5 @@ public/assets
 public/javascripts
 
 gems.tags
+
+.vagrant
