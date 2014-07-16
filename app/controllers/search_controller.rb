@@ -5,14 +5,19 @@ class SearchController < ApiController
   after_action :verify_policy_scoped
 
   def offers
-    query = Offer::Base.includes(:user)
-    if params[:search]
-      query = query.tagged_with(params[:search])
+    query = Offer::Base.includes(user: [:detail])
+    if community_id = current_user.primary_community_id
+      query = query.where('users.primary_community_id' => community_id)
     end
-    if community = current_user.primary_community
-      query = query.where('users.primary_community_id' => community.id)
+    unless params[:search].blank?
+      tag_query = query.tagged_with(params[:search], wild: true)
+      if tag_query.size > 0
+        query = tag_query
+      else
+        query = query.where("offers.title ILIKE ? OR offers.summary ILIKE ?", "%#{params[:search]}%", "%#{params[:search]}%")
+      end
     end
     @offers = policy_scope(query)
-    respond_with @offers.page(params[:page]), represent_with: OffersRepresenter
+    respond_with @offers.page(params[:page]), represent_with: SearchResultsRepresenter
   end
 end

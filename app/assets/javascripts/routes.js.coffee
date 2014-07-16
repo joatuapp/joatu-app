@@ -12,4 +12,5 @@ define ->
     match 'profile/:id/edit', 'user#edit', name: 'edit_profile'
     match 'profile/:user_id/edit/offers', 'offer#edit', name: 'manage_offers'
 
+    match 'search/offers/:search', 'search#offers'
     match 'search/offers', 'search#offers', name: 'offer_search'
