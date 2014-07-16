@@ -1,9 +1,9 @@
 define [
   'controllers/base/controller'
-  'models/offers'
+  'models/search_collection'
   'views/offers_search_view'
   'controllers/session_controller'
-], (Controller, Offers, OffersSearchView, SessionController) ->
+], (Controller, SearchCollection, OffersSearchView, SessionController) ->
   'use strict'
 
   class SearchController extends Controller
@@ -15,7 +15,6 @@ define [
     title: 'Search'
 
     offers: (params) ->
-      @collection = new Offers
-      @collection.use_search_url()
-      @collection.fetch(data: params)
+      @collection = new SearchCollection(type: "offers")
+      @collection.fetch(data: {search: params["search"]})
       @view = new OffersSearchView collection: @collection, region: 'main', autoRender: true
