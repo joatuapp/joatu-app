@@ -23,5 +23,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   # Must use NFS for this otherwise rails
   # performance will be awful
-  config.vm.synced_folder "../", "/app", type: "nfs"
+  config.vm.synced_folder "../", "/var/www", type: "nfs"
 end

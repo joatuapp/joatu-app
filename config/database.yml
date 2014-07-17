@@ -1,0 +1,33 @@
+# This file exists primarily to
+# interface with rails, but it holds very
+# little actual config data.
+#
+# In a development environment, env vars
+# will be bootstrapped from values in
+# config/.env
+#
+# NOTE: The DB_ENV_ style variables, which are
+# given preference, will be populated by docker
+# when the app runs as a docker container, and let
+# the app connect to another container's postgres
+# db.
+
+default: &default
+  adapter: postgis
+  encoding: utf8
+  postgis_extension: postgis
+  schema_search_path: '"$user", public, postgis'
+  pool: 5
+  database: <%= ENV['DB_ENV_POSTGRESQL_DB'] || ENV['POSTGRESQL_DB'] %>
+  username: <%= ENV['DB_ENV_POSTGRESQL_USER'] || ENV['POSTGRESQL_USER'] %>
+  password: <%= ENV['DB_ENV_POSTGRESQL_PASS'] || ENV['POSTGRESQL_PASS'] %>
+  host: <%= ENV['DB_PORT_5432_TCP_ADDR'] || ENV['POSTGRES_HOST'] %>
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default

@@ -92,7 +92,7 @@ group :test, :development do
   
   # Dotenv loads env variables from a .env file when the
   # environment is bootstraped (eg, through foreman).
-  gem 'dotenv-rails'
+  gem 'dotenv-deployment'
 end
 
 group :doc do
