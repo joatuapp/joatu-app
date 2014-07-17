@@ -1,43 +1,14 @@
-# Commands required to setup working docker environment, link
-# containers etc.
-$setup = <<SCRIPT
-# Stop and remove any existing containers
-docker stop $(docker ps -a -q)
-docker rm $(docker ps -a -q)
-
-# Build containers from Dockerfiles
-docker build -t postgres /app/docker/postgres
-# docker build -t rails /app
-
-# Run and link the containers
-docker run -d --name postgres -e POSTGRESQL_USER=docker -e POSTGRESQL_PASS=docker postgres:latest
-# docker run -d -p 3000:3000 -v /app:/app --link postgres:db --name rails rails:latest
-
-SCRIPT
-
-# Commands required to ensure correct docker containers
-# are started when the vm is rebooted.
-$start = <<SCRIPT
-docker start postgres
-# docker start rails
-SCRIPT
-
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
-  # Setup resource requirements
-  config.vm.provider "virtualbox" do |v|
-    v.memory = 2048
-    v.cpus = 2
-    v.box = "ubuntu/trusty64"
-  end
-  
-  config.vm.provider "docker" do |d|
-    d.name = 'postgres'
-    d.env = {"POSTGRESQL_USER" => "joatu", "POSTGRESQL_PASS" => "joatu-dev-pass"}
-    d.build_dir = "./docker/postgres"
-    d.vagrant_vagrantfile = "docker/Vagrantfile"
+  config.vm.define "postgres" do |pg|
+    pg.vm.provider "docker" do |d|
+      d.name = 'postgres'
+      d.env = {"POSTGRESQL_USER" => "joatu", "POSTGRESQL_PASS" => "joatu-dev-pass"}
+      d.build_dir = "./docker/postgres"
+      d.vagrant_vagrantfile = "docker/Vagrantfile"
+    end
   end
 
   # config.vm.provider "docker" do |d|

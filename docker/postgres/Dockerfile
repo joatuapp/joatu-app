@@ -28,8 +28,6 @@ VOLUME /var/lib/postgresql
  
 ADD ./docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh
-ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD ["/docker-entrypoint.sh"]
 
 EXPOSE 5432
-
-CMD ["sudo -u postgres $POSTGRESQL_BIN --config-file=$POSTGRESQL_CONFIG_FILE"]
