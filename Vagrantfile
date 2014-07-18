@@ -8,10 +8,13 @@
 # backed dev environments, which are nicer for larger tests
 # and docker tests.
 # NOTE: Requires the vagrant plugin "dotenv" to be installed.
+
+development_env = {}
 begin
   require 'dotenv'
   development_env = Dotenv::Parser.call(File.read(File.expand_path('.env')))
 rescue LoadError; end
+development_env["RAILS_ENV"] = "development"
 
 VAGRANTFILE_API_VERSION = "2"
 
@@ -20,9 +23,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.define "postgres" do |pg|
     pg.vm.provider "docker" do |d|
       d.name = 'postgres'
+      d.image = 'undergroundwebdevelopment/postgres:9.3'
       d.env = development_env
-      d.build_dir = "./docker/postgres"
-      d.vagrant_vagrantfile = "docker/Vagrantfile"
+      d.vagrant_vagrantfile = "DockerHost"
     end
   end
 
@@ -31,8 +34,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       d.name = 'joatu-rails'
       d.build_dir = "."
       d.env = development_env
-      d.link("postgres")
-      d.vagrant_vagrantfile = "docker/Vagrantfile"
+      # d.link("postgres:db")
+      d.vagrant_vagrantfile = "DockerHost"
     end
   end
 end

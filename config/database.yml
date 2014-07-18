@@ -18,7 +18,7 @@ default: &default
   postgis_extension: postgis
   schema_search_path: '"$user", public, postgis'
   pool: 5
-  database: <%= ENV['DB_ENV_POSTGRESQL_DB'] || ENV['POSTGRESQL_DB'] %>
+  database: joatu-<%= Rails.env %>
   username: <%= ENV['DB_ENV_POSTGRESQL_USER'] || ENV['POSTGRESQL_USER'] %>
   password: <%= ENV['DB_ENV_POSTGRESQL_PASS'] || ENV['POSTGRESQL_PASS'] %>
   host: <%= ENV['DB_PORT_5432_TCP_ADDR'] || ENV['POSTGRES_HOST'] %>

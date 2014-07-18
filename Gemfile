@@ -45,11 +45,7 @@ end
 
 group :development do
   gem 'coffee-rails-source-maps'
-
-  # Thor (uses childpress) and provides us with
-  # easy to write setup scripts.
   gem 'thor'
-  gem 'childprocess'
 
   # Guard watches for file changes and automatically re-runs
   # tests. Brakeman watches for potential security issues.

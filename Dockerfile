@@ -23,17 +23,12 @@ RUN git clone https://github.com/sstephenson/ruby-build.git /tmp/ruby-build && \
 RUN ruby-build -v 2.1.1 /usr/local
  
 # Install base gems
-RUN gem install bundler rubygems-bundler --no-rdoc --no-ri
+RUN gem install bundler rubygems-bundler foreman --no-rdoc --no-ri
  
 # Regenerate binstubs
 RUN gem regenerate_binstubs
 
 RUN apt-get install -y -q postgresql-client
-
-# Rails app
-ADD docker/rails/docker-entrypoint.sh /docker-entrypoint.sh
-RUN chmod +x /docker-entrypoint.sh
-# RUN mkdir /var/www
 
 # Preinstall majority of gems
 WORKDIR /tmp 
@@ -44,9 +39,8 @@ RUN bundle install
 RUN mkdir /var/www
 ADD . /var/www
 
-ADD ./docker/rails/setup_database.sh /setup_database.sh
-RUN chmod +x /setup_database.sh
-
 EXPOSE 3000
 
-CMD ["/docker-entrypoint.sh"]
+WORKDIR /var/www
+
+CMD ["foreman start web"]
