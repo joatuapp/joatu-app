@@ -5,7 +5,7 @@ ENV DEBIAN_FRONTEND noninteractive
 
 # REPOS
 RUN apt-get -y update
-RUN apt-get install -y -q python-software-properties
+RUN apt-get install -y -q python-software-properties software-properties-common
 RUN add-apt-repository -y "deb http://archive.ubuntu.com/ubuntu $(lsb_release -sc) universe"
 RUN add-apt-repository -y ppa:chris-lea/node.js
 RUN apt-get -y update
@@ -20,7 +20,7 @@ RUN git clone https://github.com/sstephenson/ruby-build.git /tmp/ruby-build && \
     rm -rf /tmp/ruby-build
 
 # Install ruby
-RUN ruby-build -v 2.1.1 /usr/local
+RUN curl -fsSL https://gist.github.com/mislav/a18b9d7f0dc5b9efc162.txt | ruby-build -v 2.1.1 --patch /usr/local
  
 # Install base gems
 RUN gem install bundler rubygems-bundler foreman --no-rdoc --no-ri
