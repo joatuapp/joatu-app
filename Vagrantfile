@@ -19,28 +19,21 @@ development_env["RAILS_ENV"] = "development"
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-
-  config.vm.box = "yungsang/boot2docker"
-
-  config.vm.provider "virtualbox" do |v|
-    v.memory = 2048
-    v.cpus = 2
+  config.vm.provider "docker" do |d|
+    d.image             = "undergroundwebdevelopment/postgres:9.3"
+    d.name              = "joatu_postgres"
+    d.ports             = ['5432:5432']
   end
-  
-  # need a private network for NFS shares to work
-  config.vm.network "private_network", ip: "192.168.50.4"
 
-  # Rails Server Port Forwarding
-  config.vm.network "forwarded_port", guest: 3000, host: 3000
+  config.vm.provider "docker" do |d|
+    d.image           = "joatu/joatu-app:dev"
+    d.name            = 'joatu-app'
+    d.create_args     = ['-i', '-t']
+    d.cmd             = ['/bin/bash', '-l']
+    d.remains_running = false
+    d.ports           = ['3000:3000']
 
-  # Must use NFS for this otherwise rails
-  # performance will be awful
-  config.vm.synced_folder ".", "/var/www", type: "nfs"
-
-  config.vm.provision "docker" do |d|
-    d.pull_images 'undergroundwebdevelopment/postgres:9.3'
-    d.build_image '/var/www', args: '-t joatu/joatu-app:dev'
-    d.run "undergroundwebdevelopment/postgres:9.3", args: "--name='postgres'"
-    d.run "joatu/joatu-app:dev", args: "--name='joatu-app' --link postgres:db"
+    d.link('joatu_postgres:db')
   end
+  config.vm.synced_folder ".", "/var/www", owner: 'web', group: 'web'
 end

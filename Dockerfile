@@ -20,7 +20,11 @@ RUN git clone https://github.com/sstephenson/ruby-build.git /tmp/ruby-build && \
     rm -rf /tmp/ruby-build
 
 # Install ruby
-RUN curl -fsSL https://gist.github.com/mislav/a18b9d7f0dc5b9efc162.txt | ruby-build -v 2.1.1 --patch /usr/local
+RUN curl -fsSL https://gist.github.com/mislav/a18b9d7f0dc5b9efc162.txt | ruby-build -v 2.1.1 --disable-install-rdoc --patch /usr/local
+
+# Create a "web" user who will run the app, so we don't
+# have to run everything as root.
+RUN adduser web --home /home/web --shell /bin/bash --disabled-password --gecos ""
  
 # Install base gems
 RUN gem install bundler rubygems-bundler foreman --no-rdoc --no-ri
@@ -31,16 +35,22 @@ RUN gem regenerate_binstubs
 RUN apt-get install -y -q postgresql-client
 
 # Preinstall majority of gems
-WORKDIR /tmp 
-ADD ./Gemfile Gemfile
-ADD ./Gemfile.lock Gemfile.lock
-RUN bundle install 
+ADD ./Gemfile /var/www/
+ADD ./Gemfile.lock /var/www/
+RUN chown -R web:web /var/www && \
+  mkdir -p /var/bundle &&\
+  chown -R web:web /var/bundle
+RUN su -c "cd /var/www && bundle install --deployment --path /var/bundle" -s /bin/bash -l web
 
-RUN mkdir /var/www
 ADD . /var/www
+COPY docker-bundle-config /var/www/.bundle/config
+RUN rm -f /var/www/tmp/sockets/unicorn.sock
+RUN chown -R web:web /var/www
+
+USER web
 
 EXPOSE 3000
 
 WORKDIR /var/www
 
-CMD ["foreman start web"]
+CMD ["foreman", "start", "web"]
