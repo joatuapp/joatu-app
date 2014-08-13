@@ -13,7 +13,7 @@ class JoatuDev < Thor
 
     postgres_cid_path = "tmp/cids/postgres.cid"
     unless File.exist? postgres_cid_path
-      docker "run -d --name='postgres' #{envs} --cidfile='#{postgres_cid_path}' undergroundwebdevelopment/postgres:9.3" # 2>/dev/null"
+      docker "run -d --name='postgres' #{db_envs} --cidfile='#{postgres_cid_path}' undergroundwebdevelopment/postgres:9.3" # 2>/dev/null"
     end
 
     joatu_cid_path = "tmp/cids/joatu-app.cid"
@@ -111,11 +111,11 @@ class JoatuDev < Thor
     system "DOCKER_HOST=tcp://#{@docker_host_ip}:2375 docker #{command}"
   end
 
-  def envs
-    postgres_user = "joatu-postgres"
-    postgres_pw = "23k4jl34k23j09dfs0je3S##jdfs"
+  def db_envs
+    postgres_user = "joatu_postgres"
+    postgres_pw = "23k4jl34$k23j0)9dfs0je3Sjdfs"
 
-    "-e 'POSTGRESQL_USER=#{postgres_user}' -e 'POSTGRESQL_PASS=#{postgres_pw}'"
+    "-e 'PG_USER=#{postgres_user}' -e 'PG_PASS=#{postgres_pw}' -e 'PG_DB=joatu_development'"
   end
 end
  
