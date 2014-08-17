@@ -23,6 +23,7 @@ gem 'requirejs-rails', github: 'jwhitley/requirejs-rails'
 gem 'haml'
 gem 'i18n-js' # I18n for JS files.
 gem 'paperclip', '~> 4.1' # Attachment handling (images).
+gem 'foreman'
 
 group :admin, :development do
   gem 'rails_admin'
@@ -46,6 +47,7 @@ end
 group :development do
   gem 'coffee-rails-source-maps'
   gem 'thor'
+  gem 'childprocess'
 
   # Guard watches for file changes and automatically re-runs
   # tests. Brakeman watches for potential security issues.
