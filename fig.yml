@@ -1,0 +1,14 @@
+postgres:
+  image: 'undergroundwebdevelopment/postgres:9.3'
+  environment:
+    PG_USER: "joatu"
+    PG_PASS: "joatu_dev_pass"
+    PG_DB: "joatu_development"
+web:
+  build: .
+  volumes:
+    - .:/var/www
+  ports:
+    - "8080:8080"
+  links:
+    - 'postgres:db'
