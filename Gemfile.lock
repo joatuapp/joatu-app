@@ -1,12 +1,9 @@
 GIT
-  remote: git://github.com/undergroundwebdesigns/pivotal-integration.git
-  revision: 8bec34bf569ac3d6c7c7bdfea50a82ba1c38f7c3
+  remote: git://github.com/jwhitley/requirejs-rails.git
+  revision: fbc1e5c1f550d9a2be816e94f73626c53039c404
   specs:
-    pivotal-integration (1.6.0.2)
-      activesupport
-      highline (~> 1.6)
-      launchy
-      pivotal-tracker (~> 0.5)
+    requirejs-rails (0.9.2)
+      railties (>= 3.1.1)
 
 GIT
   remote: git://github.com/netzpirat/haml_coffee_assets.git
@@ -33,19 +30,22 @@ GIT
       rails_admin (>= 0.6.2)
 
 GIT
-  remote: git://github.com/jwhitley/requirejs-rails.git
-  revision: fbc1e5c1f550d9a2be816e94f73626c53039c404
-  specs:
-    requirejs-rails (0.9.2)
-      railties (>= 3.1.1)
-
-GIT
   remote: git://github.com/undergroundwebdesigns/associates.git
   revision: 48b646ca4ad2c453c847bf4bedb6637e0de16205
   specs:
     associates (0.0.4)
       activerecord (>= 3.2.14)
       activesupport (>= 3.2.14)
+
+GIT
+  remote: git://github.com/undergroundwebdesigns/pivotal-integration.git
+  revision: 8bec34bf569ac3d6c7c7bdfea50a82ba1c38f7c3
+  specs:
+    pivotal-integration (1.6.0.2)
+      activesupport
+      highline (~> 1.6)
+      launchy
+      pivotal-tracker (~> 0.5)
 
 GEM
   remote: https://rubygems.org/
