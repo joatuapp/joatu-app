@@ -1,0 +1,85 @@
+.register
+  @include form-background
+  color: #ddd
+
+  .sex
+    margin-right: 30px
+
+  .sex-radios
+    color: #787878
+    background-color: #3d3e42
+    border-radius: 10px
+    padding-left: 10px
+    padding-right: 10px
+    height: 32px
+    padding-top: 4px
+
+  .male:after
+    content: ""
+    background-image: url("../assets/Sex_Male.png")
+    height: 32px
+    width: 32px
+    display: inline-block
+    margin-left: 10px
+    margin-top: -10px
+
+  .female:after
+    content: ""
+    background-image: url("../assets/Sex_Female.png")
+    height: 32px
+    width: 32px
+    display: inline-block
+    margin-left: 10px
+    margin-top: -10px
+
+  .other:after
+    content: ""
+    background-image: url("../assets/Sex_NoSay.png")
+    height: 32px
+    width: 32px
+    display: inline-block
+    margin-left: 10px
+    margin-top: -10px
+
+  .register-steps-bar
+    width: 100%   
+
+    .register-steps
+      width: 494px
+      margin-left: auto
+      margin-right: auto
+
+      .step
+        list-style: none
+        background-image: url("../assets/SignUp_StepArrow.png")
+        position: relative
+        width: 240px
+        height: 29px
+        float: left
+        margin-right: -13px
+
+      .step a
+        color: inherit
+        width: 100%
+        height: 100%
+        padding-left: 10px
+        padding-top: 4px
+        display: block
+
+      .step.active
+        background-image: url("../assets/SignUp_StepArrow_Highlight.png")
+
+      .step:hover
+        background-image: url("../assets/SignUp_StepArrow_Highlight.png")
+
+      .step:hover a
+        text-decoration: none
+
+      .step1
+        z-index: 20
+
+      .step2
+        z-index: 10
+
+      .step2 a, .step3 a
+        padding-left: 20px

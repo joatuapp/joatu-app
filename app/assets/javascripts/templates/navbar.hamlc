@@ -1,0 +1,12 @@
+.navbar-header
+  %button.navbar-toggle(data-toggle="collapse" data-target="#top-navbar")
+    %span.sr-only Toggle Navigation
+    %span.icon-bar
+    %span.icon-bar
+    %span.icon-bar
+  %a.navbar-brand.text-hide(href="/")
+    JoatU
+  %a.navbar-left.about-icon.text-hide(href="/about")
+    About
+#navbar-center.navbar-center
+#navbar-right.navbar-right

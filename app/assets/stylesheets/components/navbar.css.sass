@@ -1,0 +1,71 @@
+.navbar-default
+  background: none
+  border: none
+  margin-top: 10px
+  margin-bottom: 10px
+
+  .nav .open a, .nav .open a:focus
+    background-color: initial
+
+  .navbar-toggle, .navbar-collapse
+    background-color: #f8f8f8
+
+  .navbar-brand, .about-icon
+    margin-top: 10px
+    display: inline-block
+
+  .navbar-brand
+    background-image: url('../assets/JOATULogo_Small-2x.png')
+    width: 104px
+    height: 30px
+    margin-left: 10px
+
+  .about-icon
+    background-image: url('../assets/InterrogationMark-2x.png')
+    height: 30px
+    width: 23px
+    margin-left: 30px
+    float: left
+
+  .navbar-nav 
+    padding-left: 10px
+    padding-right: 10px
+    .icon-nav
+      position: relative
+      padding-right: 0px
+      background-position: right center
+      background-repeat: no-repeat
+      height: 45px
+
+      .badge
+        background-color: #fc7b00
+
+      img
+        float: right
+
+      .menu-label
+        display: inline-block
+        height: 0px
+        vertical-align: middle
+
+@media (min-width: $screen-sm-min)
+  .navbar-default
+    margin-left: 50px
+    margin-right: 50px
+
+    .navbar-collapse
+      background: none
+
+    .navbar-nav
+      .icon-nav
+        .badge
+          position: absolute
+          left: 30px
+          top: 10px
+
+        img
+          float: none
+
+        .menu-label
+          height: initial
+

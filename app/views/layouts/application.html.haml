@@ -2,15 +2,19 @@
 %html(lang='en')
   %head
     %meta(charset='utf-8')
+    %meta(http-equiv='X-UA-Compatible' content="IE=edge")
+    %meta(name='viewport' content='width=device-width, initial-scale=1')
     %title JoatU
     = csrf_meta_tags
     = stylesheet_link_tag 'application', media: 'all'
 
     /[if lt IE 9]
-      %script 'abbr article aside audio canvas details figcaption figure footer header hgroup mark meter nav output progress section summary time video'.replace(/\w+/g,function(n){document.createElement(n)})
+      %script(src='//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      %script(src='//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
 
   %body
 
     = yield
 
+    = javascript_include_tag '//maps.googleapis.com/maps/api/js?libraries=places&sensor=false'
     = requirejs_include_tag 'application'

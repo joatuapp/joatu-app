@@ -1,0 +1,10 @@
+%h1 JOATU works best for local communities.
+%h3 Geographical information makes it happen.
+
+%div(id="community_select_container")
+
+%div(class="form-group")
+  %small(class="col-md-6") This information will be used to locate nearby communities and offers only. We value privacy and transparency as well so you can be sure your info will never be sold to a third-party.
+  %div(class="col-md-3 col-md-offset-3")
+    %button(data-toggle="tab" data-target="#step1" name="back" class="btn")Back
+    %input(name="submit" type="submit" value="I'm done!" class="btn btn-primary")

@@ -1,18 +1,33 @@
-# Database configuration.
+# This file exists primarily to
+# interface with rails, but it holds very
+# little actual config data.
 #
-development:
-  adapter: postgis
-  database: joatu-dev
-  encoding: utf8
-  postgis_extension: postgis
-  schema_search_path: '"$user", public, postgis'
+# In a development environment, env vars
+# will be bootstrapped from values in
+# config/.env
+#
+# NOTE: The DB_ENV_ style variables, which are
+# given preference, will be populated by docker
+# when the app runs as a docker container, and let
+# the app connect to another container's postgres
+# db.
 
-# Warning: The database defined as "test" will be erased and
-# re-generated from your development database when you run "rake".
-# Do not set this db to the same as development or production.
-test:
+default: &default
   adapter: postgis
-  database: joatu-test
   encoding: utf8
   postgis_extension: postgis
-  schema_search_path: '"$user", public, postgis'
+  schema_search_path: '"$user", public'
+  pool: 5
+  database: <%= ENV['DB_ENV_PG_DB'] || ENV['PG_DB'] || "joatu_#{Rails.env}" %>
+  username: <%= ENV['DB_ENV_PG_USER'] || ENV['PG_USER'] %>
+  password: <%= ENV['DB_ENV_PG_PASS'] || ENV['PG_PASS'] %>
+  host: <%= ENV['DB_PORT_5432_TCP_ADDR'] || ENV['PG_HOST'] %>
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default

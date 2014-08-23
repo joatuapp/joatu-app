@@ -13,3 +13,12 @@
 
 # Ignore the app's postgres database
 vendor/postgresql
+
+# Ignore the public/assets folder, we'll compile assets
+# on the server:
+public/assets
+public/javascripts
+
+gems.tags
+
+.vagrant

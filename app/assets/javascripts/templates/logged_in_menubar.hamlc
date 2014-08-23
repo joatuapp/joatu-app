@@ -1,0 +1,32 @@
+%ul.nav.navbar-nav
+  %li.dropdown
+    %a.dropdown-toggle.icon-nav(href="#", data-toggle="dropdown")
+      %span.current-user-fullname.menu-label
+      %img.current-user-image
+    %ul.dropdown-menu
+      %li 
+        %a.my-profile-link My Profile
+      %li 
+        %a.edit-profile-link Edit Profile
+      %li 
+        %a.manage-offers-link Manage Offers
+      %li 
+        %a My Friends
+      %li 
+        %a My Community
+  %li.dropdown
+    %a.icon-nav.dropdown-toggle(href="#", data-toggle="dropdown")
+      %span.menu-label.visible-sm-inline-block.visible-xs-inline-block Notifications
+      %span.badge.unread-notifications 42
+      %img(src="/assets/NavBar_Notifications.png")
+    %ul.dropdown-menu
+      %li 
+        %a No notifications yet.
+  %li
+    %a.icon-nav(href="/account")
+      %span.menu-label.visible-sm-inline-block.visible-xs-inline-block Account
+      %img(src="/assets/NavBar_Settings.png")
+  %li
+    %a.icon-nav(href="/logout")
+      %span.menu-label.visible-sm-inline-block.visible-xs-inline-block Logout
+      %img(src="/assets/NavBar_LogOut.png")

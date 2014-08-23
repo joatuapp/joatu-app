@@ -1,0 +1,38 @@
+%form{role: "form"}
+  .form-group
+    %label{for: "title"} Title
+    %input.form-control{type: "text", id: "title", name: "title"}
+  .form-group
+    %label{for: "summary"} Summary
+    %input.form-control{type: "text", id: "summary", name: "summary"}
+  .form-group
+    %label{for: "description"} Description
+    %textarea.form-control{id: "description", name: "description"}
+  .form-group
+    %label{for: "tags"} Tags
+    #tag_select_container
+    %span.help-block Tags should be short, singular, and descriptive of your offer. Eg 'photography', or 'gardening'.
+  .form-group
+    %label{for: "availabilities"} Available for
+    #availability_select_container
+    %span.help-block Is your offering available for sale? For rent? Enter tags like 'rent', 'sale', or 'trade' here.
+  .form-group
+    %label{for: "timeframe"} Availability timeframe
+    %select.form-control{id: "timeframe", name: "timeframe"}
+      %option{value: "all"} Anytime
+      %option{value: "morning"} Morning
+      %option{value: "mid-day"} Mid-day
+      %option{value: "afternoon"} Afternoon
+      %option{value: "evening"} Evening
+      %option{value: "night"} Night
+  .form-group
+    %label{for: "length"} Estimated length (hours)
+    %select.form-control{id: "length", name: "length"}
+      %option{value: "", selected: true} No estimate
+      - for x in [1..5]
+        %option{value: x} 
+          = x
+
+  .form-group.pull-right
+    %button.btn.cancel Cancel
+    %input.btn.btn-primary{type: "submit", value: "Save"}

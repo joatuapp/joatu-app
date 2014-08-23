@@ -1,0 +1,35 @@
+.profile
+  .summary-bar
+    padding-top: 20px
+    padding-bottom: 20px
+    @include gradient-horizontal-three-colors(#3f556d, #466f8b, 50%, #3f556d)
+    @include opacity(.75)
+    text-align: center
+    color: #fff
+    
+    .thumbnail
+      margin-bottom: 0px
+
+    h2
+      font-size: $font-size-h3
+      color: #000
+
+    .about-me-container
+      text-align: left
+
+  .profile-content
+    background: rgba(187, 187, 187, 0.75)
+
+  @media (min-width: $screen-sm-min)
+    .profile-content
+      min-height: 300px
+
+  .offers-list
+    .panel
+      @include opacity(1)
+
+    .labels
+      margin-left: 10px
+      a
+        text-decoration: inherit
+        color: inherit

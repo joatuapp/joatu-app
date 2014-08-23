@@ -1,56 +1,36 @@
 Rails.application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  api_actions = [:index, :show, :create, :update, :destroy]
 
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
+  # Admin routes:
+  devise_for :admins
+  if defined? RailsAdmin
+    mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  end
 
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
+  # Front page (index) route:
+  root 'index#index'
 
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+  # API Routes:
+  constraints(subdomain: ENV["API_SUBDOMAIN"] || 'api') do
+    devise_for :users, controllers: { sessions: 'sessions', registrations: 'registrations' }
 
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
+    get 'search/:action', controller: :search
 
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
+    resources :communities
 
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
+    get 'users/me' => 'users#me'
+    resources :users, only: api_actions do
+      resources :offers, only: [:index, :create]
+    end
 
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
+    get 'offers/types' => 'offers#types'
+    resources :offers, only: [:show, :update, :destroy]
+  end
 
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+  # This is at the very end of the file
+  # as it needs to match anything not explicitly routed, 
+  # and redirect it (if GET and format = HTML) to 
+  # the index page.
+  get "*page" => "index#index", constraints: lambda{|req| req.format == :html }
 end

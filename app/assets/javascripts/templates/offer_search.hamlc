@@ -1,0 +1,14 @@
+.search-topbar
+  .search-form
+    %form.form-inline
+      .form-group
+        %label.sr-only{for: "search-input"} Search for
+        .input-group
+          %span.input-group-addon
+            %span.glyphicon.glyphicon-search
+          %input.form-control#search-input{type: "text", placeholder: "Type a new search here."}
+.search-content.container-fluid
+  #offers-collection.row
+  #offers-loading.row
+  #offers-fallback.row
+    %h3 No offers found
