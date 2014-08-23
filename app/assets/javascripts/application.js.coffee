@@ -12,8 +12,12 @@ require [
   'i18n'
   # Require base controllers manually so they are
   # precompiled by the Rails Asset Pipeline
-  # ALEX NOTE: I'm not actually sure this is necessary
-  # so skipping for now.
+  'controllers/home_controller'
+  'controllers/offer_controller'
+  'controllers/register_controller'
+  'controllers/search_controller'
+  'controllers/session_controller'
+  'controllers/user_controller'
 ], ($, _bootstrap, JoatuApplication, routes, I18n) ->
   'use strict'
 

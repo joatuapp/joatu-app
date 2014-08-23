@@ -6,6 +6,10 @@
 # will be bootstrapped from values in
 # config/.env
 #
+# NOTE: The RDS_ style variables are populated
+# when the app is run on Amazon AWS as an elastic
+# beanstalk app.
+#
 # NOTE: The DB_ENV_ style variables, which are
 # given preference, will be populated by docker
 # when the app runs as a docker container, and let
@@ -18,10 +22,10 @@ default: &default
   postgis_extension: postgis
   schema_search_path: '"$user", public'
   pool: 5
-  database: <%= ENV['DB_ENV_PG_DB'] || ENV['PG_DB'] || "joatu_#{Rails.env}" %>
-  username: <%= ENV['DB_ENV_PG_USER'] || ENV['PG_USER'] %>
-  password: <%= ENV['DB_ENV_PG_PASS'] || ENV['PG_PASS'] %>
-  host: <%= ENV['DB_PORT_5432_TCP_ADDR'] || ENV['PG_HOST'] %>
+  database: <%= ENV['RDS_DB_NAME'] || ENV['DB_ENV_PG_DB'] || ENV['PG_DB'] || "joatu_#{Rails.env}" %>
+  username: <%= ENV['RDS_USERNAME'] || ENV['DB_ENV_PG_USER'] || ENV['PG_USER'] %>
+  password: <%= ENV['RDS_PASSWORD'] || ENV['DB_ENV_PG_PASS'] || ENV['PG_PASS'] %>
+  host: <%= ENV['RDS_HOSTNAME'] || ENV['DB_PORT_5432_TCP_ADDR'] || ENV['PG_HOST'] %>
 
 development:
   <<: *default

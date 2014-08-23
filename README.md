@@ -3,6 +3,7 @@ README
 
 [![Code Climate](https://codeclimate.com/github/joatuapp/joatu-app.png)](https://codeclimate.com/github/joatuapp/joatu-app)
 [![Build Status](https://travis-ci.org/joatuapp/joatu-app.svg?branch=develop)](https://travis-ci.org/joatuapp/joatu-app)
+[![Test Coverage](https://codeclimate.com/github/joatuapp/joatu-app/badges/coverage.svg)](https://codeclimate.com/github/joatuapp/joatu-app)
 
 About the Project
 -----------------

@@ -24,6 +24,7 @@ gem 'haml'
 gem 'i18n-js' # I18n for JS files.
 gem 'paperclip', '~> 4.1' # Attachment handling (images).
 gem 'foreman'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 group :admin, :development do
   gem 'rails_admin'
@@ -31,17 +32,13 @@ group :admin, :development do
   gem "rails_admin_map_field", :github => "sudosu/rails_admin_map_field"
 end
 
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'bootstrap-sass', '~> 3.2.0'
-  gem 'autoprefixer-rails'
-  gem 'sass-rails'
-  gem 'coffee-rails'
-  #gem 'compass-rails'
-  gem 'haml_coffee_assets', github: 'netzpirat/haml_coffee_assets'
-  gem 'uglifier'
-end
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails'
+gem 'sass-rails'
+gem 'coffee-rails'
+#gem 'compass-rails'
+gem 'haml_coffee_assets', github: 'netzpirat/haml_coffee_assets'
+gem 'uglifier'
 
 
 group :development do

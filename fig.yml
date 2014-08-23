@@ -8,6 +8,8 @@ web:
   build: .
   volumes:
     - .:/var/www
+  environment:
+    RAILS_ENV: "development"
   ports:
     - "8080:8080"
   links:

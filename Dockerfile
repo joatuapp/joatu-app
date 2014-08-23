@@ -47,10 +47,14 @@ COPY docker-bundle-config /var/www/.bundle/config
 RUN rm -f /var/www/tmp/sockets/unicorn.sock
 RUN chown -R web:web /var/www
 
+ENV RAILS_ENV production
+
 USER web
 
-EXPOSE 3000
+EXPOSE 8080
 
 WORKDIR /var/www
+
+RUN bundle exec rake assets:precompile
 
 CMD ["foreman", "start", "web"]
