@@ -16,7 +16,7 @@ default: &default
   adapter: postgis
   encoding: utf8
   postgis_extension: postgis
-  schema_search_path: '"$user", public, postgis'
+  schema_search_path: '"$user", public'
   pool: 5
   database: <%= ENV['DB_ENV_PG_DB'] || ENV['PG_DB'] || "joatu_#{Rails.env}" %>
   username: <%= ENV['DB_ENV_PG_USER'] || ENV['PG_USER'] %>
