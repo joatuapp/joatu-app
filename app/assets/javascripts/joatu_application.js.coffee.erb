@@ -17,7 +17,7 @@ define ['chaplin'], (Chaplin) ->
 
       # Create an api_base_url property
       # Chaplin.mediator.api_base_url = configs().api_base_url
-      Chaplin.mediator.api_base_url = <%= ENV["API_ENDPOINT"] || "'http://local.api.joatu.com'" %>
+      Chaplin.mediator.api_base_url = <%= "'http://#{ENV["API_ENDPOINT"]}'" || "'http://local.api.joatu.com'" %>
 
       # Seal the mediator
       Chaplin.mediator.seal()

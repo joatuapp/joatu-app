@@ -11,8 +11,8 @@ prodweb:
   environment:
     RAILS_ENV: "production"
     CORS_ORIGINS: "local.alpha.joatu.org"
-    API_ENDPOINT: "http://local.alpha.joatu.org"
-    API_SUBDOMAIN: "local.alpha"
+    API_ENDPOINT: "local.api.alpha.joatu.org"
+    API_SUBDOMAIN: "local.api.alpha"
     SECRET_KEY_BASE: "485f9620d248bb568241616673ae66cb3862c8c2778ade2339e7b7f3e39bc5995dfeaa3f14423d0ca4ddbc04a97f826f82ae7f5641e2217d677c1ca9d7fd22f7"
     DEVISE_SECRET: "9481003cb278553c94bea24994c288169cef26cdddbef73e86d59d53979e74b2b429e2c659f24398302bd81aa911cfb04a3095df9d88cf2077b5a2bbbbc022d4"
     DEVISE_MAILER_SENDER: "noreply@joatu.com"

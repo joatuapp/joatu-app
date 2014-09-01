@@ -49,10 +49,11 @@ RUN rm -f /var/www/tmp/sockets/unicorn.sock
 RUN chown -R web:web /var/www
 
 ENV RAILS_ENV production
-ENV CORS_ORIGINS 'alpha.joatu.org'
-ENV APP_HOST "alpha.joatu.org"
-ENV API_ENDPOINT "http://api.alpha.joatu.org"
-ENV API_SUBDOMAIN 'api.alpha'
+ENV SEED_INITIAL_PASSWORD alexAlphaPass
+ENV CORS_ORIGINS alpha.joatu.org
+ENV APP_HOST alpha.joatu.org
+ENV API_ENDPOINT api.alpha.joatu.org
+ENV API_SUBDOMAIN api.alpha
 ENV SECRET_KEY_BASE "485f9620d248bb568241616673ae66cb3862c8c2778ade2339e7b7f3e39bc5995dfeaa3f14423d0ca4ddbc04a97f826f82ae7f5641e2217d677c1ca9d7fd22f7"
 ENV DEVISE_SECRET "9481003cb278553c94bea24994c288169cef26cdddbef73e86d59d53979e74b2b429e2c659f24398302bd81aa911cfb04a3095df9d88cf2077b5a2bbbbc022d4"
 ENV DEVISE_MAILER_SENDER "noreply@joatu.com"

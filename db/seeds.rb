@@ -17,7 +17,7 @@ community_data = [
 communities = community_data.map {|c| Community.create! c }
 
 # Create initial admins:
-unless initial_password = ENV['seed_initial_password']
+unless initial_password = ENV['SEED_INITIAL_PASSWORD']
   if Rails.env.development?
     initial_password = 'foobarbash'
   else

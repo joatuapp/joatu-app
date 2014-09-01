@@ -26,7 +26,7 @@ gem 'paperclip', '~> 4.1' # Attachment handling (images).
 gem 'foreman'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 
-group :admin, :development do
+group :admin, :development, :production do
   gem 'rails_admin'
   gem "rails_admin_pundit", :github => "sudosu/rails_admin_pundit"
   gem "rails_admin_map_field", :github => "sudosu/rails_admin_map_field"
