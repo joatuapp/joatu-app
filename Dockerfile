@@ -43,11 +43,20 @@ RUN chown -R web:web /var/www && \
 RUN su -c "cd /var/www && bundle install --deployment --path /var/bundle" -s /bin/bash -l web
 
 ADD . /var/www
+RUN rm -f /var/www/.env
 COPY docker-bundle-config /var/www/.bundle/config
 RUN rm -f /var/www/tmp/sockets/unicorn.sock
 RUN chown -R web:web /var/www
 
 ENV RAILS_ENV production
+ENV CORS_ORIGINS 'alpha.joatu.org'
+ENV APP_HOST "alpha.joatu.org"
+ENV API_ENDPOINT "http://api.alpha.joatu.org"
+ENV API_SUBDOMAIN 'api.alpha'
+ENV SECRET_KEY_BASE "485f9620d248bb568241616673ae66cb3862c8c2778ade2339e7b7f3e39bc5995dfeaa3f14423d0ca4ddbc04a97f826f82ae7f5641e2217d677c1ca9d7fd22f7"
+ENV DEVISE_SECRET "9481003cb278553c94bea24994c288169cef26cdddbef73e86d59d53979e74b2b429e2c659f24398302bd81aa911cfb04a3095df9d88cf2077b5a2bbbbc022d4"
+ENV DEVISE_MAILER_SENDER "noreply@joatu.com"
+ENV DEVISE_PEPPER "e15e6e55eda06a9c1246466eeec407682a46709c6a6aa3fe735f1a41a35f2b61be3f1ca411f9e4892dbf2ec7a085c00bcb4d53ec77b2b7100b01c606338479b9"
 
 USER web
 
@@ -57,4 +66,4 @@ WORKDIR /var/www
 
 RUN bundle exec rake assets:precompile
 
-CMD ["foreman", "start", "web"]
+CMD ["bin/docker_run"]

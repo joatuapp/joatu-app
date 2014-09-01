@@ -1,0 +1,23 @@
+prodpostgres:
+  image: 'undergroundwebdevelopment/postgres:9.3'
+  environment:
+    PG_USER: "joatu"
+    PG_PASS: "joatu_prod_pass"
+    PG_DB: "joatu_production"
+prodweb:
+  build: .
+  volumes:
+    - /Users/uwd/tmp/joatu_logs:/var/www/log
+  environment:
+    RAILS_ENV: "production"
+    CORS_ORIGINS: "local.alpha.joatu.org"
+    API_ENDPOINT: "http://local.alpha.joatu.org"
+    API_SUBDOMAIN: "local.alpha"
+    SECRET_KEY_BASE: "485f9620d248bb568241616673ae66cb3862c8c2778ade2339e7b7f3e39bc5995dfeaa3f14423d0ca4ddbc04a97f826f82ae7f5641e2217d677c1ca9d7fd22f7"
+    DEVISE_SECRET: "9481003cb278553c94bea24994c288169cef26cdddbef73e86d59d53979e74b2b429e2c659f24398302bd81aa911cfb04a3095df9d88cf2077b5a2bbbbc022d4"
+    DEVISE_MAILER_SENDER: "noreply@joatu.com"
+    DEVISE_PEPPER: "e15e6e55eda06a9c1246466eeec407682a46709c6a6aa3fe735f1a41a35f2b61be3f1ca411f9e4892dbf2ec7a085c00bcb4d53ec77b2b7100b01c606338479b9"
+  ports:
+    - "8080:8080"
+  links:
+    - 'prodpostgres:db'
