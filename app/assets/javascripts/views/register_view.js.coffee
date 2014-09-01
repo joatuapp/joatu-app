@@ -57,5 +57,5 @@ define [
         @displayFormError()
 
     displayFormError: ->
-      flash = new FlashView(container: @$('.register-flash'), model: model, message: "Please fix the errors on the form.")
+      flash = new FlashView(container: @$('.register-flash'), model: @model, message: "Please fix the errors on the form.")
       @subview 'flash', flash

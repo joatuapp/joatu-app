@@ -49,5 +49,5 @@
 %div(class="form-group")
   %small(class="col-md-6") All entered information will stay private unless you decide otherwise. We value privacy and transparency as well so you can be sure your information will never be sold to a third-party.
   %div(class="col-md-3 col-md-offset-3")
-    %button(name="cancel" class="btn")Cancel
-    %button(data-target="#step2" role="tab" name="next" class="btn btn-primary") Next Step
+    %button(class="btn")Cancel
+    %button(data-target="#step2" role="tab" class="btn btn-primary") Next Step
