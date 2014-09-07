@@ -122,6 +122,9 @@ GEM
     capistrano-rails (1.1.1)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
+    capistrano-rbenv (2.0.2)
+      capistrano (~> 3.1)
+      sshkit (~> 1.3)
     celluloid (0.15.2)
       timers (~> 1.1.0)
     celluloid-io (0.15.0)
@@ -519,6 +522,7 @@ DEPENDENCIES
   capistrano-bundler (~> 1.1.2)
   capistrano-chef
   capistrano-rails (~> 1.1)
+  capistrano-rbenv (~> 2.0)
   childprocess
   codeclimate-test-reporter
   coffee-rails

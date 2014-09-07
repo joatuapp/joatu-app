@@ -7,6 +7,10 @@ set :repo_url, 'git@github.com:joatuapp/joatu-app.git'
 # Deploy using the deploy user.
 set :user, 'deploy'
 
+# Configure rbenv
+set :rbenv_ruby, `cat #{File.join(File.dirname(__FILE__), "../", '.ruby-version')}`.chomp
+set :rbenv_custom_path, "/opt/rbenv"
+
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
@@ -23,7 +27,7 @@ set :user, 'deploy'
 # set :pty, true
 
 # Default value for :linked_files is []
-# set :linked_files, %w{config/database.yml}
+set :linked_files, %w{.rbenv-vars}
 
 # Default value for linked_dirs is []
 # set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}

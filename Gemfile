@@ -63,6 +63,7 @@ group :development do
   gem 'capistrano', '~> 3.2.0'
   gem 'capistrano-rails', '~> 1.1'
   gem 'capistrano-bundler', '~> 1.1.2'
+  gem 'capistrano-rbenv', '~> 2.0'
   # Commenting out right now so that it doesn't bug us about knife configs.
   # We're not at the chef / cap stage yet, so we don't care.
   gem 'capistrano-chef'

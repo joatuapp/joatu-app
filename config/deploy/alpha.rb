@@ -6,14 +6,20 @@
 # Note: chef_role is provided by the capistrano-chef gem, and lets us
 # define roles based on a chef search.
 
-chef_role [:web, :app], 'roles:rails AND chef_environment:alpha', {}
-chef_role :db, 'roles:postgresql AND chef_environment:alpha', {}
+public_ip_proc = Proc.new do |n|
+  n["ec2"]["public_ipv4"]
+end
+
+chef_role [:web, :app], 'roles:rails AND chef_environment:alpha', attribute: public_ip_proc
+chef_role :db, 'roles:postgresql AND chef_environment:alpha', attribute: public_ip_proc
 
 # Default deploy_to directory is /var/www/my_app
-set :deploy_to, '/data/www/joatu_alpha'
+set :deploy_to, '/data/web/joatu_alpha'
 
 # Set rails env:
 set :rails_env, :production
+
+ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
 # Extended Server Syntax
 # ======================
