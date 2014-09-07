@@ -65,7 +65,7 @@ group :development do
   gem 'capistrano-bundler', '~> 1.1.2'
   # Commenting out right now so that it doesn't bug us about knife configs.
   # We're not at the chef / cap stage yet, so we don't care.
-  # gem 'capistrano-chef'
+  gem 'capistrano-chef'
 
   # These are gems that aren't used by the app,
   # but are included in the gemfile because they're
