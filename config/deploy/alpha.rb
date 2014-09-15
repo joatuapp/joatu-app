@@ -14,7 +14,7 @@ chef_role [:web, :app], 'roles:rails AND chef_environment:alpha', attribute: pub
 chef_role :db, 'roles:postgresql AND chef_environment:alpha', attribute: public_ip_proc
 
 # Default deploy_to directory is /var/www/my_app
-set :deploy_to, '/data/web/joatu_alpha'
+set :deploy_to, '/data/web/joatu_app'
 
 # Set rails env:
 set :rails_env, :production

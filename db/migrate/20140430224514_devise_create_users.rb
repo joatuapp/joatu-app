@@ -1,6 +1,5 @@
 class DeviseCreateUsers < ActiveRecord::Migration
   def change
-    enable_extension "postgis"
     enable_extension 'uuid-ossp'
 
     create_table :users, id: :uuid do |t|

@@ -44,7 +44,9 @@ namespace :deploy do
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
       # Your restart mechanism here, for example:
-      execute :kill, "-USR2 #{release_path.join("shared/tmp/pids/unicorn.pid")}"
+      if File.exists? shared_path.join("tmp/pids/unicorn.pid")
+        execute :kill, "-USR2 #{shared_path.join("tmp/pids/unicorn.pid")}"
+      end
     end
   end
 

@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 20140715021823) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "postgis"
   enable_extension "uuid-ossp"
 
   create_table "communities", id: :uuid, default: "uuid_generate_v4()", force: true do |t|
