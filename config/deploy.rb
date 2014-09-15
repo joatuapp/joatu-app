@@ -30,7 +30,7 @@ set :rbenv_custom_path, "/opt/rbenv"
 set :linked_files, %w{.rbenv-vars}
 
 # Default value for linked_dirs is []
-# set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
+set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 # Default value for default_env is {}
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
@@ -46,6 +46,8 @@ namespace :deploy do
       # Your restart mechanism here, for example:
       if File.exists? shared_path.join("tmp/pids/unicorn.pid")
         execute :kill, "-USR2 #{shared_path.join("tmp/pids/unicorn.pid")}"
+      else
+        execute :sudo, "start joatu_app"
       end
     end
   end

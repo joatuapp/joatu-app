@@ -30,12 +30,11 @@ timeout ENV["UNICORN_TIMEOUT"] && ENV["UNICORN_TIMEOUT"].to_i || 30
 # "current" directory that Capistrano sets up.
 working_directory File.expand_path(ENV["UNICORN_APP_PATH"]) if ENV.key? "UNICORN_APP_PATH" # available in 0.94.0+
 
-# listen on both a Unix domain socket and a TCP port,
-# we use a shorter backlog for quicker failover when busy
-listen 8080, :tcp_nopush => true
+# listen on a Unix domain socket:
+listen File.expand_path("../../tmp/sockets/unicorn.sock", __FILE__)
 
 # feel free to point this anywhere accessible on the filesystem
-# pid "~/workspace/concert-hunt/tmp/pids/unicorn.pid"
+pid File.expand_path("../../tmp/pids/unicorn.pid", __FILE__)
 
 # By default, the Unicorn logger will write to stderr.
 # Additionally, ome applications/frameworks log to stderr or stdout,
@@ -68,19 +67,19 @@ before_fork do |server, worker|
   # installations.  It is not needed if your system can house
   # twice as many worker_processes as you have configured.
   #
-  # # This allows a new master process to incrementally
-  # # phase out the old master process with SIGTTOU to avoid a
-  # # thundering herd (especially in the "preload_app false" case)
-  # # when doing a transparent upgrade.  The last worker spawned
-  # # will then kill off the old master process with a SIGQUIT.
-  # old_pid = "#{server.config[:pid]}.oldbin"
-  # if old_pid != server.pid
-  #   begin
-  #     sig = (worker.nr + 1) >= server.worker_processes ? :QUIT : :TTOU
-  #     Process.kill(sig, File.read(old_pid).to_i)
-  #   rescue Errno::ENOENT, Errno::ESRCH
-  #   end
-  # end
+  # This allows a new master process to incrementally
+  # phase out the old master process with SIGTTOU to avoid a
+  # thundering herd (especially in the "preload_app false" case)
+  # when doing a transparent upgrade.  The last worker spawned
+  # will then kill off the old master process with a SIGQUIT.
+  old_pid = "#{server.config[:pid]}.oldbin"
+  if old_pid != server.pid
+    begin
+      sig = (worker.nr + 1) >= server.worker_processes ? :QUIT : :TTOU
+      Process.kill(sig, File.read(old_pid).to_i)
+    rescue Errno::ENOENT, Errno::ESRCH
+    end
+  end
   #
   # Throttle the master from forking too quickly by sleeping.  Due
   # to the implementation of standard Unix signal handlers, this
