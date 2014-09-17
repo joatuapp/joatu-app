@@ -23,6 +23,7 @@ define [
 
       @delegate('submit', 'form', @register)
       @delegate('click', '[role=tab]', @selectTab)
+      @listenTo @model, "validated:valid", @hideFormError
 
     render: ->
       super
@@ -31,7 +32,7 @@ define [
       step2 = new RegisterStep2View autoRender: true, region: 'step2'
       @subview 'step2', step2
 
-      Backbone.Validation.bind(@)
+      Backbone.Validation.bind(@, { model: @model })
       @modelBinder.bind(@model, @$el)
 
     register: (event) ->
@@ -41,12 +42,14 @@ define [
         @publishEvent '!createSession', @model
         Chaplin.utils.redirectTo name: 'root'
       )
-      request.fail(=>
+      request.fail((request)=>
+        # This iterates over the returned errors, and triggers
+        # the validation callback for each.
+        if request.responseJSON.errors
+          _.each(request.responseJSON.errors, (error, field) =>
+            Backbone.Validation.callbacks.invalid(@, field, "#{field} #{error[0]}", "name")
+          )
         @displayFormError()
-        # TODO: Handle server side failure.
-        # should only need to cover connection issues
-        # as data should (normally) be 
-        # validated client side.
       )
 
     selectTab: (event) ->
@@ -57,5 +60,9 @@ define [
         @displayFormError()
 
     displayFormError: ->
-      flash = new FlashView(container: @$('.register-flash'), model: @model, message: "Please fix the errors on the form.")
-      @subview 'flash', flash
+      @formErrorFlash = new FlashView(container: @$('.register-flash'), message: "Please fix the errors on the form.")
+      @subview 'flash', @formErrorFlash
+
+    hideFormError: ->
+      if @formErrorFlash
+        @formErrorFlash.dispose()

@@ -25,7 +25,7 @@ define [
           if control.data('error-style') == 'tooltip'
             # CAUTION: calling tooltip('hide') on an uninitialized tooltip
             # causes bootstraps tooltips to crash somehow...
-            control.tooltip 'hide' if control.data('tooltip')
+            control.tooltip 'hide' if control.tooltip
           else if control.data('error-style') == 'inline'
             group.find('.help-inline.error-message').remove()
           else

@@ -6,14 +6,17 @@ define [
   'use strict'
 
   class User extends Model
+
     validation:
       username:
         required: true
       email:
-        required: true,
-        pattern: 'email'
-      password: fn: 'passwordConfirmed', required: false
-      password_confirmation: fn: 'passwordConfirmed', required: false
+        pattern: 'email',
+        required: true
+      email_confirmed:
+        fn: 'emailConfirmed'
+        required: true
+      password: required: false
 
     defaults: {
       accepted_currencies: []
@@ -46,10 +49,10 @@ define [
 
       $.trim(name)
 
-    passwordConfirmed: (value, attr, computed) ->
-      if computed.password? && computed.password_confirmation?
-        unless computed.password == computed.password_confirmation
-          return "Does not match"
+    emailConfirmed: (value, attr, computed) ->
+      if computed.email? && computed.email_confirmation?
+        unless computed.email == computed.email_confirmation
+          return "Does not match email"
 
     updateAcceptedCurrenciesCollection: ->
       @acceptedCurrenciesCollection.set(@get('accepted_currencies'), parse: true)
