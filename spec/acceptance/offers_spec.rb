@@ -1,7 +1,7 @@
 require 'acceptance_spec_helper'
 
 resource 'Offers' do
-  root_url = "http://#{ENV["API_SUBDOMAIN"] || 'api'}.joatu.com"
+  root_url = "http://#{ENV.fetch("API_SUBDOMAIN")}.joatu.com"
 
   header "Accept", "application/json"
   header "Content-Type", "application/json"
