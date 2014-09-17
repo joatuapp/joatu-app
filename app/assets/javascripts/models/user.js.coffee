@@ -13,9 +13,8 @@ define [
       email:
         pattern: 'email',
         required: true
-      email_confirmed:
+      email_confirmation:
         fn: 'emailConfirmed'
-        required: true
       password: required: false
 
     defaults: {
