@@ -11,6 +11,9 @@ set :user, 'deploy'
 set :rbenv_ruby, `cat #{File.join(File.dirname(__FILE__), "../", '.ruby-version')}`.chomp
 set :rbenv_custom_path, "/opt/rbenv"
 
+set :ci_client, "travis"
+set :ci_repository, "joatuapp/joatu-app"
+
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
@@ -37,6 +40,8 @@ set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public
 
 # Default value for keep_releases is 5
 set :keep_releases, 5
+
+before 'deploy', 'ci:verify'
 
 namespace :deploy do
 

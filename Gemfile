@@ -65,6 +65,7 @@ group :development do
   gem 'capistrano-bundler', '~> 1.1.2'
   gem 'capistrano-rbenv', '~> 2.0'
   gem 'capistrano-chef'
+  gem 'capistrano-ci'
 
   # These are gems that aren't used by the app,
   # but are included in the gemfile because they're
