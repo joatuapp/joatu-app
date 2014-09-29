@@ -41,7 +41,6 @@ gem 'haml_coffee_assets', github: 'netzpirat/haml_coffee_assets'
 gem 'uglifier'
 
 gem 'mail_safe', '~> 0.3', group: [:development, :staging]
-
 gem 'non-stupid-digest-assets'
 
 group :development do
