@@ -34,6 +34,7 @@ define [
     collectionUpdateHandler: ->
       if @collection.length > 0
         $('#community_select').removeClass('hidden')
+        $(@listSelector).change()
       else
         $('#community_select').addClass('hidden')
 
@@ -47,14 +48,21 @@ define [
       for index, component of place.address_components
         if $.inArray('neighborhood', component.types) >= 0
           $('#user_neighbourhood').val(component.long_name)
+          $('#user_neighbourhood').change()
         if $.inArray('postal_code', component.types) >= 0
           $('#user_postal_code').val(component.long_name)
+          $('#user_postal_code').change()
         if $.inArray('locality', component.types) >= 0
           $('#user_city').val(component.long_name)
+          $('#user_city').change()
         if $.inArray('administrative_area_level_1', component.types) >= 0
           $('#user_province').val(component.long_name)
+          $('#user_province').change()
         if $.inArray('country', component.types) >= 0
           $('#user_country').val(component.long_name)
+          $('#user_country').change()
 
       $('#user_latitude').val(place.geometry.location.k)
+      $('#user_latitude').change()
       $('#user_longitude').val(place.geometry.location.B)
+      $('#user_longitude').change()
