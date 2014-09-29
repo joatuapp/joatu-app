@@ -34,7 +34,7 @@ class Image < ActiveRecord::Base
                     styles: {tiny: "32x32>", thumbnail: "170x170>"},
                     convert_options: {tiny: "-quality 75", thumbnail: "-quality 85"},
                     preserve_files: true,
-                    default_url: lambda { |image| ActionController::Base.helpers.asset_path("/assets/:style/default_profile_pic.png") },
+                    default_url: "/assets/:style/default_profile_pic.png",
                    )
 
   validates_attachment :image, 

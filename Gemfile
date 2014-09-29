@@ -14,9 +14,9 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'kaminari' # Pagnination gem
 gem 'devise' # Authentication
 gem 'devise-token_authenticatable' # Token auth.
-gem "pundit" # Authorization
-# gem 'associates', github: "phildionne/associates"
-gem 'associates', github: "undergroundwebdesigns/associates" # Meta-models
+gem 'pundit' # Authorization
+# gem 'associates', github: 'phildionne/associates'
+gem 'associates', github: 'undergroundwebdesigns/associates' # Meta-models
 gem 'rack-cors', require: 'rack/cors'
 gem 'unicorn' # Rails server.
 gem 'requirejs-rails', github: 'jwhitley/requirejs-rails'
@@ -28,8 +28,8 @@ gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 group :admin, :development, :production do
   gem 'rails_admin'
-  gem "rails_admin_pundit", :github => "sudosu/rails_admin_pundit"
-  gem "rails_admin_map_field", :github => "sudosu/rails_admin_map_field"
+  gem 'rails_admin_pundit', :github => 'sudosu/rails_admin_pundit'
+  gem 'rails_admin_map_field', :github => 'sudosu/rails_admin_map_field'
 end
 
 gem 'bootstrap-sass', '~> 3.2.0'
@@ -41,6 +41,8 @@ gem 'haml_coffee_assets', github: 'netzpirat/haml_coffee_assets'
 gem 'uglifier'
 
 gem 'mail_safe', '~> 0.3', group: [:development, :staging]
+
+gem 'non-stupid-digest-assets'
 
 group :development do
   gem 'coffee-rails-source-maps'
@@ -81,10 +83,10 @@ group :test, :development do
   gem 'rspec-rails', '~> 2.0'
   gem 'rspec_api_documentation'
 
-  gem 'factory_girl_rails', "~> 4.0"
+  gem 'factory_girl_rails', '~> 4.0'
   gem 'faker'
 
-  gem "codeclimate-test-reporter", require: nil
+  gem 'codeclimate-test-reporter', require: nil
   
   # Dotenv loads env variables from a .env file when the
   # environment is bootstraped (eg, through foreman).
