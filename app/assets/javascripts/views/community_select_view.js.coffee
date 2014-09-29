@@ -41,10 +41,15 @@ define [
     populateHiddenFieldsFromPlace: ->
       place = @autoComplete.getPlace()
       $('#user_neighbourhood').val('')
+      $('#user_neighbourhood').change()
       $('#user_postal_code').val('')
+      $('#user_postal_code').change()
       $('#user_city').val('')
+      $('#user_city').change()
       $('#user_province').val('')
+      $('#user_province').change()
       $('#user_country').val('')
+      $('#user_country').change()
       for index, component of place.address_components
         if $.inArray('neighborhood', component.types) >= 0
           $('#user_neighbourhood').val(component.long_name)
