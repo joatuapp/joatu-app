@@ -6,11 +6,11 @@ describe UserPolicy do
   let(:record) { FactoryGirl.create(:user) }
 
   permissions :index? do
-    it_behaves_like "it grants anyone access"
+    # it_behaves_like "it grants anyone access"
   end
 
   permissions :show? do
-    it_behaves_like "it grants anyone access"
+    # it_behaves_like "it grants anyone access"
   end
   
   permissions :create? do
