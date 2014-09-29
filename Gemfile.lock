@@ -274,6 +274,8 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    mail_safe (0.3.3)
+      actionmailer (>= 3.0.0)
     method_source (0.8.2)
     mime-types (1.25.1)
     mini_portile (0.6.0)
@@ -550,13 +552,14 @@ DEPENDENCIES
   haml_coffee_assets!
   i18n-js
   kaminari
+  mail_safe (~> 0.3)
   paperclip (~> 4.1)
   paranoia (~> 2.0)
   pg
   pivotal-integration!
   pundit
   rack-cors
-  rails (= 4.1)
+  rails (~> 4.1)
   rails_admin
   rails_admin_map_field!
   rails_admin_pundit!

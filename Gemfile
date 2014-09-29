@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 source 'https://rubygems.org'
 
-gem 'rails', '4.1'
+gem 'rails', '~> 4.1'
 gem 'pg' # Postgres
 gem 'rgeo' # Geo-data, for use with postgres
 gem 'activerecord-postgis-adapter'
@@ -40,6 +40,7 @@ gem 'coffee-rails'
 gem 'haml_coffee_assets', github: 'netzpirat/haml_coffee_assets'
 gem 'uglifier'
 
+gem 'mail_safe', '~> 0.3', group: [:development, :staging]
 
 group :development do
   gem 'coffee-rails-source-maps'
