@@ -14,7 +14,9 @@ class UserPolicy < ApplicationPolicy
   end
 
   def index?
-    true
+    # Temporary permissions change for initial alpha deploy.
+    owner_or_admin?
+    # true
   end
 
   def create?
@@ -22,7 +24,9 @@ class UserPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    # Temporary permissions change for initial alpha deploy.
+    owner_or_admin?
+    # true
   end
 
   def update?
