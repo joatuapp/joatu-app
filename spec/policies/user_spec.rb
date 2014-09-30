@@ -17,6 +17,10 @@ describe UserPolicy do
     it_behaves_like "it grants anyone access"
   end
 
+  permissions :confirm? do
+    it_behaves_like "it grants anyone access"
+  end
+
   permissions :update? do
     it_behaves_like "it grants owner and admin access"
   end

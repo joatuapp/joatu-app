@@ -37,6 +37,10 @@ class UserPolicy < ApplicationPolicy
     owner_or_admin?
   end
 
+  def confirm?
+    true
+  end
+
   protected
 
   def owner_or_admin?

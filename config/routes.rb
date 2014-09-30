@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   # API Routes:
   constraints(subdomain: ENV.fetch("API_SUBDOMAIN")) do
-    devise_for :users, controllers: { sessions: 'sessions', registrations: 'registrations' }
+    devise_for :users, controllers: { sessions: 'sessions', registrations: 'registrations', confirmations: 'confirmations' }
 
     get 'search/:action', controller: :search
 

@@ -6,6 +6,7 @@ define ->
   (match) ->
 
     match '', 'home#show', name: 'root'
+    match 'register/confirm/:confirmation_token', 'register#confirm', name: 'register_confirm'
     match 'register', 'register#show', name: 'register'
     match 'logout', 'session#logout', name: 'logout'
     match 'profile/:id', 'user#show', name: 'profile'

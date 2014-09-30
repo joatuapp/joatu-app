@@ -18,3 +18,16 @@ define [
       @view = new RegisterView model: @user, region: 'main'
       @view.render()
 
+    confirm: (params) ->
+      @user = new User
+
+      confirmRequest = $.ajax
+        type: 'post'
+        url: @user.urlRoot() + '/confirmation'
+        data: { "confirmation_token": params["confirmation_token"] }
+      confirmRequest.done (data) =>
+        @user.set(data)
+        @publishEvent '!createSession', @user
+        @redirectTo('root')
+      confirmRequest.fail (data) =>
+        @redirectTo('root')
