@@ -1,12 +1,24 @@
 language: ruby
-bundler_args: "--without development production --deployment"
+bundler_args: "--without development production --path=~/.bundle"
 env:
-- CODECLIMATE_REPO_TOKEN=33f5c18ba545e92e2744e55d1f0689ec91cf6cb2bb2e30d98c0f5cbfefede757 PG_USER=postgres PG_DB=travis_ci_test SECRET_KEY_BASE=df55ce581687c876790adc5e98a0d3ba41905f772a6ed4dc3f8143e8997185d3f0a1332ef0bd03a599685da786ca129c9c26f6fc86bf4d39ee8fbaa90915f584 APP_HOST=travisci.joatu.com DEVISE_SECRET=9481003cb278553c94bea24994c288169cef26cdddbef73e86d59d53979e74b2b429e2c659f24398302bd81aa911cfb04a3095df9d88cf2077b5a2bbbbc022d4 DEVISE_MAILER_SENDER=noreply@joatu.com DEVISE_PEPPER=e15e6e55eda06a9c1246466eeec407682a46709c6a6aa3fe735f1a41a35f2b61be3f1ca411f9e4892dbf2ec7a085c00bcb4d53ec77b2b7100b01c606338479b9 CORS_ORIGINS=travisci.joatu.com API_SUBDOMAIN=api.travisci.joatu.com SMTP_PASSWORD=EKR6J5FOJKGp4IlPDfRIEA
+  matrix:
+  - CODECLIMATE_REPO_TOKEN=33f5c18ba545e92e2744e55d1f0689ec91cf6cb2bb2e30d98c0f5cbfefede757
+    PG_USER=postgres PG_DB=travis_ci_test SECRET_KEY_BASE=df55ce581687c876790adc5e98a0d3ba41905f772a6ed4dc3f8143e8997185d3f0a1332ef0bd03a599685da786ca129c9c26f6fc86bf4d39ee8fbaa90915f584
+    APP_HOST=travisci.joatu.com DEVISE_SECRET=9481003cb278553c94bea24994c288169cef26cdddbef73e86d59d53979e74b2b429e2c659f24398302bd81aa911cfb04a3095df9d88cf2077b5a2bbbbc022d4
+    DEVISE_MAILER_SENDER=noreply@joatu.com DEVISE_PEPPER=e15e6e55eda06a9c1246466eeec407682a46709c6a6aa3fe735f1a41a35f2b61be3f1ca411f9e4892dbf2ec7a085c00bcb4d53ec77b2b7100b01c606338479b9
+    CORS_ORIGINS=travisci.joatu.com API_SUBDOMAIN=api.travisci.joatu.com SMTP_PASSWORD=EKR6J5FOJKGp4IlPDfRIEA BUNDLE_ARCHIVE="joatu_ci_bundle" AWS_S3_BUCKET="joatu-travis-ci-cache"
+  global:
+    secure: RClwVlMSbd8sKBIgctYNkF8bo29UaKRmaNg324qOdcVYmgqsMN0IEe69iEbkw89VTSAjCeRECI0P9cR0l4qpxNa/Q706Ua3Sq6TArIdr9RkgZd/xX+CLoGpivT4EIN3kGg/NFBdnuEmKOApWfmpJEjY6lEv/uwEniHWGzB6uyVU=
 addons:
   postgresql: '9.3'
 before_script:
 - psql -c 'create database travis_ci_test;' -U postgres
 - psql -U postgres -c "create extension postgis"
+- 'echo ''gem: --no-ri --no-rdoc'' > ~/.gemrc'
+- gem install bundler bundle_cache
+- bundle_cache_install
+after_script:
+- bundle_cache
 notifications:
   slack:
     secure: p6EaU4uR3ij6wS85B3HJOX6bH9IKbs9NCuPXfmulLigbRaLRPRtp0j7fZRaidjZvb/up5MMv6uJXJmjByrVL4FHY6NJVkNEY4LhRa/yKG50ld7JZEWvzkGHKXgAW4Sl/w++f5WQKhSX6M6PdOqWNg6cokpQizCUbUTKEmT20ohg=
