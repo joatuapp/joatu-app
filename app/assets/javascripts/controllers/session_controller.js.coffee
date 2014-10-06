@@ -40,9 +40,13 @@ define [
         @publishEvents()
 
     createSession: (user) ->
-      Chaplin.mediator.user = user
+      # We are creating a new user and copying over the
+      # attributes as the user param likely refers to a view's
+      # model somewhere, which might later be disposed.
+      Chaplin.mediator.user = new User
+      Chaplin.mediator.user.set(user.getAttributes())
       @publishEvents()
-      utils.sessionStorage('authentication_token', user.get('authentication_token'))
+      utils.sessionStorage('authentication_token', Chaplin.mediator.user.get('authentication_token'))
 
     logout: =>
       @destroySession()
