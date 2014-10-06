@@ -3,7 +3,7 @@ class UserWithDetailRepresenter < ApplicationRepresenter
   property :username
   property :email
   property :primary_community_id, as: :community_id
-  property :community_name, writeable: false, default: "<unknonw>"
+  property :community_name, writeable: false, default: "<unknown>"
   property :given_name
   property :surname
   property :about_me

@@ -14,10 +14,10 @@ define [
       @delegate('click', '[data-action=login]', @login)
       @delegate('click', '[data-action=register]', @register)
 
-    login: ->
+    login: (event) ->
       event.preventDefault()
       @publishEvent '!showLogin'
 
-    register: ->
+    register: (event) ->
       event.preventDefault()
       Chaplin.utils.redirectTo name: 'register'
