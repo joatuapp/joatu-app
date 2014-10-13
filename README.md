@@ -18,13 +18,13 @@ wanted"
 tag](https://github.com/joatuapp/joatu-app/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22)
 for issues that have been triaged and are most ready for outside help. That
   said, any open, unassigned bug is fair game, with the exception that issues tagged 
-  "request-for-comment" are currently under discussion and so should not be
-  worked on.
+  ["request-for-comment"](https://github.com/joatuapp/joatu-app/labels/request-for-comment)
+  are currently under discussion and so should not be worked on.
 
   If you fix an issue, please submit a pull request with your fix, using "fixes
   #\<issue-number\>" in the pull request body so that the issue will
-  auto-clcose when your pull request is merged. If you are fixing a backend bug
-  (Ruby) please include a unit test that will catch any regressions of the
+  auto-close when your pull request is merged. If you are fixing a backend bug
+  (Ruby) please include a unit test that will catch any regression of the
   fixed bug.
 
 If you are not a programmer but still wish contribute please [contact us about volunteering.](http://joatu.com/alpha/volunteer/)
