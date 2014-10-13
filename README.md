@@ -11,9 +11,23 @@ The Jack Of All Trade Universe is an online marketplace for self-organized excha
 
 Contributions
 -------------
-Contributions are welcome. If you wish to help with the project, please consider [donating to our crowdfunding campaign](http://love.joatu.com) or [contact us about volunteering](http://joatu.com/alpha/volunteer/)
+If you are a Ruby on Rails or Javascript developer and are interested in contributing to JoatU we'd love to hear from you! JoatU is currently being programmed by volunteers, and another pair of hands is always welcome. Please feel free to clone or fork the library and explore the code-base. Setup instructions can be found below under "Getting Started", and if you have any issues or feedback on getting the app running, please open an issue (and tag it "development-environment", please).
 
-If you are a Ruby on Rails or Javascript developer and are interested in contributing to JoatU we'd especially love to hear from you! JoatU is currently being programmed by volunteers, and another pair of hands is always welcome. If you're interested please [contact us](http://joatu.com/alpha/volunteer/) and we'll be in touch with more details of what we're currently working on so you can choose a feature and get started!
+We use Github Issues for bugs & issue tracking, and specifically the ["help
+wanted"
+tag](https://github.com/joatuapp/joatu-app/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22)
+for issues that have been triaged and are most ready for outside help. That
+  said, any open, unassigned bug is fair game, with the exception that issues tagged 
+  "request-for-comment" are currently under discussion and so should not be
+  worked on.
+
+  If you fix an issue, please submit a pull request with your fix, using "fixes
+  #\<issue-number\>" in the pull request body so that the issue will
+  auto-clcose when your pull request is merged. If you are fixing a backend bug
+  (Ruby) please include a unit test that will catch any regressions of the
+  fixed bug.
+
+If you are not a programmer but still wish contribute please [contact us about volunteering.](http://joatu.com/alpha/volunteer/)
 
 Getting Started
 --------------
