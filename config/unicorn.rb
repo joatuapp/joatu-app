@@ -32,6 +32,7 @@ working_directory File.expand_path(ENV.fetch("UNICORN_APP_PATH"))
 
 # listen on a Unix domain socket:
 listen File.expand_path("../../tmp/sockets/unicorn.sock", __FILE__)
+listen 8080
 
 # feel free to point this anywhere accessible on the filesystem
 pid File.expand_path("../../tmp/pids/unicorn.pid", __FILE__)

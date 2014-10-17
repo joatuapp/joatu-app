@@ -40,5 +40,7 @@ You can run JoatU locally by following these steps:
 * Change to the repository root: `cd joatu-app`
 * Run `bundle install`
 * Run `bundle exec thor joatu setup`. This will configure the database.
+* Run `cp .env.sample .env`. Open the .env file and adjust environment
+  variables as appropriate.
 * Run `bundle exec foreman start` to start unicorn & postgres.   
 * Visit localhost:8080 to view the site.
