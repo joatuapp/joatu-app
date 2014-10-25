@@ -1,7 +1,11 @@
 require 'acceptance_spec_helper'
 
 resource 'Users' do
-  root_url = "http://#{ENV.fetch("API_SUBDOMAIN")}.joatu.com"
+  if ENV.key? "API_SUBDOMAIN"
+    root_url = "http://#{ENV.fetch("API_SUBDOMAIN")}.joatu.com"
+  else
+    root_url = "http://joatu.com"
+  end
 
   header "Accept", "application/json"
   header "Content-Type", "application/json"

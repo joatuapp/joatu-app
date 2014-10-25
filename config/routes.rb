@@ -12,7 +12,12 @@ Rails.application.routes.draw do
   root 'index#index'
 
   # API Routes:
-  constraints(subdomain: ENV.fetch("API_SUBDOMAIN")) do
+  if ENV.key? "API_SUBDOMAIN"
+    consts = {
+      subdomain: ENV.fetch("API_SUBDOMAIN")
+    }
+  end
+  constraints(consts || {}) do
     devise_for :users, controllers: { sessions: 'sessions', registrations: 'registrations', confirmations: 'confirmations' }
 
     get 'search/:action', controller: :search
