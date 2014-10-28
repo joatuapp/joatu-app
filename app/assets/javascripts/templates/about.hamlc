@@ -1,0 +1,30 @@
+%h1 Home
+%p The 
+  %strong Jack of all Trades Universe
+  connects you with your closest neighbors!  Find out about local community classes, offers that you can trade for, and organizations that you can help out!  And let your neighbors know about the skills and goods that you want to share with them!</p>
+%h4 Watch our animated walk-through to see what JoatU can do for you!
+%p
+  %iframe(src="//www.youtube.com/embed/cGVmRwljfy0" width="640" height="360" frameborder="0" allowfullscreen="allowfullscreen")
+%p Learn that:
+%ul
+  %li Jerry has power tools to share
+  %li Lee is looking for lawns to mow
+  %li Devon wants to learn how to be a carpenter
+  %li A local food bank needs a new coat of paint
+  %li There is are free practical educational courses
+
+%p When you offer to help the community by offering a free course or taking care of a local community center, you will be rewarded with 
+  %strong experience points
+  that you can 
+  %strong trade with other members of your neighborhood
+  \!
+%h2
+  %a(href="http://joatu.crowdtilt.com") Support Us &amp; Share!
+%blockquote JoatU isn’t just a place to exchange, but an avenue to engage with your community in meaningful way.
+%p The 
+  %strong Jack Of All Trade Universe
+  is a site dedicated to let you and your neighbors exchange skills and products that you might want to sell, trade, rent, lend or give away.
+%p JoatU also encourages local community activities and will reward you with community experience points.
+%blockquote Our 
+  %strong Vision
+  is to design an economy that promotes humans first.
