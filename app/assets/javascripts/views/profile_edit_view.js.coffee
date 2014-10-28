@@ -40,6 +40,9 @@ define [
     save: (event) ->
       event.preventDefault()
       request = @model.save()
+      request.done(=>
+        @model.set('community_name', @communitySelect.collection.get(@model.get('community_id')).get('name'))
+      )
       request.fail(=>
         @displayFormError()
         # TODO: Handle server side failure.
