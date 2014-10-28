@@ -34,17 +34,17 @@
         %input(type="text" name="surname" placeholder="Last name (Optional)" class="form-control" data-error-style="tooltip")
 
     %div(class="form-group has-feedback")
-      %label(for="birth_date" class="col-md-2") Birth date
-      %div(class="col-md-10")
-        %input(type="date" name="birth_date" class="form-control" data-error-style="tooltip")
-
-    %div(class="form-group has-feedback")
-      %label(for="sex" class="col-md-2") Sex
+      %label(for="sex" class="col-md-2") Sex (optional)
       %div(class="col-md-10")
         %div(class="sex-radios")
-          %input(name="sex" class="radio-inline sex male" type="radio" value="male" data-error-style="tooltip")
-          %input(name="sex" class="radio-inline sex female" type="radio" value="female" data-error-style="tooltip")
-          %input(name="sex" class="radio-inline sex other" type="radio" value="other" data-error-style="tooltip")
+          %input(name="sex" class="radio-inline sex male" type="radio" value="male" data-error-style="tooltip") M
+          %input(name="sex" class="radio-inline sex female" type="radio" value="female" data-error-style="tooltip") F
+          %input(name="sex" class="radio-inline sex other" type="radio" value="other" data-error-style="tooltip") ...
+
+    %div(class="form-group has-feedback")
+      %label(for="birth_date" class="col-md-2") Birthday (optional)
+      %div(class="col-md-10")
+        %input(type="date" name="birth_date" class="form-control" data-error-style="tooltip")
 
 %div(class="form-group")
   %small(class="col-md-6") All entered information will stay private unless you decide otherwise. We value privacy and transparency as well so you can be sure your information will never be sold to a third-party.
