@@ -18,6 +18,7 @@ require [
   'controllers/search_controller'
   'controllers/session_controller'
   'controllers/user_controller'
+  'controllers/about_controller'
 ], ($, _bootstrap, JoatuApplication, routes, I18n) ->
   'use strict'
 
