@@ -3,3 +3,5 @@
 <p>You can confirm your account email through the link below:</p>
 
 <p><%= link_to 'Confirm my account', "http://#{ENV.fetch('APP_HOST')}/register/confirm/#{@token}" %></p>
+
+<p>Please be sure to *add at least one offer* to let us know that you're a real person!</p>
