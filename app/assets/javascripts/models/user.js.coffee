@@ -43,10 +43,15 @@ define [
       if @get('surname')?
         name += ' ' + @get('surname')
 
-      if name.length == 0
-        name = "unknown"
+      name = $.trim(name)
 
-      $.trim(name)
+      if name.length == 0
+        if @get('username')?
+          name = @get('username')
+        else
+          name = "unknown"
+
+      name
 
     emailConfirmed: (value, attr, computed) ->
       if computed.email? && computed.email_confirmation?
