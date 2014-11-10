@@ -29,6 +29,10 @@ define [
           converter: @generateEditProfileLink
           elAttribute: 'href'
         },{
+          selector: '.logout-link', 
+          converter: @generateLogoutLink
+          elAttribute: 'href'
+        },{
           selector: '.manage-offers-link',
           converter: @generateManageOffersLink
           elAttribute: 'href'
@@ -51,5 +55,11 @@ define [
     generateManageOffersLink: (direction, value, model) =>
       if value?
         Chaplin.utils.reverse('manage_offers', user_id: value)
+      else
+        ''
+
+    generateLogoutLink: (direction, value, model) =>
+      if value?
+        Chaplin.utils.reverse('logout', id: value)
       else
         ''
