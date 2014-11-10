@@ -23,7 +23,7 @@ class Community < ActiveRecord::Base
   def self.near(latitude = nil, longitude = nil, distance_in_meters = nil)
     # Default distance if not given (or given with nil)
     # is 5km.
-    distance_in_meters ||= 5000
+    distance_in_meters ||= 2000
 
     if latitude && longitude
       where(%{
