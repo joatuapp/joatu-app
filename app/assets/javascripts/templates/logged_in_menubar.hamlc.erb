@@ -14,6 +14,8 @@
         %a My Friends
       %li 
         %a My Community
+      %li
+        %a.logout-link Logout
   %li.dropdown
     %a.icon-nav.dropdown-toggle(href="#", data-toggle="dropdown")
       %span.menu-label.visible-sm-inline-block.visible-xs-inline-block Notifications
@@ -21,7 +23,3 @@
     %ul.dropdown-menu
       %li 
         %a No notifications yet.
-  %li
-    %a.icon-nav(href="/logout")
-      %span.menu-label.visible-sm-inline-block.visible-xs-inline-block Logout
-      %img(src="<%= image_path("NavBar_LogOut.png") %>")
