@@ -6,9 +6,12 @@ class SearchController < ApiController
 
   def offers
     query = Offer::Base.includes(user: [:detail])
-    if community_id = current_user.primary_community_id
-      query = query.where('users.primary_community_id' => community_id)
-    end
+    # NOTE: Commented out by Alex W, Nov 24,2014 at Jamie's request, to
+    # fascilitate testing with very few people / offers. We would probably want
+    # a more elaborate search algorythm for real use anyway.
+    #if community_id = current_user.primary_community_id
+      #query = query.where('users.primary_community_id' => community_id)
+    #end
     unless params[:search].blank?
       tag_query = query.tagged_with(params[:search], wild: true)
       if tag_query.size > 0
