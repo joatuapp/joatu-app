@@ -1,1 +1,1 @@
-%button.tag.btn.btn-primary
+%a.tag.btn.btn-primary{href: @tag}

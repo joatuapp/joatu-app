@@ -10,11 +10,11 @@ class SearchController < ApiController
       query = query.where('users.primary_community_id' => community_id)
     end
     unless params[:search].blank?
-      tag_query = query.tagged_with(params[:search], wild: true)
+      tag_query = query.tagged_with(URI.unescape params[:search])
       if tag_query.size > 0
         query = tag_query
       else
-        query = query.where("offers.title ILIKE ? OR offers.summary ILIKE ?", "%#{params[:search]}%", "%#{params[:search]}%")
+        query = query.where("offers.title ILIKE ? OR offers.description ILIKE ?", "%#{params[:search]}%", "%#{params[:search]}%")
       end
     end
     @offers = policy_scope(query)
