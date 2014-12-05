@@ -1,5 +1,4 @@
 language: ruby
-bundler_args: "--without development production --path=~/.bundle"
 env:
   matrix:
   - CODECLIMATE_REPO_TOKEN=33f5c18ba545e92e2744e55d1f0689ec91cf6cb2bb2e30d98c0f5cbfefede757
@@ -14,12 +13,6 @@ addons:
 before_script:
 - psql -c 'create database travis_ci_test;' -U postgres
 - psql -U postgres -c "create extension postgis"
-before_install:
-- 'echo ''gem: --no-ri --no-rdoc'' > ~/.gemrc'
-- gem install bundler bundle_cache
-- bundle_cache_install
-after_script:
-- bundle_cache
 notifications:
   slack:
     secure: p6EaU4uR3ij6wS85B3HJOX6bH9IKbs9NCuPXfmulLigbRaLRPRtp0j7fZRaidjZvb/up5MMv6uJXJmjByrVL4FHY6NJVkNEY4LhRa/yKG50ld7JZEWvzkGHKXgAW4Sl/w++f5WQKhSX6M6PdOqWNg6cokpQizCUbUTKEmT20ohg=
