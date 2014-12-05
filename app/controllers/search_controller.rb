@@ -13,7 +13,8 @@ class SearchController < ApiController
       #query = query.where('users.primary_community_id' => community_id)
     #end
     unless params[:search].blank?
-      tag_query = query.tagged_with(URI.unescape params[:search])
+      search_params = [params[:search]].flatten.map {|s| URI.unescape(s) }
+      tag_query = query.tagged_with(search_params)
       if tag_query.size > 0
         query = tag_query
       else
